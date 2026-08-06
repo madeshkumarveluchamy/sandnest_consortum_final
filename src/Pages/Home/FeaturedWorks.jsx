@@ -14,7 +14,7 @@ const FeaturedWorks = () => {
         <div className="fw-header-row">
           <div className="fw-header-left">
             <img src={studioIcon} alt="icon" className="fw-studio-icon" />
-            OUR PROJECTS <span className="fw-slash-marks">///</span>
+            OUR PROJECTSs <span className="fw-slash-marks">///</span>
           </div>
           
           <div className="fw-header-center">
