@@ -18,7 +18,7 @@ const FeaturedWorks = () => {
           </div>
           
           <div className="fw-header-center">
-            <h2>Featured Works</h2>
+            <h2>Featured Workss</h2>
           </div>
           
           <div className="fw-header-right">
