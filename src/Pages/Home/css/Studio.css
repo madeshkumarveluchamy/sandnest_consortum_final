@@ -1,0 +1,631 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+/* General Unique Page Wrapper */
+.studio-main-wrapper {
+  background-color: #f4f4f4;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ==========================================
+   SECTION 1: OUR STUDIO HERO
+   ========================================== */
+.studio-hero-section {
+  padding: 100px 20px;
+}
+
+.studio-hero-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.studio-hero-left-content {
+  flex: 1;
+  max-width: 800px; /* நீங்க கேட்ட மாதிரி 800px மாத்தியாச்சு */
+  text-align: left; /* Text ஒரே நேர்கோட்டுல (same starting point) ஆரம்பிக்க */
+  margin-left: 80px;
+  margin-bottom:180px ;
+  position: relative;
+  bottom: 40px;
+}
+
+.studio-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #996533;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.studio-badge-icon {
+  width: 13px;
+  height: 10px;
+  
+}
+
+.studio-main-heading {
+  font-size: 38px;          /* Screen-ku etha mari font size-ah konjam adjust pannikalam (e.g., 36px or 38px) */
+  font-weight: 400;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.2;         /* Line-ku line gap romba kammiya (1) irundha adhu mela mela oorekkum. Adhanala 1.3 illana 1.4 nu change pannunga */
+  max-width: 550px;         /* Text evlo thoorathuku poranum nu fix panna romba useful a irukum */
+  margin-bottom: 24px;
+}
+
+.studio-main-desc {
+  font-size: 14px;
+  line-height: 1.6;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 90%;
+}
+
+.studio-journey-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  padding: 8px 12px 8px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.studio-journey-btn:hover {
+  border-color: #1a1a1a;
+}
+
+.studio-toggle-pill {
+  background-color: #222222;
+  width: 44px;
+  height: 24px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2px;
+}
+
+.studio-toggle-dot {
+  background-color:#ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-dot-studio {
+  width: 4.5px; /* Micro dot size */
+  height: 4.5px; 
+  position: relative;
+  right: 5px;
+  background-color: #996533; 
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.studio-toggle-dot svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Unique Hero Right Images - Side by Side (No Overlap) */
+.studio-hero-images-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: flex-end; /* ரெண்டு படத்தோட கீழ்பகுதியும் ஒரே கோட்டுல அலைன் ஆக */
+  justify-content: flex-end;
+  gap: 20px; /* ரெண்டு படத்துக்கும் நடுவுல இருக்கிற இடைவெளி */
+  position: relative;
+  top: 20px;
+  right: 30px;
+}
+
+/* இடது பக்கம் இருக்குற வீடு படம் (சிறியது) */
+.studio-img-house-unique {
+  width: 250px;
+  height: 320px;
+  border-radius: 10px;
+  position: relative;
+  right: 50px;
+}
+
+/* வலது பக்கம் இருக்குற சோஃபா படம் (பெரியது) */
+.studio-img-interior-unique {
+  width: 320px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  position: relative;
+  right: 30px;
+}
+/* ==========================================
+   SECTION 2: STATS BANNER
+   ========================================== */
+.studio-stats-area {
+  padding: 0 20px 80px 20px;
+}
+
+.studio-stats-bg {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.studio-stats-box {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 35px 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.studio-stat-card {
+  text-align: center;
+}
+
+.studio-stat-card h3 {
+  font-size: 60px;
+  font-weight: 500;
+  color: #996533;
+  margin: 0 0 5px 0;
+}
+
+.studio-stat-card p {
+  font-size: 11px;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+  position: relative;
+  top: 20px;
+}
+
+
+/* ==========================================
+   SECTION 3: EXCELLENCE IN ARCHITECTURE
+   ========================================== */
+.studio-arch-section {
+  padding: 20px 0 100px 0;
+}
+
+.studio-arch-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.studio-arch-top-grid {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  position: relative;
+  margin-bottom: 80px;
+  min-height: 350px;
+  max-width: 1100px; 
+  margin-left: auto;
+  margin-right: auto;
+  gap: 20px;
+}
+
+.studio-arch-center-box {
+  flex: 1;
+  max-width: 700px;
+  text-align: center;
+  z-index: 10;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.studio-arch-subtitle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+  margin-bottom: 25px;
+}
+
+.studio-leaf-ico {
+  height: 22px;
+  object-fit: contain;
+}
+
+.studio-arch-heading {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #1a1a1a;
+  margin-bottom: 35px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.studio-arch-btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.studio-contact-pill-btn {
+  background-color: #996533;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 6px 6px 26px;
+  font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.studio-contact-pill-btn:hover {
+  transform: scale(1.02);
+}
+
+.studio-contact-circle-icon {
+  background-color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.studio-contact-circle-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: #1a1a1a !important; 
+  stroke-width: 2.2px;
+}
+
+.studio-contact-circle-icon svg path {
+  stroke: #1a1a1a !important;
+}
+
+.studio-video-link-btn {
+  background: transparent;
+  border: none;
+  color: #292929;
+  font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.studio-play-ico {
+  width: 14px;
+  height: 14px;
+}
+
+.studio-arch-images-group {
+  position: relative;
+  width: 200px;  
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.studio-arch-tilted-img {
+  position: absolute;
+  width: 120px;  
+  height: 120px;
+  object-fit: cover;
+  border-radius: 14px;
+  z-index: 1;
+}
+
+.studio-arch-straight-img {
+  position: absolute;
+  width: 140px;  
+  height: 140px;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.studio-arch-tilted-left {
+  top: 0;
+  left: 0;
+  transform: rotate(-10deg);
+}
+
+.studio-arch-straight-left {
+  bottom: 10px;
+  right: 10px;
+}
+
+.studio-arch-tilted-right {
+  top: 0;
+  right: 0;
+  transform: rotate(10deg);
+}
+
+.studio-arch-straight-right {
+  bottom: 10px;
+  left: 10px;
+}
+
+.studio-features-grid {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start;
+  gap: 40px;                      
+  max-width: 920px;              
+  margin: 70px auto 0 auto;       
+}
+
+.studio-feature-item {
+  display: flex;
+  align-items: flex-start;        
+  gap: 16px;                      
+  flex: 1;                        
+}
+
+.studio-feature-bar {
+  width: 4px;                     
+  background: linear-gradient(to bottom, #996544 0%, #996544 40%, #e5e5e5 45%, #e5e5e5 100%); 
+  height: 90px;                   
+  border-radius: 4px;             
+  flex-shrink: 0;
+  margin-top: 6px;                
+}
+
+.studio-feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;                       
+  text-align: left;               
+}
+
+.studio-feature-content h4 {
+  font-size: 18px;                
+  font-weight: 600;
+}
+/* ------------------------------------------
+   1. LARGE LAPTOPS / DESKTOPS (1025px to 1280px)
+   ------------------------------------------ */
+@media (max-width: 1280px) {
+  .studio-hero-left-content {
+    margin-left: 40px;
+    margin-bottom: 100px;
+  }
+  .studio-hero-container {
+    gap: 30px;
+  }
+  .studio-arch-top-grid {
+    padding: 0 20px;
+  }
+}
+
+/* ------------------------------------------
+   2. TABLETS & SMALL LAPTOPS (768px to 1024px)
+   ------------------------------------------ */
+@media (max-width: 1024px) {
+  .studio-hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+  
+  .studio-hero-left-content {
+    margin-left: 0;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center aligning contents */
+  }
+
+  .studio-main-desc {
+    max-width: 100%;
+  }
+
+  /* Images alignment adjustment for Tablet */
+  .studio-hero-images-wrapper {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .studio-img-house-unique, 
+  .studio-img-interior-unique {
+    right: 0; /* Removing relative shifts for better centering */
+  }
+
+  /* Arch Section */
+  .studio-arch-top-grid {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .studio-arch-images-group {
+    margin: 0 auto;
+  }
+
+  /* Features Grid wrapping */
+  .studio-features-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .studio-feature-item {
+    min-width: 45%;
+  }
+}
+
+/* ------------------------------------------
+   3. MOBILE PHONES (Max 767px)
+   **Ellam Center aaga varanum**
+   ------------------------------------------ */
+@media (max-width: 767px) {
+  
+  /* Hero Section Mobile */
+  .studio-hero-section {
+    padding: 50px 15px;
+  }
+
+  .studio-hero-left-content {
+    margin-left: 0;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .studio-main-heading {
+    font-size: 28px; /* Mobile-ku etha mari chinna font */
+    text-align: center;
+  }
+
+  .studio-main-desc {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .studio-badge-row {
+    justify-content: center; /* Centering the badge */
+  }
+
+  /* Hero Images for Mobile */
+  .studio-hero-images-wrapper {
+    flex-direction: row; /* Keeping side-by-side but responsive */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .studio-img-house-unique {
+    width: 45%;
+    height: auto;
+    right: 0;
+  }
+
+  .studio-img-interior-unique {
+    width: 50%;
+    height: auto;
+    right: 0;
+  }
+
+  /* Stats Section Mobile */
+  .studio-stats-area {
+    padding: 0 15px 50px 15px;
+  }
+  
+  .studio-stats-box {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+
+  .studio-stats-bg {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  /* Architecture Section Mobile */
+  .studio-arch-section {
+    padding: 20px 0 60px 0;
+  }
+
+  .studio-arch-heading {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .studio-arch-btn-group {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .studio-arch-top-grid {
+    margin-bottom: 50px;
+  }
+
+  /* Architecture Images Mobile */
+  .studio-arch-images-group {
+    width: 160px;
+    height: 160px;
+  }
+
+  .studio-arch-tilted-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .studio-arch-straight-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Features Grid - COMPLETELY CENTERED */
+  .studio-features-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .studio-feature-item {
+    flex-direction: column; /* Icon/Bar mela, text keezha */
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  /* Vertical line-ah horizontal line-ah mathi center pandrom */
+  .studio-feature-bar {
+    width: 60px; 
+    height: 4px; 
+    background: linear-gradient(to right, #996544 0%, #996544 40%, #e5e5e5 45%, #e5e5e5 100%); 
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .studio-feature-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .studio-feature-content h4, 
+  .studio-feature-content p {
+    text-align: center; /* Text completely center */
+  }
+}

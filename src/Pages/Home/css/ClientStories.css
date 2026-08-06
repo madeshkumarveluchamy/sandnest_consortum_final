@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+@font-face {
+  font-family: "Futura";
+  src: url("../../../NewFonts/Futura Now Headline.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Futura";
+  src: url("../../../NewFonts/Futura Now Headline.woff2") format("woff2");
+  font-weight: 700;
+}
+
+/* =========================
+Base Section
+========================= */
+.voc-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* =========================
+Header (Perfect 3-Column Flex)
+========================= */
+.voc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.voc-header-left, 
+.voc-header-center, 
+.voc-header-right {
+  flex: 1; 
+  display: flex;
+}
+
+.voc-header-left {
+  justify-content: flex-start;
+  position: relative;
+  left: 20px;
+}
+
+.voc-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.voc-left-icon {
+  width: 13px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.voc-badge-text {
+  color: #996533; 
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.voc-badge-slashes {
+  color: #996533;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.voc-header-center {
+  justify-content: center;
+}
+
+.voc-title {
+  font-size: clamp(28px, 4vw, 55px);
+  font-weight: 400;
+  color: #1a1a1a;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin: 0; 
+  white-space: nowrap; 
+}
+
+.voc-header-right {
+  justify-content: flex-end; 
+}
+
+.voc-right-wrapper {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 10px;
+  gap: 15px; 
+}
+
+.voc-subtitle {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  color: #4a4a4a;
+  margin: 0;
+  text-align: left; 
+}
+
+.voc-nav-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; 
+}
+
+.voc-arrow-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.voc-arrow-btn:hover {
+  opacity: 0.8;
+}
+
+.voc-arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* =========================
+Swiper & Slides
+========================= */
+.voc-slider-container {
+  width: 100%;
+  overflow: visible;
+}
+
+.voc-swiper {
+  padding-bottom: 20px;
+  overflow: visible !important;
+  position: relative;
+}
+
+/* INCREASED SLIDE WIDTH FROM 500px TO 600px */
+.voc-slide {
+  width: 600px; 
+  max-width: 100%;
+  transition: all 0.4s ease;
+}
+
+.voc-card {
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+  background: #f1f0ee;
+  border-radius: 16px;
+  padding: 14px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.voc-card.is-active {
+  opacity: 1;
+}
+
+.voc-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  aspect-ratio: 17 / 11;
+}
+
+.voc-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   1. DESKTOP & BASE OVERLAY STYLES
+   ========================================================= */
+.voc-glass-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+
+  /* Adjusted overlay width for 600px card */
+  width: 70%; 
+  max-width: 580px;
+  padding: 32px; 
+  box-sizing: border-box;
+  text-align: left;
+  color: #ffffff;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.2s;
+}
+
+.voc-card.is-active .voc-glass-overlay {
+  opacity: 1;
+}
+
+.voc-glass-title {
+  font-size: 24px; /* Balanced between 20px and 28px */
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 12px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.voc-glass-text {
+  font-size: 14.5px; /* Balanced size */
+  line-height: 1.55;
+  margin: 0 0 20px 0;
+  opacity: 0.95;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.voc-author-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.voc-avatar {
+  width: 36px; 
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.voc-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.voc-author-name {
+  font-size: 14px; 
+  font-weight: 600;
+  font-family: 'inter',sans-serif;
+  margin: 0;
+  color: #fff;
+}
+
+.voc-author-role {
+  font-size: 12px; 
+  opacity: 0.8;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Bottom Meta */
+.voc-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 14px;
+  padding: 0 4px;
+  gap: 12px;
+}
+
+.voc-meta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: start;
+}
+
+.voc-item-title {
+  font-size: 15px; 
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #131313;
+  margin: 0;
+}
+
+.voc-item-year {
+  font-size: 12px; 
+  color: #757575;
+}
+
+.voc-meta-right {
+  display: flex;
+  gap: 0px;
+  flex-wrap: wrap;
+}
+
+.voc-tag {
+  font-size: 10.5px; 
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  color: #757575;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #afab9f;
+  background-color: transparent;
+  line-height: normal;
+  position: relative;
+  bottom: 10px; /* Top la move panrathuku */
+}
+
+/* =========================================================
+   2. LAPTOP (1200px – 1439px)
+   ========================================================= */
+@media (max-width: 1439px) and (min-width: 1200px) {
+  .voc-glass-overlay { width: 75%; padding: 28px; }
+  .voc-glass-title { font-size: 22px; margin-bottom: 10px; }
+  .voc-glass-text { font-size: 13.5px; margin-bottom: 18px; }
+}
+
+/* =========================================================
+   3. SMALL LAPTOP (992px – 1199px)
+   ========================================================= */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .voc-slide { width: 520px; } 
+  .voc-glass-overlay { width: 80%; padding: 24px; }
+  .voc-glass-title { font-size: 20px; margin-bottom: 10px; }
+  .voc-glass-text { font-size: 13px; margin-bottom: 16px; }
+  .voc-avatar { width: 32px; height: 32px; }
+  .voc-author-name { font-size: 13px; }
+  .voc-author-role { font-size: 11px; }
+}
+
+/* =========================================================
+   4. TABLET & MOBILE (Below 991px) - Stacked Header
+   ========================================================= */
+@media (max-width: 991px) {
+  .voc-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .voc-header-left, 
+  .voc-header-center, 
+  .voc-header-right {
+    flex: unset;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .voc-right-wrapper {
+    align-items: center;
+    text-align: center;
+  }
+
+  .voc-subtitle {
+    text-align: center;
+  }
+
+  .voc-nav-buttons {
+    justify-content: center;
+  }
+
+  .voc-slide { width: 480px; max-width: 90%; }
+  .voc-glass-overlay {
+    width: 85%;
+    padding: 22px;
+    border-radius: 10px;
+  }
+  
+  .voc-card { transition: opacity 1s ease; }
+  .voc-glass-title { font-size: 18px; margin-bottom: 8px; }
+  .voc-glass-text { font-size: 12.5px; line-height: 1.4; margin-bottom: 14px; }
+  .voc-author-block { gap: 8px; justify-content: center;}
+}
+
+@media (max-width: 767px) {
+  .voc-slide { width: 90%; }
+  .voc-glass-overlay {
+    width: 90%;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .voc-glass-title { font-size: 15px; margin-bottom: 6px; }
+  .voc-glass-text { font-size: 11px; line-height: 1.4; margin-bottom: 10px; }
+  .voc-author-block { justify-content: center; gap: 6px; }
+  .voc-avatar { width: 28px; height: 28px; }
+  .voc-author-name { font-size: 11px; }
+  .voc-author-role { font-size: 9px; }
+}
+
+@media (max-width: 600px) {
+  .voc-section { padding: 40px 12px; }
+  .voc-slide { width: 94%; }
+  
+  .voc-glass-overlay {
+    width: 92%;
+    padding: 14px 12px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .voc-glass-title { font-size: clamp(13px, 3.5vw, 15px); }
+  .voc-glass-text { font-size: clamp(10px, 3vw, 12px); }
+  .voc-avatar { width: 26px; height: 26px; }
+  .voc-author-name { font-size: clamp(10px, 3vw, 12px); }
+  .voc-author-role { font-size: clamp(8px, 2.4vw, 10px); }
+  .voc-card { padding: 8px; }
+  .voc-image-wrapper { border-radius: 8px; }
+  .voc-item-title { font-size: clamp(11px, 3vw, 13px); }
+  .voc-item-year { font-size: clamp(9px, 2.5vw, 11px); }
+  .voc-tag { font-size: clamp(8px, 2.4vw, 10px); padding: 2px 6px; }
+}
+
+@media (max-width: 374px) {
+  .voc-section { padding: 28px 10px; }
+  .voc-slide { width: 96%; }
+  .voc-glass-overlay { width: 94%; padding: 12px 8px; border-radius: 8px; }
+  .voc-glass-title { font-size: 12px; margin-bottom: 4px; }
+  .voc-glass-text { font-size: 9.5px; margin-bottom: 6px; }
+  .voc-item-title { font-size: 11px; }
+  .voc-author-name { font-size: 9px; }
+  .voc-author-role { font-size: 8px; }
+  .voc-avatar { width: 22px; height: 22px; }
+}

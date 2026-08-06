@@ -1,0 +1,258 @@
+/* StudioAbout.css */
+
+/* =========================================
+   Base Styles (Desktop / Large Screens)
+   ========================================= */
+
+.studio-about-wrapper {
+  background-color: #dad9d4;
+  padding: 5rem 4rem; 
+  color: #2b2b2b;
+}
+
+.studio-about-container {
+  max-width: 2560px;
+  margin: 0 auto;
+}
+
+.studio-about-image-col {
+  padding-right: 4rem; 
+  display: flex;
+  align-items: stretch; /* Image column content stretch aaga help pannum */
+}
+
+/* Image perfectly locks with text height */
+.studio-about-img {
+  width: 100%;
+  height: 100%; /* Text evalo height iruko atha cover pannum */
+  object-fit: cover; /* Stretch aagumpothu image design kedaathu */
+  filter: grayscale(100%); 
+  border-radius: 6px;
+  /* max-height removed entirely */
+}
+
+.studio-about-content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Content mela irunthu keela natural ah space aagum */
+}
+
+.studio-about-header-block {
+  display: flex;
+  align-items: stretch;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.studio-about-number {
+  background-color: #9f6b42;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 400;
+  width: 45px !important;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studio-about-title {
+  background-color: #e4e3df;
+  color: #2b2b2b;
+  font-size: 2.8rem; 
+  font-weight: 400;
+  flex-grow: 1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 2.5rem;
+}
+
+.studio-about-main-text {
+  font-size: 1.25rem; 
+  line-height: 1.6;
+  color: #4a4a4a;
+  letter-spacing: -0.2px;
+  margin-bottom: 0;
+}
+
+.studio-about-divider {
+  height: 1px;
+  background-color: #b5b4af; 
+  margin: 1.8rem 0; 
+  width: 100%;
+}
+
+.studio-about-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #7a7a7a;
+  border-radius: 5px;
+  padding: 0.1rem 1.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 0.8rem;
+}
+
+.studio-about-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #d85c31; 
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.studio-about-sub-text {
+  font-size: 1.14rem; 
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+
+/* =========================================
+   Laptop & Small Desktops (992px to 1199px)
+   ========================================= */
+@media (max-width: 1199.98px) {
+  .studio-about-wrapper {
+    padding: 4rem 3rem;
+  }
+  .studio-about-image-col {
+    padding-right: 2.5rem;
+  }
+  .studio-about-title {
+    font-size: 2.2rem;
+    padding: 0.5rem 1.8rem;
+  }
+  .studio-about-number {
+    font-size: 1.5rem;
+    padding: 1rem 1.8rem;
+  }
+  .studio-about-main-text,
+  .studio-about-sub-text {
+    font-size: 1.05rem;
+  }
+}
+
+/* =========================================
+   Tablets (768px to 991px)
+   ========================================= */
+@media (max-width: 991.98px) {
+  .studio-about-wrapper {
+    padding: 3rem 2rem;
+  }
+  .studio-about-image-col {
+    padding-right: 1.5rem;
+  }
+  .studio-about-title {
+    font-size: 1.8rem;
+    padding: 0.5rem 1.5rem;
+  }
+  .studio-about-number {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
+  }
+  .studio-about-main-text,
+  .studio-about-sub-text {
+    font-size: 0.95rem;
+  }
+  .studio-about-divider {
+    margin: 1.2rem 0;
+  }
+}
+
+/* =========================================
+   Mobile Devices (401px to 767px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  .studio-about-wrapper {
+    padding: 2.5rem 1.5rem;
+  }
+  .studio-about-img {
+    min-height: 300px;
+    height: auto;
+  }
+  .studio-about-image-col {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    margin-bottom: 2rem !important;
+  }
+  .studio-about-content-col {
+    align-items: center; 
+    text-align: center;
+    gap: 1.2rem; 
+  }
+  
+  .studio-about-title {
+    font-size: 1.6rem;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+  }
+  .studio-about-number {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
+  }
+  .studio-about-main-text,
+  .studio-about-sub-text {
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+  
+  .studio-about-sub-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .studio-about-badge {
+    margin: 0 auto 0.8rem auto;
+    font-size: 0.85rem;
+  }
+  .studio-about-divider {
+    margin: 1.2rem 0;
+  }
+}
+
+/* =========================================
+   Small Mobile Devices (320px to 400px)
+   ========================================= */
+@media (max-width: 400px) {
+  .studio-about-wrapper {
+    padding: 2rem 1rem;
+  }
+  
+  .studio-about-img {
+    min-height: 250px; 
+  }
+
+  .studio-about-title {
+    font-size: 1.3rem; 
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .studio-about-number {
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+  }
+  
+  .studio-about-main-text,
+  .studio-about-sub-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .studio-about-badge {
+    padding: 0.3rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .studio-about-dot {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .studio-about-divider {
+    margin: 1rem 0;
+  }
+}

@@ -1,0 +1,143 @@
+/* FaqsSection.css */
+
+/* Main Section Wrapper */
+.story-faq-wrapper {
+  background-color: #dad9d4; /* Matching Beige background */
+  padding: clamp(3rem, 6vw, 8rem) clamp(1rem, 4vw, 5rem);
+  color: #2b2b2b;
+}
+
+/* Layout Constraints */
+.story-faq-container {
+  max-width: 1200px; /* Constrains the width nicely like the image */
+  margin: 0 auto;
+}
+
+/* =========================================
+   Header Styling
+   ========================================= */
+.story-faq-header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.story-faq-title {
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+}
+
+.story-faq-sub {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  color: #4a4a4a;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   FAQ List & Accordion Item
+   ========================================= */
+.story-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 1rem); /* Space between accordion boxes */
+}
+
+.story-faq-item {
+  display: flex;
+  background-color: #eae9e5; /* The light off-white color of the box */
+  border-radius: 4px; /* Slight rounding for a premium feel */
+  overflow: hidden; /* Keeps the number tab neat */
+}
+
+/* Left Number Tab (Changes color when active) */
+.story-faq-number-box {
+  width: clamp(60px, 8vw, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  color: #ffffff;
+  background-color: #2b2b2b; /* Inactive Dark Grey */
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Active State for Number Tab */
+.story-faq-item.active .story-faq-number-box {
+  background-color: #9f6b42; /* Active Brown */
+}
+
+/* Right Content Area */
+.story-faq-content {
+  flex-grow: 1;
+  padding: clamp(1.2rem, 2vw, 2rem) clamp(1rem, 3vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Question Row */
+.story-faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.story-faq-question {
+  font-size: clamp(1rem, 1.3vw, 1.4rem);
+  font-weight: 400;
+  color: #2b2b2b;
+  margin: 0;
+  padding-right: 1rem;
+}
+
+.story-faq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   Smooth Expanding Answer (Grid Trick)
+   ========================================= */
+.story-faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-faq-item.active .story-faq-answer-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.story-faq-answer {
+  overflow: hidden; /* Important for the grid animation to work smoothly */
+}
+
+.story-faq-answer-inner {
+  padding-top: clamp(1rem, 1.5vw, 1.5rem);
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  color: #56565a;
+  line-height: 1.6;
+}
+
+/* =========================================
+   Mobile Overrides (Below 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  .story-faq-number-box {
+    width: 50px;
+    font-size: 1rem;
+  }
+  
+  .story-faq-content {
+    padding: 1rem;
+  }
+}

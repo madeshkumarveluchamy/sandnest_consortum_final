@@ -1,0 +1,168 @@
+/* ContactPage.css */
+
+/* Main Wrapper */
+.contact-page-wrapper {
+  background-color: #dad9d4; /* Matching Beige background */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(4rem, 8vw, 8rem); /* Extra top padding since navbar is removed */
+  padding-bottom: clamp(3rem, 5vw, 6rem);
+}
+
+.contact-page-layout {
+  width: 100%;
+  max-width: 2560px; /* Constrains the layout for ultra-wide screens */
+  padding: clamp(1rem, 3vw, 4rem);
+}
+
+/* =========================================
+   Left Column: Title & Subtitle
+   ========================================= */
+.contact-page-title {
+  color: #a86832; /* Brown color */
+  font-size: clamp(3.5rem, 7vw, 7rem); /* Scales beautifully */
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.contact-page-subtitle {
+  color: #2b2b2b;
+  font-size: clamp(0.85rem, 1.1vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.6;
+  text-transform: uppercase;
+  max-width: 450px;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================
+   Right Column: Contact Info Rows
+   ========================================= */
+.contact-page-info-row {
+  display: grid;
+  grid-template-columns: clamp(90px, 10vw, 150px) 1fr; /* Fixed width for label, rest for content */
+  gap: 1rem;
+  padding-bottom: clamp(1.5rem, 3vw, 3rem);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  border-bottom: 1px solid #b5b4af; /* Exact grey line */
+}
+
+/* Row Labels (EMAIL, PHONE, ADDRESS) */
+.contact-page-info-label {
+  font-size: clamp(0.85rem, 1vw, 1.1rem);
+  font-weight: 600;
+  color: #2b2b2b;
+  padding-top: 0.3rem; /* Aligns visually with the badge */
+}
+
+.contact-page-info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Badges (Pill Shape) */
+.contact-page-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #7a7a7a;
+  border-radius: 50px;
+  padding: 0.2rem 0.8rem;
+  font-size: clamp(0.6rem, 0.8vw, 0.85rem);
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 1rem;
+}
+
+.contact-page-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #d85c31; /* Orange dot */
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* The actual values (Email, Phone number, Address text) */
+.contact-page-value {
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  font-weight: 500;
+  color: #2b2b2b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.address-text {
+  font-size: clamp(0.85rem, 1.1vw, 1.2rem);
+}
+
+/* Live Map Iframe */
+.contact-page-map-iframe {
+  width: 100%;
+  max-width: 450px;
+  height: 250px; /* Provides a good rectangular view for the map */
+  border-radius: 6px;
+  border: 1px solid #c4c3be;
+  filter: grayscale(80%) contrast(1.1); /* Architectural aesthetic */
+  transition: filter 0.3s ease;
+}
+
+.contact-page-map-iframe:hover {
+  filter: grayscale(0%) contrast(1); /* Color comes back on hover */
+}
+
+
+@media (max-width: 991.98px) {
+  /* Title & Subtitle-ah center pandrathu */
+  .contact-page-title {
+    text-align: center;
+  }
+  
+  .contact-page-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; /* max-width irukkathala margin auto pottu center pandrom */
+  }
+
+  /* Contact info rows-ah onnukku keela onna (stack) maathi center pandrom */
+  .contact-page-info-row {
+    grid-template-columns: 1fr; 
+    justify-items: center; /* Grid items-ah center pandrathu */
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  /* Label styles for centered layout */
+  .contact-page-info-label {
+    margin-bottom: 0.5rem;
+    color: #5a5a5a;
+  }
+
+  /* Badges, Text, Map iframe ellathayum center-la kondu vara */
+  .contact-page-info-content {
+    align-items: center; 
+  }
+
+  /* Address text center align aaga */
+  .address-text {
+    text-align: center;
+  }
+}
+
+/* =========================================
+   Mobile View Overrides
+   ========================================= */
+@media (max-width: 767.98px) {
+  .contact-page-info-row {
+    grid-template-columns: 1fr; /* Stacks label on top of content */
+    gap: 0.5rem;
+  }
+  
+  .contact-page-info-label {
+    margin-bottom: 0.5rem;
+    color: #5a5a5a;
+  }
+}

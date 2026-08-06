@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+/* =========================================
+   Base Layout
+   ========================================= */
+.edr-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  background: #f4f4f4;
+  overflow-x: hidden;
+  /* width: 100% removed to prevent horizontal scroll without box-sizing */
+}
+
+/* =========================================
+   Header 
+   ========================================= */
+.edr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.edr-header-left, 
+.edr-header-center, 
+.edr-header-right {
+  flex: 1; 
+  display: flex;
+}
+
+/* Left Column */
+.edr-header-left {
+  justify-content: flex-start;
+  padding-top: 15px; 
+}
+
+.edr-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.edr-left-icon {
+  width: 14px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.edr-badge-text {
+  color: #a0754c; 
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+.edr-badge-slashes {
+  color: #a0754c;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/* Center Column - Title exact-a 2 lines-la vara */
+.edr-header-center {
+  justify-content: center;
+}
+
+.edr-title {
+  font-size: clamp(32px, 3.5vw, 50px);
+  line-height: 1.15;
+  margin: 0 auto; 
+  font-weight: 400;
+  color: #1a1a1a;
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -1.5px;
+  max-width: 450px; 
+}
+
+/* Right Column */
+.edr-header-right {
+  justify-content: flex-end;
+  padding-top: 15px;
+}
+
+.edr-right-wrapper {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edr-subtitle {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+
+/* =========================================
+   Grid & Cards 
+   ========================================= */
+.edr-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.edr-project-card {
+  /* Height 472px + (24px top padding + 24px bottom padding) = Total 520px visual height */
+  height: 472px; 
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.edr-project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.edr-project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.75) 100%); 
+  z-index: 0;
+}
+
+/* Video Play Button */
+.edr-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.edr-play-button {
+  width: 64px;
+  height: 42px; 
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  color: #fff;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.edr-play-button:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.edr-play-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Card Footer */
+.edr-card-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.edr-footer-thumb {
+  width: 52px;
+  height: 34px;
+  border-radius: 20px; 
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.edr-footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start; 
+  text-align: left;        
+}
+
+.edr-footer-text h4 {
+  margin: 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.edr-footer-text p {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
+}
+
+/* =========================================
+   Video Modal
+   ========================================= */
+.edr-video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.edr-modal-content {
+  position: relative;
+  width: min(900px, 95vw);
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.edr-modal-video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  object-fit: cover;
+}
+
+.edr-video-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.edr-modal-caption {
+  padding: 16px;
+  color: #fff;
+  background: #111;
+}
+
+.edr-modal-caption h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.edr-modal-caption p {
+  margin: 0;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
+@media (max-width: 1200px) {
+  .edr-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .edr-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .edr-header-left, 
+  .edr-header-center, 
+  .edr-header-right {
+    flex: unset;
+    width: 100%;
+    justify-content: center;
+    padding-top: 0;
+  }
+  
+  .edr-title {
+    font-size: 36px;
+    max-width: 100%;
+  }
+
+  .edr-right-wrapper {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .edr-subtitle { 
+    text-align: center; 
+  }
+}
+
+@media (max-width: 768px) {
+  .edr-section { 
+    padding: 40px 16px; 
+  }
+  .edr-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .edr-project-card {
+    height: 402px; /* 450px - 48px padding */
+  }
+}

@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+/* ==========================================================================
+   Architecture & Design Services Section CSS
+   Unique Class Prefix: .arch-
+   ========================================================================== */
+
+/* 1. Main Section Wrapper & Background */
+.arch-services-wrapper {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0d0d; /* Fallback color */
+  color: #ffffff;
+  padding: 80px 5%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.arch-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 2. Main Title Header */
+.arch-services-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.arch-services-main-title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  bottom: 20px;
+}
+
+.arch-text-white {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.arch-text-gold {
+  color: #996533;
+}
+
+/* 3. Services Grid (4 Columns Desktop View) */
+.arch-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+  justify-content: flex-start;
+  max-width: 1200px;
+}
+
+/* 4. Individual Card Styling */
+.arch-services-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Desktop: Perfect left start */
+  text-align: left;
+  gap: 18px;
+}
+
+/* Top Border & Numbering */
+.arch-services-number-container {
+  width: 100%; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 12px;
+  margin-bottom: 5px;
+  text-align: left; 
+}
+
+.arch-services-number {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Icon Container */
+.arch-services-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  min-height: 40px;
+  width: 100%;
+}
+
+.arch-service-img-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Titles and Descriptions */
+.arch-services-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #ffffff;
+  text-align: left; 
+  line-height: 1.4;
+  margin: 0;
+  width: 100%;
+}
+
+.arch-highlight-title {
+  color: #B88655; 
+}
+
+.arch-services-card-desc {
+  font-size: 12px;
+  color: #a0a0a0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+/* ==========================================
+   BUTTON STYLE UNIFICATION 
+   ========================================== */
+
+.arch-services-action-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.arch-services-btn {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50px; 
+  padding: 6px 6px 6px 18px; 
+  font-size: 14px; 
+  font-weight: 500; 
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #1c1c1c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px; 
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s ease;
+  letter-spacing: -0.2px;
+}
+
+.arch-services-btn:hover {
+  transform: scale(1.02);
+}
+
+.arch-services-btn-capsule {
+  background-color: #222222; 
+  border-radius: 40px;
+  padding: 3px 4px 3px 10px; 
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
+.arch-services-btn-dot {
+  width: 4.5px; 
+  height: 4.5px; 
+  background-color: #996533; 
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.arch-services-btn-icon {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 24px; 
+  height: 24px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.arch-services-btn-icon svg {
+  width: 13px;
+  height: 13px;
+  stroke: #1a1a1a;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .arch-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+  }
+  
+  .arch-services-main-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile View - Full Center Alignment */
+@media (max-width: 768px) {
+  .arch-services-wrapper {
+    padding: 60px 20px;
+  }
+
+  .arch-services-header {
+    margin-bottom: 45px;
+  }
+
+  .arch-services-main-title {
+    font-size: 2rem;
+  }
+  
+  .arch-services-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .arch-services-card {
+    text-align: center;
+    align-items: center;
+  }
+
+  .arch-services-number-container {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .arch-services-icon {
+    justify-content: center;
+  }
+
+  .arch-services-card-title,
+  .arch-services-card-desc {
+    text-align: center;
+  }
+  
+  .arch-services-action-container {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

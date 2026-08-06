@@ -1,0 +1,13 @@
+.work-card {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 4vw;
+    right: 4vw;
+    border-radius: 4px; 
+    overflow: hidden;
+    transition: top 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                bottom 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                left 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}

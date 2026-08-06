@@ -1,0 +1,128 @@
+/* ProofSection.css */
+
+/* Main wrapper with the beige background */
+.story-counter-wrapper {
+  background-color: #dad9d4;
+  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem);
+  color: #2b2b2b;
+}
+
+.story-counter-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Title & Description Styles */
+.story-counter-title {
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: #2b2b2b;
+}
+
+.story-counter-line {
+  width: clamp(40px, 4vw, 60px);
+  height: 2px;
+  background-color: #a86832; 
+  flex-shrink: 0;
+}
+
+.story-counter-desc {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+  color: #3b3b3b;
+}
+
+/* Individual Counter Item */
+.story-counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+/* Big Brown Numbers Styling */
+.story-counter-number {
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 500;
+  color: #a86832; 
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.stat-suffix {
+  margin-left: 2px;
+}
+
+.story-counter-label {
+  font-size: clamp(0.6rem, 0.8vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #4a4a4a;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   Mobile View Centering (< 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  /* Title-ai center pandrathu */
+  .story-counter-title {
+    text-align: center;
+  }
+  
+  /* Brown line matrum description irukka wrapper-ai column-a maathi center pandrom */
+  .story-counter-title + .d-flex {
+    flex-direction: column;
+    align-items: center !important;
+  }
+  
+  /* Brown line-ai naduvula kondu vanthu, keela space vidrom */
+  .story-counter-line {
+    margin-right: 0 !important;
+    margin-bottom: 15px;
+  }
+  
+  /* Description text-ai center pandrathu */
+  .story-counter-desc {
+    text-align: center;
+  }
+}
+
+
+/* =========================================
+   SLOT COUNTER ANIMATION SPECIFIC CSS
+   ========================================= */
+
+.slot-wrapper-inline {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+/* Keeps only one number visible at a time */
+.digit-column {
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden; /* Hides the scrolling strip */
+  height: 1em; /* Fits exactly one digit's height */
+  line-height: 1;
+}
+
+/* The vertical strip of numbers */
+.digit-strip {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+/* Static characters like "." */
+.slot-static-char {
+  display: inline-flex;
+  height: 1em;
+  line-height: 1;
+  align-items: center;
+}

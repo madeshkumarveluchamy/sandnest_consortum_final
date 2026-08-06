@@ -1,0 +1,366 @@
+/* Footer.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+@font-face {
+  font-family: "Futura";
+  src: url("../../../NewFonts/Futura Now Headline.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Futura";
+  src: url("../../../NewFonts/Futura Now Headline.woff2") format("woff2");
+  font-weight: 700;
+}
+
+/* Main Footer Container */
+.footer-container {
+  position: relative;
+  background-color: #222222; /* Screenshot-ல இருக்குற exact dark grey */
+  color: #ffffff;
+  padding: 60px 0 0 0;
+  font-family: 'Arial', sans-serif; 
+  overflow: hidden; 
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Images Setup */
+.footer-background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* Text select பண்ணும்போது background disturb ஆகாம இருக்க */
+}
+
+/* Left side wireframe background (Navigation pinnala varum) */
+.bg-image-left {
+  position: absolute;
+  bottom: 50px; 
+  left: 0;
+  width: 350px; /* உங்க இமேஜ் சைஸ்க்கு ஏத்த மாதிரி இத adjust பண்ணிக்கோங்க */
+  opacity: 0.8;
+}
+
+/* Right side wireframe background (Studio updates pinnala varum) */
+.bg-image-right {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 320px; /* உங்க இமேஜ் சைஸ்க்கு ஏத்த மாதிரி இத adjust பண்ணிக்கோங்க */
+  opacity: 0.8;
+}
+
+/* Content Wrapper */
+.footer-content-wrapper {
+  position: relative;
+  z-index: 1; /* Background-க்கு மேல text வர வைக்க */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Grid Layout */
+.footer-top-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* எல்லா காலமும் மேல இருந்து ஆரம்பிக்க */
+  margin-bottom: auto;
+  flex-wrap: wrap;
+}
+
+/* Left Column: Navigation */
+.footer-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Links எல்லாமே left align ஆக */
+  gap: 25px;
+  width: 30%;
+}
+
+.footer-nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-links a:hover {
+  color: #9C6F44;
+}
+
+/* Middle Column: Location & Notes */
+.footer-middle-section {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Middle section contents left align ஆக */
+  text-align: left;
+  gap: 35px;
+  padding-top: 5px;
+}
+
+/* Location Block & Studio Notes Block க்கான Alignment */
+.location-block, .studio-notes-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 100%;
+}
+
+.underlined-title {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  font-family: 'inter',sans-serif;
+  text-underline-offset: 4px;
+  color: #f1f1f1;
+  text-align: left;
+  width: 100%; /* Full width எடுத்து left align ஆக */
+}
+
+.address-text, .contact-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #d1d1d1;
+  margin: 0 0 15px 0;
+  font-weight: 300;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+  text-align: left;
+  width: 100%;
+}
+
+.contact-text a {
+  color: #d1d1d1;
+  text-decoration: underline;
+}
+
+/* Newsletter Form */
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  padding: 10px 15px;
+  color: #ffffff;
+  width: 250px;
+  outline: none;
+  font-size: 12px;
+}
+
+.newsletter-form input::placeholder {
+  color: #888;
+}
+
+.newsletter-form button {
+  background-color: #9C6F44; /* Button exact color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #835a34;
+}
+
+/* Right Column: Social Updates */
+.footer-right-section {
+  width: 20%;
+  padding-top: 5px;
+}
+
+.social-icons-container {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon-box {
+  background-color: #dcdcdc;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px; 
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.social-icon-box:hover {
+  transform: translateY(-3px);
+}
+
+.social-icon-box img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* Bottom Brand Text */
+.footer-bottom-brand {
+  text-align: center;
+  width: 100%;
+  margin-top: 40px; /* Text-க்கு மேல space கொடுக்க */
+}
+
+.footer-bottom-brand h1 {
+  font-size: 110px; 
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+   
+  line-height: 0.85; /* Text கீழ exact ah உக்கார வைக்க */
+  letter-spacing: -1px;
+  white-space: nowrap;
+  position: relative;
+  bottom: 20px; 
+  right: 60px;
+}
+
+/* =========================================
+   Responsive Media Queries 
+========================================= */
+
+/* Tablet & Smaller Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .footer-top-grid {
+    gap: 40px;
+  }
+  
+  .footer-nav-links {
+    width: 100%;
+    align-items: center; /* Center align navigation */
+  }
+  
+  .footer-middle-section {
+    width: 100%;
+    align-items: center;
+  }
+  
+  .footer-right-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .location-block, .studio-notes-block {
+    align-items: center;
+  }
+  
+  .underlined-title, .address-text, .contact-text {
+    text-align: center;
+  }
+  
+  /* Resetting the large text position for smaller screens */
+  .footer-bottom-brand h1 {
+    font-size: 8vw; /* Scales with screen width */
+    right: 0;
+    bottom: 0;
+  }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 40px 0 0 0;
+    min-height: auto;
+  }
+
+  .footer-content-wrapper {
+    padding: 0 20px;
+  }
+
+  .footer-top-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* Navigation Links - Center Aligned */
+  .footer-nav-links {
+    gap: 15px;
+  }
+  
+  .footer-nav-links a {
+    font-size: 24px;
+  }
+
+  /* Middle Section - Center Aligned */
+  .footer-middle-section {
+    gap: 30px;
+  }
+
+  /* Newsletter Form */
+  .newsletter-form {
+    flex-direction: column; /* Stack input and button on mobile */
+    align-items: center;
+    width: 100%;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Right Section (Social Icons) - Center Aligned */
+  .social-icons-container {
+    justify-content: center;
+  }
+
+  /* Bottom Brand Text - Perfect Mobile Fit */
+  .footer-bottom-brand {
+    margin-top: 30px;
+  }
+
+  .footer-bottom-brand h1 {
+    font-size: 8vw; /* Perfect mobile width scaling */
+    line-height: 1;
+    bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  /* Adjust Background Images for Mobile (Dimming them so text is readable) */
+  .bg-image-left {
+    width: 200px;
+    bottom: 20px;
+    opacity: 0.2;
+  }
+
+  .bg-image-right {
+    width: 180px;
+    top: 10px;
+    right: 10px;
+    opacity: 0.2;
+  }
+}
+
+/* Very Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .footer-bottom-brand h1 {
+    font-size: 8vw;
+  }
+}

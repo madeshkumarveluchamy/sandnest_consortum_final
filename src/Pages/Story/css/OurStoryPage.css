@@ -1,0 +1,35 @@
+/* Main outer wrapper */
+.story-hero-wrapper {
+  background-color: #dad9d4;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ensures the layout is vertically centered */
+  overflow: hidden;
+}
+
+/* Container to cap max-width for 2560px screens */
+.story-hero-layout {
+  width: 100%;
+  max-width: 2560px; 
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 3vw, 4rem); /* Kept the nice border padding */
+  height: 100vh; /* Stretches the layout to full screen height */
+}
+
+/* Hero Image Container Constraints */
+.story-hero-image-box {
+  border-radius: clamp(1rem, 3vw, 3rem); 
+  height: 100%; /* Forces the image box to fill the layout */
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Giant Fluid Text for Hero */
+.story-hero-main-text {
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6); 
+  line-height: 1.1;
+  font-size: clamp(2.5rem, 7vw, 9rem); /* Slightly increased size since it's the only element */
+  letter-spacing: -1px;
+}

@@ -1,0 +1,203 @@
+/* Wrapper */
+.consultation-wrapper {
+  min-height: 100vh;
+}
+
+.bg-overlay {
+  top: 0;
+  left: 0;
+  /* Second image-la overlay konjam bright-ah iruku */
+  background-color: rgba(0, 0, 0, 0.15); 
+}
+
+/* Container constraints for ultra-wide screens */
+.content-container {
+  max-width: 2000px;
+  width: 100%;
+}
+
+/* Left Typography Section */
+.form-badge {
+  width: max-content;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.theme-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #b57a4c; /* Adjusted to match second image */
+  border-radius: 50%;
+}
+
+.badge-text {
+  font-size: 11px;
+}
+
+/* Responsive Heading - Adjusted to match the thinner/tighter look of Image 2 */
+.main-heading {
+  font-size: clamp(2.5rem, 4vw, 6rem);
+  letter-spacing: -2px;
+  font-weight: 500; /* Less bold than the first image */
+}
+
+/* Right Section Glassmorphism Container - More opaque like Image 2 */
+.glass-form-container {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Custom Form Inputs */
+.custom-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #777; /* Lighter border */
+  padding: 0 0 8px 0;
+  color: #111;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  transition: border-color 0.3s ease;
+}
+
+.custom-input::placeholder {
+  color: #222;
+  font-weight: 700;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-bottom-color: #000;
+  border-bottom-width: 2px;
+}
+
+/* Service Type Buttons */
+.service-title {
+  color: #172554;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.service-btn {
+  background: transparent;
+  border: 1px solid #aaa;
+  color: #222;
+  padding: 6px 14px;
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  font-weight: 500;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.service-btn.active {
+  background: #172554;
+  color: #fff;
+  border-color: #172554;
+}
+
+/* Checkbox and Terms - CIRCULAR style applied */
+.terms-label {
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+}
+
+.custom-circular-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #333;
+  border-radius: 50%; /* Makes the checkbox a circle */
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-circular-checkbox:checked {
+  background-color: transparent;
+}
+
+.custom-circular-checkbox:checked::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #b57a4c;
+  border: none;
+  width: max-content;
+  letter-spacing: 1px;
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #96633b;
+}
+
+
+/* =========================================
+   Tablet & Mobile View Centering (< 992px)
+   ========================================= */
+@media (max-width: 991.98px) {
+  /* --- Left Section Centering --- */
+  
+  /* Badge-ai center pandrathu */
+  .form-badge {
+    margin: 0 auto 1rem auto !important;
+  }
+  
+  /* Main heading-ai center pandrathu */
+  .main-heading {
+    text-align: center;
+  }
+
+  /* --- Right Section Form Centering --- */
+  
+  /* Input field text & placeholder center aaga */
+  .custom-input {
+    text-align: center;
+  }
+  
+  /* Service type heading center aaga */
+  .service-title {
+    text-align: center;
+  }
+  
+  /* Service buttons wrapper-ai center pandrathu */
+  .glass-form-container .d-flex.flex-wrap {
+    justify-content: center;
+  }
+  
+  /* Checkbox and terms text center aaga */
+  .terms-label {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Submit button-ai center-la ukaara vekka */
+  .submit-btn {
+    margin: 0 auto !important;
+    display: block;
+  }
+}
+
+/* Extra small devices fine-tuning */
+@media (max-width: 576px) {
+  .submit-btn {
+    width: 100%;
+  }
+}

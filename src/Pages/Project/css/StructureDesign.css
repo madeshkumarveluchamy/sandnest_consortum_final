@@ -1,0 +1,360 @@
+.featured-section {
+    padding: 60px 80px;
+    background: #dcdbd8; 
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.structural-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align to the bottom so the words slide from the exact same baseline */
+    border-top: 1px solid rgba(0, 0, 0, 0.15); 
+    padding-top: 30px;
+    margin-bottom: 50px;
+}
+
+/* --- THE NEW HEADER TEXT REVEAL LOGIC --- */
+.header-word-mask {
+    overflow: hidden; /* Hides the text when it is pushed down */
+    display: block;
+
+    padding-bottom: 5px; 
+}
+
+.header-left {
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 700;
+    color: #2c2c2c;
+    margin: 0;
+    letter-spacing: -2px;
+    line-height: 1;
+    transform: translateY(110%);
+    transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-right {
+    font-size: clamp(3rem, 8vw, 8rem); /* Much larger sizing as requested */
+    font-weight: 700;
+    color: #a0744b; 
+    margin: 0;
+    letter-spacing: -2px;
+    line-height: 1;
+    
+    /* Animation initial state */
+    transform: translateY(110%);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* When the scroll observer hits, move them back to 0 */
+.structural-header.animate-in .header-left {
+    transform: translateY(0);
+ 
+}
+
+.structural-header.animate-in .header-right {
+    transform: translateY(0);
+    transition-delay: 0.15s; /* Small delay for a staggered effect */
+}
+/* -------------------------------------- */
+
+
+.works-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    position: relative;
+}
+
+
+/* --- THE PARALLAX-SAFE ZOOM LOGIC --- */
+.work-card-wrapper {
+    position: relative;
+    height: 500px; 
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* We use .animate-in now instead of .scroll-zoom-in */
+.work-card-wrapper.animate-in {
+    opacity: 1;
+}
+
+.work-card {
+ position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 4vw;
+    right: 4vw;
+    border-radius: 4px; 
+    overflow: hidden;
+    transition: top 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                bottom 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                left 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* We use .animate-in now instead of .scroll-zoom-in */
+.work-card-wrapper.animate-in .work-card {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+/* -------------------------------------- */
+
+
+.work-img-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    
+}
+
+.overlay {
+    position: absolute;
+    bottom: 24px;
+    background: linear-gradient(90deg, rgba(15, 15, 15, 0.75) 0%, rgba(30, 30, 30, 0.5) 100%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
+}
+
+.align-left {
+    right: 50%; 
+    left: 24px;
+}
+
+.align-right {
+    left: 50%; 
+    right: 24px;
+}
+
+.project-title {
+    color: #fff;
+    font-size: 26px;
+    margin: 0 0 12px 0;
+    font-weight: 400; 
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.projects-last-row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+.tag {
+    background: #fff;
+    color: #111;
+    padding: 5px 12px;
+    border-radius: 2px; 
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.2px;
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+    .featured-section { padding: 70px 70px; }
+    .work-card-wrapper { height: 550px; }
+}
+
+/* Laptop */
+@media (max-width: 1199px) {
+    .featured-section { padding: 55px 50px; }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .featured-section { padding: 45px 30px; }
+    .work-card-wrapper { height: 400px; } 
+    .align-left, .align-right { left: 16px; right: 16px; width: auto; }
+    .project-title { font-size: 22px; }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .featured-section { padding: 32px 16px; }
+    .work-img-bg { background-attachment: scroll; }
+    .structural-header { padding-top: 20px; margin-bottom: 30px; font-size:10px !important; display:flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center; }
+    .work-card-wrapper { height: 350px; } 
+    
+
+
+
+    .align-left, .align-right {
+        left: 12px; right: 12px; bottom: 12px; padding: 16px;
+        flex-direction: column; align-items: flex-start; gap: 20px;
+    }
+    .journey-btn { align-self: flex-end; }
+}
+@media (max-width: 400px) {
+    .work-card-wrapper { height: 300px; } 
+    .project-title { font-size: 18px; margin-bottom: 0px; }
+    
+    /* Overlay gap and padding reduction for tight space */
+    .overlay {
+        padding: 12px;
+        gap: 12px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+
+    /* PUTHUSA ADD PANNATHU: Tags & Button ore line-la vara */
+    .projects-last-row {
+        display: flex;
+        flex-direction: row; /* Chinna screen-layum row-ave maintain panna */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 5px; /* Minimum gap */
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: nowrap; /* Tags keela keela varama irukka */
+        gap: 4px;
+    }
+    
+    /* Tag sizes ah chinna display-ku yetha maari mathurathu */
+    .tag {
+        padding: 4px 6px;
+        font-size: 8px; 
+    }
+    
+    /* Button size ah idikkatha alavuku chinna aakurathu */
+    .journey-btn { 
+        padding: 4px 4px 4px 8px; 
+        font-size: 8px; 
+        gap: 6px;
+    }
+
+    .btn-toggle-capsule {
+        width: 40px; 
+        height: 18px; 
+        padding: 2px;
+    }
+
+    .toggle-arrow-circle {
+        width: 14px; 
+        height: 14px; 
+    }
+
+    .toggle-arrow-circle svg {
+        width: 9px;
+        height: 9px;
+    }
+
+    .journey-btn:hover .toggle-dot,
+    .journey-btn.is-animating .toggle-dot {
+        transform: translateX(18px); 
+    }
+
+    .journey-btn:hover .toggle-arrow-circle,
+    .journey-btn.is-animating .toggle-arrow-circle {
+        transform: translateX(-18px); 
+    }
+}
+/* =========================================
+   BUTTON CSS 
+   ========================================= */
+
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.journey-btn {
+    background-color: #ffffff; border: none; border-radius: 50px; 
+    padding: 6px 6px 6px 16px; font-size: 11px; font-weight: 600; 
+    font-family: 'Plus Jakarta Sans', sans-serif; color: #1c1c1c;
+    display: inline-flex; align-items: center; justify-content: space-between;
+    gap: 16px; cursor: pointer; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: buttonPulse 2s infinite; text-align: left; line-height: 1.1;
+    
+    -webkit-transform: translateZ(0); transform: translateZ(0);
+    will-change: transform, box-shadow;
+}
+
+.journey-btn:hover { animation: none; }
+.btn-text { font-family: 'Inter', 'Segoe UI', sans-serif; letter-spacing: -0.2px; }
+
+.btn-toggle-capsule {
+    position: relative; background-color: #181818; border: 1px solid #000000; 
+    border-radius: 40px; padding: 3px 3px 3px 6px; display: flex;
+    align-items: center; justify-content: space-between; width: 54px; 
+    height: 24px; overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(255, 255, 255, 0.1);
+    box-sizing: border-box; transform: translateZ(0); 
+}
+
+.btn-toggle-capsule::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(240,244,248,1) 100%);
+    border-radius: 40px; transform: scaleX(0); transform-origin: left center;
+    transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1); z-index: 1;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.journey-btn:hover .btn-toggle-capsule::before,
+.journey-btn.is-animating .btn-toggle-capsule::before { transform: scaleX(1); }
+
+.toggle-dot {
+    width: 4px; height: 4px; background-color: #00f2fe; border-radius: 50%;
+    display: inline-block; box-shadow: 0 0 6px #00f2fe; z-index: 2; position: relative;
+    transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
+    transform: translateX(0);
+}
+
+.journey-btn:hover .toggle-dot,
+.journey-btn.is-animating .toggle-dot {
+    transform: translateX(25px); background-color: #0076ff;
+    box-shadow: 0 0 8px rgba(0, 118, 255, 0.8);
+}
+
+.toggle-arrow-circle {
+    background-color: #ffffff; border-radius: 50%; width: 18px; height: 18px; 
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    z-index: 2; position: relative;
+    transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
+    transform: translateX(0);
+}
+
+.journey-btn:hover .toggle-arrow-circle,
+.journey-btn.is-animating .toggle-arrow-circle {
+    transform: translateX(-24px); background-color: #111111; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-arrow-circle svg { stroke: #000000; transition: stroke 550ms ease; }
+
+.journey-btn:hover .toggle-arrow-circle svg,
+.journey-btn.is-animating .toggle-arrow-circle svg { stroke: #ffffff; }
