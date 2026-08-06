@@ -14,11 +14,12 @@ const FeaturedWorks = () => {
         <div className="fw-header-row">
           <div className="fw-header-left">
             <img src={studioIcon} alt="icon" className="fw-studio-icon" />
-            OUR PROJECTSs <span className="fw-slash-marks">///</span>
+            OUR PROJECTS
+            <span className="fw-slash-marks">///</span>
           </div>
           
           <div className="fw-header-center">
-            <h2>Featured Works</h2>
+            <h2>Featured Worksss</h2>
           </div>
           
           <div className="fw-header-right">
