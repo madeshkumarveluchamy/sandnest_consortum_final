@@ -1,26 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // உங்களுடைய ரூட்டிங் முறைக்கு ஏற்ப மாற்றிக் கொள்ளலாம்
+import React from 'react';
 import './css/Home.css';
-import insetImage from '../../assets/small-house.png'; 
-import heroBg from '../../assets/bg-image.png'; 
+
+// Single luxury villa background image asset
+import heroBgImage from '../../assets/luxury_villa_color.png';
 
 const Home = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
-  const navigate = useNavigate();
-
-  const handleCtaClick = (e) => {
-    e.preventDefault();
-    if (isAnimating) return; // டபுள் க்ளிக் தவிர்க்க
-    
-    setIsAnimating(true);
-
-    // அனிமேஷன் நேரம் (550ms) முடிந்ததும் ரூட்/நேவிகேஷன் மாறும்
-    setTimeout(() => {
-      // navigate('/your-target-page'); // தேவையিন متண்யை மாற்றி கொள்ளலாம்
-      setIsAnimating(false);
-    }, 600);
-  };
-
   return (
     <div className="home-container dark-section" style={{ backgroundImage: `url(${heroBg})` }}>
       <div className="hero-content">
@@ -59,15 +43,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* --- Right Side Decorative Vertical Line --- */}
-      <div className="right-vertical-line">
-        <div className="top-marker"></div>
-        <div className="vertical-bar"></div>
-        <div className="bottom-marker"></div>
-      </div>
-      
-    </div>
+    </section>
   );
 };
 
