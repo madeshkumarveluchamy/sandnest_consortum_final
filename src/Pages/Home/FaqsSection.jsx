@@ -3,7 +3,8 @@ import './css/FaqsSection.css';
 import studioIcon from '../../assets/studio-icon.png'; 
 
 const FaqSection = () => {
-  const [activeIndex, setActiveIndex] = useState(-1);
+  // 0-vukku pathila null nu koduthurukom, so default-a ellame close aagi irukum
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const faqData = [
     {
@@ -29,7 +30,7 @@ const FaqSection = () => {
   ];
 
   const toggleFaq = (index) => {
-    setActiveIndex(activeIndex === index ? -1 : index);
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
@@ -85,7 +86,10 @@ const FaqSection = () => {
               </div>
               
               <div className="faq-answer-wrapper">
-                <p className="faq-answer">{item.answer}</p>
+                {/* CSS grid animation work aaga intha inner div theva */}
+                <div className="faq-answer-inner">
+                  <p className="faq-answer">{item.answer}</p>
+                </div>
               </div>
             </div>
           ))}

@@ -13,7 +13,7 @@
   max-width: 1100px;
   width: 100%;
   gap: 60px;
-  align-items: flex-start; /* Left & Right columns starting top alignment */
+  align-items: flex-start;
   padding-bottom: 30px;
 }
 
@@ -22,7 +22,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Left alignment for all children */
+  align-items: flex-start;
   padding-right: 0;
   position: relative;
   left: 100px;
@@ -68,7 +68,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   letter-spacing: -1.5px;
   line-height: 1.05;
-  text-align: left; /* Left align title */
+  text-align: left;
 }
 
 .faq-description {
@@ -78,7 +78,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   margin: 0 0 28px 0;
   max-width: 320px;
-  text-align: left; /* Left align description */
+  text-align: left;
 }
 
 /* Button Layout Adjustments */
@@ -176,7 +176,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #222222;
   margin: 0;
-  text-align: left; /* Left align question */
+  text-align: left;
 }
 
 .faq-icon {
@@ -186,14 +186,19 @@
   line-height: 1;
 }
 
+/* Bulletproof Smooth Grid Animation */
 .faq-answer-wrapper {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-in-out;
 }
 
 .faq-item.active .faq-answer-wrapper {
-  max-height: 200px;
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
 }
 
 .faq-answer {
@@ -203,7 +208,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #666666;
   line-height: 1.5;
-  text-align: left; /* Clean Left Alignment for Answer */
+  text-align: left;
 }
 
 /* =========================================
@@ -279,7 +284,7 @@
   }
 
   .faq-description br {
-    display: none; /* Mobile view-il text clean-a center aaga break tag line hide aagum */
+    display: none; 
   }
 
   .overlay-btn-content {

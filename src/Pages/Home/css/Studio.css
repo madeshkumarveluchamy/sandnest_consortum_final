@@ -2,7 +2,7 @@
 
 /* General Unique Page Wrapper */
 .studio-main-wrapper {
-  background-color: #f4f4f4;
+  background-color: #eaeaea;
   font-family: 'Inter', 'Segoe UI', sans-serif;
   color: #1a1a1a;
   overflow-x: hidden;
@@ -10,7 +10,253 @@
 }
 
 /* ==========================================
-   SECTION 1: OUR STUDIO HERO
+   VIDEO MODAL STYLES (NEW)
+   ========================================== */
+.studio-video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  animation: fadeInOverlay 0.3s ease-out;
+}
+
+.studio-video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background: #000;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: scaleUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  overflow: hidden;
+}
+
+.studio-video-close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.studio-video-close-btn:hover {
+  color: #996533;
+  transform: scale(1.1);
+}
+
+.studio-video-iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+}
+
+.studio-video-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUpModal {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ==========================================
+   KEYFRAME ANIMATIONS
+   ========================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 5s ease-in-out 2.5s infinite;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.8s ease-out forwards;
+}
+
+/* ==========================================
+   STUDIO BUTTON & LIQUID FILL ANIMATIONS
+   ========================================== */
+@keyframes buttonPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.studio-btn {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 50px; 
+  padding: 6px 6px 6px 20px; 
+  font-size: 14px; 
+  font-weight: 500; 
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #1c1c1c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px; 
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); 
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  animation: buttonPulse 2s infinite;
+}
+
+.studio-btn:hover {
+  animation: none; 
+  transform: translateY(-2px);
+  border-color: #1a1a1a;
+}
+
+.studio-btn-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.studio-btn-toggle-capsule {
+  position: relative;
+  background-color: #181818; 
+  border: 1px solid #000000;
+  border-radius: 40px;
+  padding: 3px 3px 3px 6px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 58px; 
+  height: 26px; 
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  transform: translateZ(0); 
+}
+
+.studio-btn-toggle-capsule::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(240,244,248,1) 100%);
+  border-radius: 40px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.studio-btn:hover .studio-btn-toggle-capsule::before {
+  transform: scaleX(1);
+}
+
+.studio-toggle-dot {
+  width: 4px; 
+  height: 4px; 
+  background-color: #00f2fe; 
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 6px #00f2fe;
+  z-index: 2;
+  position: relative;
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
+  transform: translateX(0);
+}
+
+.studio-btn:hover .studio-toggle-dot {
+  transform: translateX(28px); 
+  background-color: #0076ff;
+  box-shadow: 0 0 8px rgba(0, 118, 255, 0.8);
+}
+
+.studio-toggle-arrow-circle {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 20px; 
+  height: 20px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  position: relative;
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
+  transform: translateX(0);
+}
+
+.studio-btn:hover .studio-toggle-arrow-circle {
+  transform: translateX(-28px); 
+  background-color: #111111; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.studio-toggle-arrow-circle svg {
+  width: 11px; 
+  height: 11px;
+  stroke: #000000;
+  transition: stroke 550ms ease;
+}
+
+.studio-btn:hover .studio-toggle-arrow-circle svg {
+  stroke: #ffffff; 
+}
+
+/* ==========================================
+   SECTION 1: HERO STYLING
    ========================================== */
 .studio-hero-section {
   padding: 100px 20px;
@@ -27,10 +273,10 @@
 
 .studio-hero-left-content {
   flex: 1;
-  max-width: 800px; /* நீங்க கேட்ட மாதிரி 800px மாத்தியாச்சு */
-  text-align: left; /* Text ஒரே நேர்கோட்டுல (same starting point) ஆரம்பிக்க */
+  max-width: 800px;
+  text-align: left;
   margin-left: 80px;
-  margin-bottom:180px ;
+  margin-bottom: 180px;
   position: relative;
   bottom: 40px;
 }
@@ -50,104 +296,51 @@
 .studio-badge-icon {
   width: 13px;
   height: 10px;
-  
 }
 
 .studio-main-heading {
-  font-size: 38px;          /* Screen-ku etha mari font size-ah konjam adjust pannikalam (e.g., 36px or 38px) */
+  font-size: 38px;
   font-weight: 400;
-   font-family: 'Plus Jakarta Sans', sans-serif;
-  line-height: 1.2;         /* Line-ku line gap romba kammiya (1) irundha adhu mela mela oorekkum. Adhanala 1.3 illana 1.4 nu change pannunga */
-  max-width: 550px;         /* Text evlo thoorathuku poranum nu fix panna romba useful a irukum */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.2;
+  max-width: 550px;
   margin-bottom: 24px;
 }
 
 .studio-main-desc {
   font-size: 14px;
   line-height: 1.6;
-   font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   color: #555;
   margin-bottom: 40px;
   max-width: 90%;
 }
 
-.studio-journey-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: #ffffff;
-   font-family: 'Plus Jakarta Sans', sans-serif;
-  border: 1px solid #ccc;
-  border-radius: 50px;
-  padding: 8px 12px 8px 24px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.studio-journey-btn:hover {
-  border-color: #1a1a1a;
-}
-
-.studio-toggle-pill {
-  background-color: #222222;
-  width: 44px;
-  height: 24px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 2px;
-}
-
-.studio-toggle-dot {
-  background-color:#ffffff;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.toggle-dot-studio {
-  width: 4.5px; /* Micro dot size */
-  height: 4.5px; 
-  position: relative;
-  right: 5px;
-  background-color: #996533; 
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.studio-toggle-dot svg {
-  width: 12px;
-  height: 12px;
-}
-
-/* Unique Hero Right Images - Side by Side (No Overlap) */
 .studio-hero-images-wrapper {
   flex: 1;
   display: flex;
-  align-items: flex-end; /* ரெண்டு படத்தோட கீழ்பகுதியும் ஒரே கோட்டுல அலைன் ஆக */
+  align-items: flex-end;
   justify-content: flex-end;
-  gap: 20px; /* ரெண்டு படத்துக்கும் நடுவுல இருக்கிற இடைவெளி */
+  gap: 20px;
   position: relative;
   top: 20px;
   right: 30px;
 }
 
-/* இடது பக்கம் இருக்குற வீடு படம் (சிறியது) */
 .studio-img-house-unique {
   width: 250px;
   height: 320px;
   border-radius: 10px;
   position: relative;
   right: 50px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* வலது பக்கம் இருக்குற சோஃபா படம் (பெரியது) */
+.studio-img-house-unique:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
 .studio-img-interior-unique {
   width: 320px;
   height: 500px;
@@ -155,7 +348,14 @@
   border-radius: 10px;
   position: relative;
   right: 30px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.studio-img-interior-unique:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
 /* ==========================================
    SECTION 2: STATS BANNER
    ========================================== */
@@ -190,6 +390,11 @@
 
 .studio-stat-card {
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.studio-stat-card:hover {
+  transform: translateY(-5px);
 }
 
 .studio-stat-card h3 {
@@ -197,6 +402,10 @@
   font-weight: 500;
   color: #996533;
   margin: 0 0 5px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .studio-stat-card p {
@@ -205,9 +414,42 @@
   color: #1a1a1a;
   letter-spacing: 1px;
   position: relative;
-  top: 20px;
+  top: 10px;
 }
 
+/* =========================================
+   SLOT COUNTER ANIMATION SPECIFIC CSS
+   ========================================= */
+.slot-wrapper-inline {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.digit-column {
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden; 
+  height: 1em; 
+  line-height: 1;
+}
+
+.digit-strip {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.slot-static-char {
+  display: inline-flex;
+  height: 1em;
+  line-height: 1;
+  align-items: center;
+}
+
+.stat-suffix {
+  margin-left: 2px;
+}
 
 /* ==========================================
    SECTION 3: EXCELLENCE IN ARCHITECTURE
@@ -278,6 +520,8 @@
   gap: 30px;
 }
 
+/* ====== CONTACT BTN & VIDEO BTN ANIMATIONS ====== */
+
 .studio-contact-pill-btn {
   background-color: #996533;
   color: #ffffff;
@@ -291,11 +535,16 @@
   align-items: center;
   gap: 16px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .studio-contact-pill-btn:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  background-color: #825429;
+}
+
+.studio-contact-text {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .studio-contact-circle-icon {
@@ -306,6 +555,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Swap Animation on Hover */
+.studio-contact-pill-btn:hover .studio-contact-text {
+  transform: translateX(48px); /* Move text to right */
+}
+
+.studio-contact-pill-btn:hover .studio-contact-circle-icon {
+  transform: translateX(-88px); /* Move arrow to left */
 }
 
 .studio-contact-circle-icon svg {
@@ -313,10 +572,6 @@
   height: 16px;
   stroke: #1a1a1a !important; 
   stroke-width: 2.2px;
-}
-
-.studio-contact-circle-icon svg path {
-  stroke: #1a1a1a !important;
 }
 
 .studio-video-link-btn {
@@ -330,11 +585,66 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.studio-video-link-btn:hover {
+  color: #996533;
+  transform: translateX(3px);
+}
+
+/* Play button pulse wrapper */
+.studio-play-icon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+/* Pulse Ripple Element */
+.studio-play-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(153, 101, 51, 0.5); 
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* Trigger ripple on hover */
+.studio-video-link-btn:hover .studio-play-icon-wrapper::before {
+  animation: playVideoRipple 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes playVideoRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
+  }
 }
 
 .studio-play-ico {
   width: 14px;
   height: 14px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.studio-video-link-btn:hover .studio-play-ico {
+  transform: scale(1.15);
 }
 
 .studio-arch-images-group {
@@ -351,6 +661,7 @@
   object-fit: cover;
   border-radius: 14px;
   z-index: 1;
+  transition: transform 0.4s ease;
 }
 
 .studio-arch-straight-img {
@@ -361,6 +672,7 @@
   border-radius: 16px;
   z-index: 2;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
 }
 
 .studio-arch-tilted-left {
@@ -385,11 +697,28 @@
   left: 10px;
 }
 
+.studio-arch-images-group:hover .studio-arch-tilted-left {
+  transform: rotate(-15deg) scale(1.05);
+}
+
+.studio-arch-images-group:hover .studio-arch-straight-left {
+  transform: scale(1.05);
+}
+
+.studio-arch-images-group:hover .studio-arch-tilted-right {
+  transform: rotate(15deg) scale(1.05);
+}
+
+.studio-arch-images-group:hover .studio-arch-straight-right {
+  transform: scale(1.05);
+}
+
+/* Features Grid */
 .studio-features-grid {
   display: flex;
   justify-content: space-between; 
   align-items: flex-start;
-  gap: 40px;                      
+  gap: 40px;                        
   max-width: 920px;              
   margin: 70px auto 0 auto;       
 }
@@ -399,6 +728,11 @@
   align-items: flex-start;        
   gap: 16px;                      
   flex: 1;                        
+  transition: transform 0.3s ease;
+}
+
+.studio-feature-item:hover {
+  transform: translateY(-4px);
 }
 
 .studio-feature-bar {
@@ -413,17 +747,23 @@
 .studio-feature-content {
   display: flex;
   flex-direction: column;
-  gap: 12px;                       
+  gap: 12px;                      
   text-align: left;               
 }
 
 .studio-feature-content h4 {
   font-size: 18px;                
   font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
-/* ------------------------------------------
-   1. LARGE LAPTOPS / DESKTOPS (1025px to 1280px)
-   ------------------------------------------ */
+
+.studio-feature-content p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================== */
 @media (max-width: 1280px) {
   .studio-hero-left-content {
     margin-left: 40px;
@@ -437,9 +777,6 @@
   }
 }
 
-/* ------------------------------------------
-   2. TABLETS & SMALL LAPTOPS (768px to 1024px)
-   ------------------------------------------ */
 @media (max-width: 1024px) {
   .studio-hero-container {
     flex-direction: column;
@@ -452,14 +789,13 @@
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center aligning contents */
+    align-items: center;
   }
 
   .studio-main-desc {
     max-width: 100%;
   }
 
-  /* Images alignment adjustment for Tablet */
   .studio-hero-images-wrapper {
     justify-content: center;
     width: 100%;
@@ -467,10 +803,9 @@
   
   .studio-img-house-unique, 
   .studio-img-interior-unique {
-    right: 0; /* Removing relative shifts for better centering */
+    right: 0;
   }
 
-  /* Arch Section */
   .studio-arch-top-grid {
     flex-direction: column;
     gap: 60px;
@@ -480,7 +815,6 @@
     margin: 0 auto;
   }
 
-  /* Features Grid wrapping */
   .studio-features-grid {
     flex-wrap: wrap;
     justify-content: center;
@@ -492,13 +826,7 @@
   }
 }
 
-/* ------------------------------------------
-   3. MOBILE PHONES (Max 767px)
-   **Ellam Center aaga varanum**
-   ------------------------------------------ */
 @media (max-width: 767px) {
-  
-  /* Hero Section Mobile */
   .studio-hero-section {
     padding: 50px 15px;
   }
@@ -511,7 +839,7 @@
   }
 
   .studio-main-heading {
-    font-size: 28px; /* Mobile-ku etha mari chinna font */
+    font-size: 28px;
     text-align: center;
   }
 
@@ -522,12 +850,11 @@
   }
 
   .studio-badge-row {
-    justify-content: center; /* Centering the badge */
+    justify-content: center;
   }
 
-  /* Hero Images for Mobile */
   .studio-hero-images-wrapper {
-    flex-direction: row; /* Keeping side-by-side but responsive */
+    flex-direction: row;
     justify-content: center;
     gap: 10px;
   }
@@ -544,7 +871,6 @@
     right: 0;
   }
 
-  /* Stats Section Mobile */
   .studio-stats-area {
     padding: 0 15px 50px 15px;
   }
@@ -560,7 +886,6 @@
     padding: 20px 0;
   }
 
-  /* Architecture Section Mobile */
   .studio-arch-section {
     padding: 20px 0 60px 0;
   }
@@ -579,7 +904,6 @@
     margin-bottom: 50px;
   }
 
-  /* Architecture Images Mobile */
   .studio-arch-images-group {
     width: 160px;
     height: 160px;
@@ -595,7 +919,6 @@
     height: 110px;
   }
 
-  /* Features Grid - COMPLETELY CENTERED */
   .studio-features-grid {
     flex-direction: column;
     align-items: center;
@@ -604,13 +927,12 @@
   }
 
   .studio-feature-item {
-    flex-direction: column; /* Icon/Bar mela, text keezha */
+    flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 15px;
   }
 
-  /* Vertical line-ah horizontal line-ah mathi center pandrom */
   .studio-feature-bar {
     width: 60px; 
     height: 4px; 
@@ -626,6 +948,15 @@
 
   .studio-feature-content h4, 
   .studio-feature-content p {
-    text-align: center; /* Text completely center */
+    text-align: center;
+  }
+
+  .studio-video-modal-content {
+    width: 95%;
+  }
+
+  .studio-video-close-btn {
+    top: -35px;
+    right: 5px;
   }
 }

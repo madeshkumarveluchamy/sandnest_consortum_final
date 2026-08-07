@@ -1,296 +1,121 @@
-/* Import Plus Jakarta Sans from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-
-.home-container {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 120vh;
-  width: 99vw; 
+/* Container setup */
+.home-hero-section {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 550px;
   overflow: hidden;
-}
-
-.home-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2); 
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  width: 85%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  align-items: flex-start; 
-  text-align: left;
-}
-
-.hero-title {
-  color: white;
-  font-size: 80px;
-  font-weight: 600;
-  font-family: 'inter', sans-serif;
-  line-height: 1.1;
-  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.35),
-               0px 15px 40px rgba(0, 0, 0, 0.25),
-               0px 30px 60px rgba(0, 0, 0, 0.15);
-  margin-bottom: 40px;
-  text-align: left; 
-}
-
-.hero-bottom-section {
   display: flex;
   align-items: flex-end;
-  gap: 50px;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 15px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  width: 270px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
-
-.inset-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-}
-
-.hero-text-cta {
-  color: white;
-  padding-bottom: 2px;
-}
-
-.hero-description {
-  font-size: 14px;
-  line-height: 1.5;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  margin-bottom: 20px;
-  font-weight: 300;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); 
-}
-
-/* --- BUTTON & LIQUID FILL ANIMATIONS --- */
-@keyframes buttonPulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-}
-
-.journey-btn {
-  background-color: #ffffff;
-  border: none;
-  border-radius: 50px; 
-  padding: 6px 6px 6px 13px; 
-  font-size: 14px; 
-  font-weight: 500; 
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #1c1c1c;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px; 
-  cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: buttonPulse 2s infinite;
-}
-
-.journey-btn:hover {
-  animation: none; 
-}
-
-.btn-text {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  letter-spacing: -0.2px;
-}
-
-/* Dark grey capsule inside the white button - Width reduced here */
-.btn-toggle-capsule {
-  position: relative;
-  background-color: #181818; 
-  border: 1px solid #000000; /* இங்கே கருப்பு நிற பর্ডার যোগ করা হয়েছে */
-  border-radius: 40px;
-  padding: 3px 3px 3px 6px; 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 58px; 
-  height: 26px; 
-  overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(255, 255, 255, 0.1);
-  box-sizing: border-box; /* বর্ডার সাইজ ঠিক রাখতে এটি যোগ করা হলো */
-  transform: translateZ(0); 
-}
-
-/* Liquid glowing layer */
-.btn-toggle-capsule::before {
-  content: '';
+/* Common Background Properties */
+.hero-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(240,244,248,1) 100%);
-  border-radius: 40px;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* 1. Full Color Base Layer */
+.hero-bg-color {
   z-index: 1;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
-/* HOVER & CLICK TRIGGERS */
-.journey-btn:hover .btn-toggle-capsule::before,
-.journey-btn.is-animating .btn-toggle-capsule::before {
-  transform: scaleX(1);
-}
-
-/* Cyan glowing dot */
-.toggle-dot {
-  width: 4px; 
-  height: 4px; 
-  background-color: #00f2fe; 
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 6px #00f2fe;
+/* 2. Left 50% Black & White Layer */
+.hero-bg-grayscale {
   z-index: 2;
-  position: relative;
-  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
-  transform: translateX(0);
+  filter: grayscale(100%) contrast(1.15) brightness(0.95);
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 
-.journey-btn:hover .toggle-dot,
-.journey-btn.is-animating .toggle-dot {
-  transform: translateX(28px); 
-  background-color: #0076ff;
-  box-shadow: 0 0 8px rgba(0, 118, 255, 0.8);
-}
-
-/* White circular button with arrow */
-.toggle-arrow-circle {
-  background-color: #ffffff;
-  border-radius: 50%;
-  width: 20px; 
-  height: 20px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.8);
-  z-index: 2;
-  position: relative;
-  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
-  transform: translateX(0);
-}
-
-.journey-btn:hover .toggle-arrow-circle,
-.journey-btn.is-animating .toggle-arrow-circle {
-  transform: translateX(-28px); 
-  background-color: #111111; 
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-}
-
-.toggle-arrow-circle svg {
-  width: 11px; 
-  height: 11px;
-  stroke: #000000;
-  transition: stroke 550ms ease;
-}
-
-.journey-btn:hover .toggle-arrow-circle svg,
-.journey-btn.is-animating .toggle-arrow-circle svg {
-  stroke: #ffffff; 
-}
-
-/* ==========================================================================
-   RIGHT SIDE DECORATIVE VERTICAL LINE
-   ========================================================================== */
-.right-vertical-line {
+/* Dark subtle shadow overlay at the bottom */
+.hero-overlay {
   position: absolute;
-  right: 5%; 
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px; 
-  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.15) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
-.top-marker {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #996533; 
-  border: 1.5px solid #ffffff; 
-  box-shadow: 0 0 12px rgba(153, 101, 51, 0.7);
+/* Content Container */
+.hero-content-container {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: 0 4rem 4.5rem 4rem;
+  box-sizing: border-box;
 }
 
-.vertical-bar {
-  width: 1px; 
-  height: 200px; 
-  background-color: rgba(255, 255, 255, 0.5); 
+.hero-text-wrapper {
+  max-width: 850px;
 }
 
-.bottom-marker {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.8); 
-  background-color: transparent; 
+/* Bottom Text Styling */
+.hero-title {
+  color: #ffffff;
+  font-size: clamp(2.4rem, 5.2vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  position: absolute;
+  right: 160px;
+  top: 40px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* ==========================================================================
-   MEDIA QUERIES
-   ========================================================================== */
-@media (max-width: 1199px) {
-  .hero-title { font-size: 64px; }
-  .hero-bottom-section { gap: 35px; }
-}
+/* ========================================================
+   RESPONSIVE MEDIA QUERIES (Mobile / Tablet / Desktop)
+   ======================================================== */
 
-@media (max-width: 991px) {
-  .hero-content { width: 90%; margin-top: 40px; }
-  .hero-title { font-size: 52px; margin-bottom: 30px; }
-  .glass-card { width: 240px; }
-}
-
-@media (max-width: 767px) {
-  .home-container {
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-    align-items: flex-start;
-    padding: 100px 24px 40px 24px;
+/* Large Laptops / Small Desktops */
+@media (max-width: 1200px) {
+  .hero-content-container {
+    padding: 0 3rem 3.5rem 3rem;
   }
-  .hero-content { width: 100%; margin-top: 0; align-items: center; text-align: center; }
-  .hero-title { font-size: 38px; margin-bottom: 24px; text-align: center; }
-  .hero-bottom-section { flex-direction: column; align-items: center; gap: 35px; width: 100%; }
-  .glass-card { width: 100%; max-width: 270px; }
-  .hero-text-cta { display: flex; flex-direction: column; align-items: center; width: 100%; }
-  .hero-description br { display: none; }
-  .right-vertical-line { display: none; }
 }
 
+/* Tablets */
+@media (max-width: 768px) {
+  .home-hero-section {
+    min-height: 500px;
+  }
+  .hero-content-container {
+    padding: 0 2rem 2.5rem 2rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 6.5vw, 3.5rem);
+  }
+}
+
+/* Mobile Devices */
 @media (max-width: 480px) {
-  .home-container { padding: 90px 16px 30px 16px; }
-  .hero-title { font-size: 32px; }
-  .hero-description { font-size: 13px; }
+  .home-hero-section {
+    height: 100vh;
+    min-height: 450px;
+  }
+  .hero-content-container {
+    padding: 0 1.25rem 2rem 1.25rem;
+  }
+  .hero-title {
+    font-size: clamp(1.75rem, 7.8vw, 2.5rem);
+    line-height: 1.18;
+  }
 }

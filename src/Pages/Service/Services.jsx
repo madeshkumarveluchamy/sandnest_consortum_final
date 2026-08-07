@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './css/Services.css';
 
+
 import heroImg from '../../assets/services-hero.png';
 import service1Img from '../../assets/service-1.png';
 import service3Img from '../../assets/service-2.png';
 import service2Img from '../../assets/service-3.png';
 import service4Img from '../../assets/service-4.png';
+import FaqsSection from '../Story/FaqSection';
 
 const Services = () => {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -15,24 +17,29 @@ const Services = () => {
   };
 
   useEffect(() => {
-    const parallaxImages = document.querySelectorAll('.ds-item-img');
+    const parallaxItems = document.querySelectorAll('.ds-item');
+
     let ticking = false;
 
     const updateParallax = () => {
       const viewportHeight = window.innerHeight;
 
-      parallaxImages.forEach((img) => {
-        const parent = img.closest('.ds-item-right');
-        if (!parent) return;
+      parallaxItems.forEach((item) => {
+        const img = item.querySelector('.ds-item-img');
+        const imageWrap = item.querySelector('.ds-item-right');
+        if (!img || !imageWrap) return;
 
-        const rect = parent.getBoundingClientRect();
+        const rect = item.getBoundingClientRect();
+
         const start = viewportHeight;
         const end = -rect.height;
         const progress = 1 - (rect.top - end) / (start - end);
         const clampedProgress = Math.max(0, Math.min(1, progress));
-        const translateY = clampedProgress * 6;
 
-        img.style.transform = `translateY(${translateY}%)`;
+        const moveRange = 28;
+        const translateY = (clampedProgress - 0.5) * moveRange;
+
+        img.style.transform = `translateY(${translateY}%) scale(1.08)`;
       });
 
       ticking = false;
@@ -45,11 +52,13 @@ const Services = () => {
       }
     };
 
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', updateParallax);
     updateParallax();
 
     return () => {
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', updateParallax);
     };
   }, []);
 
@@ -177,6 +186,17 @@ const Services = () => {
                 <p>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
               </div>
             </div>
+
+            <div className="hww-stage-item">
+              <div className="stage-badge-col">
+                <span className="stage-badge"><span className="dot"></span>Stage Five</span>
+              </div>
+              <div className="stage-number-col">05</div>
+              <div className="stage-details-col">
+                <h3>CONSTRUCTION SUPERVISION & HANDOVER</h3>
+                <p>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -225,48 +245,7 @@ const Services = () => {
             ))}
           </div>
         </section>
-
-        <section className="faq-section">
-          <div className="faq-header">
-            <h2>Designing Together<br />Common Queries</h2>
-            <p>Find clear answers to common inquiries regarding our design process, project management, and commitment to sustainable architecture.</p>
-          </div>
-
-          <div className="faq-list">
-            {faqData.map((faq) => {
-              const isActive = activeFaq === faq.id;
-              return (
-                <div
-                  className={`faq-item ${isActive ? 'active' : ''}`}
-                  key={faq.id}
-                  onClick={() => toggleFaq(faq.id)}
-                >
-                  <div className="faq-number">
-                    {faq.id < 10 ? `0${faq.id}` : faq.id}
-                  </div>
-                  <div className="faq-content">
-                    <div className="faq-question-row">
-                      <h4 className="faq-question">{faq.question}</h4>
-                      <div className="faq-icon-wrapper">
-                        <span className="dot dot-top"></span>
-                        <span className="dot dot-left"></span>
-                        <span className="dot dot-center"></span>
-                        <span className="dot dot-right"></span>
-                        <span className="dot dot-bottom"></span>
-                      </div>
-                    </div>
-
-                    <div className="faq-answer-wrapper">
-                      <div className="faq-answer-inner">
-                        <p className="faq-answer">{faq.answer}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+         <FaqsSection />
       </main>
     </div>
   );
