@@ -29,7 +29,7 @@ const ConsultationForm = () => {
 
   return (
     <div 
-      className="consultation-wrapper position-relative d-flex align-items-center justify-content-center p-0 p-md-5"
+      className="consultation-wrapper position-relative d-flex align-items-center justify-content-center p-0 dark-section  "
       style={{
         backgroundImage: `url(${contactpage})`,
         backgroundSize: "cover",
@@ -41,18 +41,18 @@ const ConsultationForm = () => {
       <div className="bg-overlay position-absolute w-100 h-100"></div>
 
       {/* Main Container */}
-      <div className="container-fluid content-container position-relative z-1 p-0 p-md-3">
-        <div className="row g-0 gx-lg-5 align-items-stretch h-100">
+      <div className="container-fluid content-container position-relative z-1">
+        <div className="row g-0 gx-lg-4 align-items-stretch h-100">
           
           {/* Left Section: Typography */}
-          <div className="col-lg-5 d-flex flex-column justify-content-center p-4 p-md-0 mb-5 mb-lg-0">
+          <div className="col-lg-5 d-flex flex-column justify-content-center p-4 p-md-0 mb-5 mb-lg-0 mt-5 mt-md-0">
             {/* Badge - Border add panni transparent aakiruken */}
             <div className='d-flex justify-content-center'><div className="form-badge border border-dark text-dark fw-bold px-3 py-1 mb-3 d-inline-flex align-items-center gap-2">
               <span className="theme-dot"></span> 
-              <span className="badge-text plus-font">FORM</span>
+              <span className="badge-text plus-font sdes ">FORM</span>
             </div></div>
             {/* Heading - Font weight and spacing adjusted for 2nd image */}
-            <h1 className="main-heading text-white text-uppercase m-0 lh-1 plus-font text-center">
+            <h1 className="main-heading text-white text-uppercase m-0 lh-1 plus-font text-center ">
               SCHEDULE A<br />
               EXPERTISE<br />
               CONSULTATION
@@ -72,21 +72,21 @@ const ConsultationForm = () => {
                     name={field.toLowerCase()}
                     placeholder={field.toUpperCase()}
                     onChange={handleChange}
-                    className="custom-input w-100 fw-bold pb-2"
+                    className="custom-input w-100 fw-bold pb-2 des"
                     required={field !== 'Message'}
                   />
                 ))}
 
                 {/* Service Type Selection */}
                 <div className="mt-3">
-                  <p className="service-title fw-bold mb-2 plus-font">SERVICE TYPE</p>
+                  <p className="service-title fw-bold mb-2 plus-font des">SERVICE TYPE</p>
                   <div className="d-flex flex-wrap gap-2">
                     {['Architecture', 'Interior Design', 'Renovation'].map((service) => (
                       <button
                         key={service}
                         type="button"
                         onClick={() => setFormData(prev => ({ ...prev, serviceType: service }))}
-                        className={`service-btn ${
+                        className={`sdes service-btn ${
                           formData.serviceType === service ? 'active' : ''
                         }`}
                       >
@@ -105,13 +105,13 @@ const ConsultationForm = () => {
                     className="custom-circular-checkbox"
                     required
                   />
-                  <span className="fw-bold text-dark text-sm plus-font">
+                  <span className="fw-bold text-dark text-sm plus-font sdes">
                     I agree to the processing of my personal data.
                   </span>
                 </label>
 
                 {/* Submit Button */}
-                <button type="submit" className="submit-btn text-white fw-bold py-3 px-4 mt-2 text-uppercase plus-font">
+                <button type="submit" className="submit-btn text-white fw-bold py-3 px-4 mt-2 text-uppercase plus-font sdes">
                   Submit Project Details
                 </button>
               </form>

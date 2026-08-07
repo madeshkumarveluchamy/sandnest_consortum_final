@@ -363,7 +363,7 @@
 
   /* Desktop: 1440px–1919px */
   @media (min-width: 1440px) and (max-width: 1919px) {
-    .team-outer-pin { padding: 60px 8%; --sync-extend: 270px; --visual-gap: 50px; }
+    .team-outer-pin { padding: 20px 8%; --sync-extend: 270px; --visual-gap: 50px; }
     .team-header { top: 130px; }
     .team-stacking-scroller { gap: 50px; }
     .team-overlap-card { top: 230px !important; right: 30px; }
@@ -374,7 +374,7 @@
 
   /* Large desktop: 1920px+ */
   @media (min-width: 1920px) {
-    .team-outer-pin { padding: 70px 10%; margin: 0 auto; --sync-extend: 300px; --visual-gap: 60px; }
+    .team-outer-pin { padding: 30px 10%; margin: 0 auto; --sync-extend: 300px; --visual-gap: 60px; }
     .team-inner-pin{max-width: 1920px; margin: 0 auto;}
     .team-header { top: 90px; }
     .team-body.locked-row { gap: 80px; }

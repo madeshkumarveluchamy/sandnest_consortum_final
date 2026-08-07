@@ -49,6 +49,8 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top:120px !important;
+  padding-bottom:120px !important;
 }
 
 /* Custom Form Inputs */
@@ -169,7 +171,7 @@
   
   /* Input field text & placeholder center aaga */
   .custom-input {
-    text-align: center;
+    text-align: left;
   }
   
   /* Service type heading center aaga */

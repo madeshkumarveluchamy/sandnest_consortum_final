@@ -22,7 +22,7 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container" style={{ backgroundImage: `url(${heroBg})` }}>
+    <div className="home-container dark-section" style={{ backgroundImage: `url(${heroBg})` }}>
       <div className="hero-content">
         <h1 className="hero-title">
           Forming Spaces,<br />
