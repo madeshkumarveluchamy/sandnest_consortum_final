@@ -37,11 +37,11 @@ const WhyChooseUs = () => {
           <div className="col-12 col-md-6 choose-us-content-col mb-5 mb-md-0">
             
             <div className="choose-us-header-block mb-4">
-              <div className="choose-us-number plus-font">02</div>
-              <div className="choose-us-title plus-font">Why Choose Us</div>
+              <div className="choose-us-number plus-font stit">02</div>
+              <div className="choose-us-title plus-font tit">Why Choose Us</div>
             </div>
 
-            <p className="choose-us-intro mb-4 plus-font">
+            <p className="choose-us-intro mb-4 plus-font des">
               From initial concept to turnkey execution, we combine sustainable
               vernacular architecture with technical precision to sculpt spaces that
               elevate everyday life.
@@ -50,8 +50,8 @@ const WhyChooseUs = () => {
             <div className="choose-us-feature-list">
               {features.map((feature) => (
                 <div key={feature.id} className="choose-us-feature-item">
-                  <h4 className="choose-us-feature-title plus-font">{feature.title}</h4>
-                  <p className="choose-us-feature-desc mb-0 plus-font">
+                  <h4 className="choose-us-feature-title plus-font stit">{feature.title}</h4>
+                  <p className="choose-us-feature-desc mb-0 plus-font des">
                     {feature.desc}
                   </p>
                 </div>

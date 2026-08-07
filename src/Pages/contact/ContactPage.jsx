@@ -12,7 +12,7 @@ const ContactPage = () => {
           {/* Left Column: Big Title & Subtitle */}
           <div className="col-12 col-lg-5 mb-5 mb-lg-0">
             <h1 className="contact-page-title plus-font">CONTACT</h1>
-            <p className="contact-page-subtitle plus-font">
+            <p className="contact-page-subtitle plus-font sdes">
               Have a project in mind? Connect with our design team today to turn your vision into a blueprint.
             </p>
           </div>
@@ -22,34 +22,34 @@ const ContactPage = () => {
             
             {/* Email Section */}
             <div className="contact-page-info-row">
-              <div className="contact-page-info-label plus-font">EMAIL</div>
+              <div className="contact-page-info-label plus-font stit">EMAIL</div>
               <div className="contact-page-info-content">
-                <div className="contact-page-badge plus-font">
+                <div className="contact-page-badge plus-font sdes">
                   <span className="contact-page-dot"></span> HELP DESK
                 </div>
-                <div className="contact-page-value plus-font">SANDNESTARCHITECTS@GMAIL.COM</div>
+                <div className="contact-page-value plus-font fw-bold des">SANDNESTARCHITECTS@GMAIL.COM</div>
               </div>
             </div>
 
             {/* Phone Section */}
             <div className="contact-page-info-row">
-              <div className="contact-page-info-label plus-font">PHONE</div>
+              <div className="contact-page-info-label plus-font stit">PHONE</div>
               <div className="contact-page-info-content">
-                <div className="contact-page-badge plus-font">
+                <div className="contact-page-badge plus-font sdes">
                   <span className="contact-page-dot"></span> MON - SAT
                 </div>
-                <div className="contact-page-value plus-font">+91 804 809 66 89</div>
+                <div className="contact-page-value plus-font fw-bold des">+91 804 809 66 89</div>
               </div>
             </div>
 
             {/* Address Section with LIVE MAP */}
             <div className="contact-page-info-row border-bottom-0 pb-0">
-              <div className="contact-page-info-label plus-font">ADDRESS</div>
+              <div className="contact-page-info-label plus-font stit">ADDRESS</div>
               <div className="contact-page-info-content">
-                <div className="contact-page-badge plus-font">
+                <div className="contact-page-badge plus-font sdes">
                   <span className="contact-page-dot"></span> LOCATION
                 </div>
-                <div className="contact-page-value address-text plus-font">
+                <div className="contact-page-value addresss-text plus-font text-black fw-bold sdes">
                   NO.385/2, SANDNEST CONSORTIUM, <br />
                   ROAD INSIDE GV HAPPY NEST ARCH INSIDE DEAD <br />
                   END GATE, JOTHINAGAR, KALAMPALAYAM, <br />

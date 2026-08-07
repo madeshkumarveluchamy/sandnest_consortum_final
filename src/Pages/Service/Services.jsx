@@ -126,7 +126,7 @@ const Services = () => {
       <main className="services-main-content">
         <section className="services-hero-section">
           <div className="services-hero-image-wrapper">
-            <img src={heroImg} alt="Our Architectural & Design Services" className="hero-img" />
+            <img src={heroImg} alt="Our Architectural & Design Services" className="hero-img dark-section" />
             <div className="hero-overlay"></div>
             <h1 className="hero-title">Our Architectural &<br />Design Services</h1>
           </div>

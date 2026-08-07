@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './css/StructureDesign.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // 1. Imported useNavigate
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Make sure to adjust this import path to match your project's folder structure
@@ -13,13 +13,13 @@ import Icon4 from '../../../src/assets/project4.webp';
 const StructuralDesign = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const observer = useRef(null); 
+  const navigate = useNavigate(); // 2. Initialize useNavigate
 
   // --- Scroll & Reveal Effect Logic ---
   useEffect(() => {
     observer.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Changed to a generic 'animate-in' class since we are animating multiple things now
           entry.target.classList.add('animate-in');
         }
       });
@@ -28,11 +28,9 @@ const StructuralDesign = () => {
       rootMargin: "0px 0px -50px 0px" 
     });
 
-    // Observe the cards for the zoom effect
     const wrappers = document.querySelectorAll('.work-card-wrapper');
     wrappers.forEach((wrapper) => observer.current.observe(wrapper));
 
-    // Observe the header for the text slide-up reveal
     const header = document.querySelector('.structural-header');
     if (header) observer.current.observe(header);
 
@@ -43,7 +41,8 @@ const StructuralDesign = () => {
     };
   }, []);
 
-  const handleCtaClick = (e) => {
+  // 3. Updated click handler to accept the target path
+  const handleCtaClick = (e, path) => {
     e.preventDefault();
     if (isAnimating) return; 
     
@@ -51,9 +50,11 @@ const StructuralDesign = () => {
 
     setTimeout(() => {
       setIsAnimating(false);
+      navigate(path); // Navigate to the specific path after animation completes
     }, 600);
   };
 
+  // 4. Added 'path' property to each object in the array
   const projectsData = [
     {
       id: 1,
@@ -62,7 +63,8 @@ const StructuralDesign = () => {
       location: "WANNSEE, BERLIN",
       year: "2024",
       alignRight: false,
-      imageUrl: Icon1
+      imageUrl: Icon1,
+      path: "/projectdetail" // Change this to your desired route
     },
     {
       id: 2,
@@ -71,7 +73,8 @@ const StructuralDesign = () => {
       location: "MITTE, BERLIN",
       year: "2023",
       alignRight: true,
-      imageUrl: Icon2
+      imageUrl: Icon2,
+      path: "/projectdetail" // Change this to your desired route
     },
     {
       id: 3,
@@ -80,7 +83,8 @@ const StructuralDesign = () => {
       location: "Coimbatore, TN",
       year: "Commercial",
       alignRight: false,
-      imageUrl: Icon3
+      imageUrl: Icon3,
+      path: "/projectdetail" // Change this to your desired route
     },
     {
       id: 4,
@@ -89,16 +93,16 @@ const StructuralDesign = () => {
       location: "Coimbatore, TN",
       year: "Residential",
       alignRight: true,
-      imageUrl: Icon4
+      imageUrl: Icon4,
+      path: "/projectdetail" // Change this to your desired route
     },
   ];
 
   return (
     <section className="featured-section">
       <div className="structural-header">
-        {/* We wrap the text in a mask div to hide it before the animation triggers */}
         <div className="header-word-mask">
-          <h1 className="header-left plus-font">STRUCTURAL</h1>
+          <h1 className="header-left plus-font ">STRUCTURAL</h1>
         </div>
         <div className="header-word-mask">
           <h1 className="header-right plus-font">DESIGN</h1>
@@ -119,34 +123,32 @@ const StructuralDesign = () => {
                 <div className="project-info">
                   <div className="title-row-icon">
                     <img src={Icon} alt="Project Icon" className="project-icon d-none" /> 
-                    <h3 className="project-title">{project.title.replace(' +', '')}</h3>
+                    <h3 className="project-title tit">{project.title.replace(' +', '')}</h3>
                   </div>
-                  
                 </div>
 
                 <div className="projects-last-row">
-
-                <div className="tags">
-                    <span className="tag plus-font">{project.year}</span>
-                    <span className="tag plus-font">{project.location.split(',')[0]}</span>
-                </div>
-                
-                <button 
-                  className={`journey-btn ${isAnimating ? 'is-animating' : ''}`}
-                  onClick={handleCtaClick}
-                >
-                  <span className="btn-text plus-font">Start Your<br/>Journey</span>
-                  <div className="btn-toggle-capsule ">
-                    <span className="toggle-dot"></span>
-                    <div className="toggle-arrow-circle">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </div>
+                  <div className="tags">
+                      <span className="tag plus-font ">{project.year}</span>
+                      <span className="tag plus-font ">{project.location.split(',')[0]}</span>
                   </div>
-                </button>
-
+                  
+                  {/* 5. Passing the specific project's path to the click handler */}
+                  <button 
+                    className={`journey-btn ${isAnimating ? 'is-animating' : ''}`}
+                    onClick={(e) => handleCtaClick(e, project.path)} 
+                  >
+                    <span className="btn-text plus-font ">Start Your<br/>Journey</span>
+                    <div className="btn-toggle-capsule ">
+                      <span className="toggle-dot"></span>
+                      <div className="toggle-arrow-circle">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>

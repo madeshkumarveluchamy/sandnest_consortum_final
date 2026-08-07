@@ -1,5 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
 .plus-font {
   font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+@font-face {
+  font-family: 'BBManualMono';
+  src: url('./assets/fonts/BBManualMono-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.title-font {
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+@media(max-width:768px){
+  .tit{
+    font-size:25px !important;
+  }
+  .stit{
+    font-size:18px !important;
+  }
+  .des{
+    font-size:16px !important;
+  }
+  .sdes{
+    font-size:14px !important; 
+  }
 }

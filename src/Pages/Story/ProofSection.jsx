@@ -112,9 +112,9 @@ const ProofSection = () => {
               {/* Brown Horizontal Line */}
               <div className="story-counter-line mt-2 me-3"></div>
               {/* Paragraph Text */}
-              <p className="story-counter-desc mb-0 plus-font">
+              <p className="story-counter-desc mb-0 plus-font d-sm-none des">
                 From first launches to lasting collaborations, we're trusted to <br className="d-none d-lg-block" />
-                deliver on time and at quality.
+                <span className="second-line">deliver on time and at quality.</span>
               </p>
             </div>
             

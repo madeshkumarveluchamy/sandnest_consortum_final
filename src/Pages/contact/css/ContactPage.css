@@ -3,11 +3,9 @@
 /* Main Wrapper */
 .contact-page-wrapper {
   background-color: #dad9d4; /* Matching Beige background */
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding-top: clamp(4rem, 8vw, 8rem); /* Extra top padding since navbar is removed */
-  padding-bottom: clamp(3rem, 5vw, 6rem);
+  padding-top: clamp(8rem, 8vw, 8rem); /* Extra top padding since navbar is removed */
 }
 
 .contact-page-layout {
@@ -21,7 +19,7 @@
    ========================================= */
 .contact-page-title {
   color: #a86832; /* Brown color */
-  font-size: clamp(3.5rem, 7vw, 7rem); /* Scales beautifully */
+  font-size: clamp(3.5rem, 4vw, 4rem); /* Scales beautifully */
   font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: 1.5rem;
@@ -30,7 +28,7 @@
 
 .contact-page-subtitle {
   color: #2b2b2b;
-  font-size: clamp(0.85rem, 1.1vw, 1.2rem);
+  font-size: clamp(0.85rem, 1vw, 1.2rem);
   font-weight: 500;
   line-height: 1.6;
   text-transform: uppercase;
@@ -45,7 +43,7 @@
   display: grid;
   grid-template-columns: clamp(90px, 10vw, 150px) 1fr; /* Fixed width for label, rest for content */
   gap: 1rem;
-  padding-bottom: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: clamp(1.5rem, 1vw, 3rem);
   margin-bottom: clamp(1.5rem, 3vw, 3rem);
   border-bottom: 1px solid #b5b4af; /* Exact grey line */
 }
@@ -69,7 +67,7 @@
   display: inline-flex;
   align-items: center;
   border: 1px solid #7a7a7a;
-  border-radius: 50px;
+  border-radius: 5px;
   padding: 0.2rem 0.8rem;
   font-size: clamp(0.6rem, 0.8vw, 0.85rem);
   font-weight: 600;
@@ -87,7 +85,7 @@
 
 /* The actual values (Email, Phone number, Address text) */
 .contact-page-value {
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.4rem);
   font-weight: 500;
   color: #2b2b2b;
   text-transform: uppercase;
@@ -95,15 +93,15 @@
   line-height: 1.5;
 }
 
-.address-text {
+.addresss-text {
   font-size: clamp(0.85rem, 1.1vw, 1.2rem);
 }
 
 /* Live Map Iframe */
 .contact-page-map-iframe {
   width: 100%;
-  max-width: 450px;
-  height: 250px; /* Provides a good rectangular view for the map */
+  max-width: 350px;
+  height: 180px; /* Provides a good rectangular view for the map */
   border-radius: 6px;
   border: 1px solid #c4c3be;
   filter: grayscale(80%) contrast(1.1); /* Architectural aesthetic */
@@ -147,7 +145,7 @@
   }
 
   /* Address text center align aaga */
-  .address-text {
+  .addresss-text {
     text-align: center;
   }
 }
