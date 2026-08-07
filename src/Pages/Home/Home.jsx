@@ -6,7 +6,8 @@ import heroBgImage from '../../assets/luxury_villa_color.png';
 
 const Home = () => {
   return (
-    <div className="home-container dark-section" style={{ backgroundImage: `url(${heroBg})` }}>
+    
+    <section className="home-container dark-section" style={{ backgroundImage: `url(${heroBgImage})` }}>
       <div className="hero-content">
         <h1 className="hero-title">
           Forming Spaces,<br />
@@ -16,7 +17,7 @@ const Home = () => {
         <div className="hero-bottom-section">
           {/* Glassmorphism Card */}
           <div className="glass-card">
-            <img src={insetImage} alt="Modern House Design" className="inset-image" />
+            <img src={heroBgImage} alt="Modern House Design" className="inset-image" />
           </div>
 
           {/* Text and Button Section */}
