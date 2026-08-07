@@ -61,9 +61,13 @@ const FeaturedWorks = () => {
           </div>
           
           <div className="fw-header-center">
+<<<<<<< HEAD
             <div className="fw-header-mask">
               <h2 className="fw-slide-text delay-1">Featured Works</h2>
             </div>
+=======
+            <h2>Featured Workss</h2>
+>>>>>>> c8c09e036041f382d4beb7350339b8b97d28e0ba
           </div>
           
           <div className="fw-header-right">
