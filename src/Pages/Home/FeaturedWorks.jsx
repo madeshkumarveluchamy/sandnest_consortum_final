@@ -55,7 +55,7 @@ const FeaturedWorks = () => {
             <div className="fw-header-mask">
               <div className="fw-slide-text delay-0">
                 <img src={studioIcon} alt="icon" className="fw-studio-icon" />
-                OUR PROJECTS <span className="fw-slash-marks">///</span>
+                OUR PROJECTSs <span className="fw-slash-marks">///</span>
               </div>
             </div>
           </div>
