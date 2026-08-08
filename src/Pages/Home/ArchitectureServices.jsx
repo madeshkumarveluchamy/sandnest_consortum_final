@@ -44,7 +44,7 @@ const servicesData = [
 const ArchitectureServices = () => {
   return (
     <section 
-      className="arch-services-wrapper"
+      className="arch-services-wrapper dark-section"
       style={{ backgroundImage: `url(${servicesBg})` }}
     >
       <div className="arch-services-container">

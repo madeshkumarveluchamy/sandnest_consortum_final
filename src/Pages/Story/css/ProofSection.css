@@ -1,9 +1,15 @@
 /* ProofSection.css */
 
+@media (min-width: 1600px) {
+  .second-line{
+  position: relative;
+  right:3vw !important;
+}
+}
 /* Main wrapper with the beige background */
 .story-counter-wrapper {
   background-color: #dad9d4;
-  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem);
+  /* padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem); */
   color: #2b2b2b;
 }
 
@@ -12,10 +18,15 @@
   margin: 0 auto;
 }
 
+.second-line{
+  position: relative;
+  right:5vw;
+}
+
 /* Title & Description Styles */
 .story-counter-title {
   font-size: clamp(3rem, 5.5vw, 5rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -1.5px;
   color: #2b2b2b;
@@ -46,10 +57,10 @@
 /* Big Brown Numbers Styling */
 .story-counter-number {
   font-size: clamp(3.5rem, 6vw, 5.5rem);
-  font-weight: 500;
+  font-weight: 550;
   color: #a86832; 
   margin-bottom: 0.5rem;
-  letter-spacing: -2px;
+  letter-spacing: -6px;
   line-height: 1;
 }
 
@@ -63,6 +74,13 @@
   letter-spacing: 0.05em;
   color: #4a4a4a;
   text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+  .second-line{
+  position: relative;
+  right:0vw;
+}
 }
 
 /* =========================================

@@ -6,7 +6,7 @@
 
 .choose-us-wrapper {
   background-color: #dad9d4;
-  padding: 5rem 4rem; /* Matching the StudioAbout spacing */
+  padding: 2rem 4rem; /* Matching the StudioAbout spacing */
   color: #2b2b2b;
 }
 
@@ -83,7 +83,7 @@
 
 .choose-us-feature-title {
   font-size: 1.4rem;
-  font-weight: 600; /* Added slight weight for clarity */
+  font-weight: 450; /* Added slight weight for clarity */
   color: #2b2b2b;
   margin-bottom: 0.5rem;
   letter-spacing: -0.5px;

@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 
 :root {
-  --bg-beige: #d9d9d9;
+  /* Exact background and accent colors from the first image */
+  --bg-beige: #dbdad4; 
   --text-dark: #1f1f1f;
-  --accent-brown: #996533;
+  --accent-brown: #af7b43; 
   --border-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -22,7 +23,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip; 
   background-color: var(--bg-beige);
 }
 
@@ -34,22 +35,21 @@ img {
   width: 100%;
   min-height: 100vh; 
   height: auto; 
-  overflow-x: hidden; 
+  overflow-x: clip; 
   background-color: var(--bg-beige);
   color: var(--text-dark);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   position: relative;
-  /* bottom: 20px; Itha thevai illama space uruvakkum, so removed or adjust panni iruken */
 }
 
 .services-main-content {
   width: 100%;
   max-width: 2560px;
-  margin: 0 auto; /* Center alignment ku */
+  margin: 0 auto; 
   display: flex;
   flex-direction: column;
   padding: clamp(1rem, 3vw, 4rem);
-  padding-bottom: 120px; /* Keela thevayana height space */
+  padding-bottom: 120px; 
   min-height: 100vh; 
 }
 
@@ -58,8 +58,8 @@ img {
 ============================== */
 
 .dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   flex: 0 0 auto;
   border-radius: 50%;
   background-color: var(--accent-brown);
@@ -71,7 +71,7 @@ img {
 
 .services-hero-section {
   width: 100%;
-  margin: 30px 0 120px;
+  margin: 30px 0 90px;
 }
 
 .services-hero-image-wrapper {
@@ -80,7 +80,7 @@ img {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: clamp(450px, 65vh, 600px);
+  height: clamp(550px, 65vh, 600px);
   overflow: hidden;
   border-radius: 24px;
   isolation: isolate;
@@ -103,7 +103,7 @@ img {
   background: rgba(0, 0, 0, 0.2);
 }
 
-.hero-title {
+.service-hero-title {
   position: relative;
   z-index: 2;
   max-width: 1000px;
@@ -111,7 +111,7 @@ img {
   padding: 0 20px;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
-  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.5rem, 6vw, 5.8rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.04em;
@@ -123,49 +123,52 @@ img {
 }
 
 /* ==============================
-   How We Work
+   How We Work (EXACT MATCH FOR 1ST IMAGE + STICKY ENABLED)
 ============================== */
 
 .how-we-work-section {
   display: flex;
   align-items: flex-start;
-  gap: clamp(35px, 5vw, 70px);
+  /* Exact gap between the left text and right list */
+  gap: clamp(50px, 10vw, 160px); 
   width: 100%;
-  margin-bottom: 150px;
-  font-family: 'Inter', sans-serif;
+  margin-bottom: 60px;
+  /* Make sure the parent is relative so sticky works inside it */
+  position: relative; 
 }
 
 .hww-left {
   position: sticky;
-  top: 120px;
-  flex: 0 0 clamp(280px, 28vw, 360px);
+  top: 120px; 
+  flex: 0 0 clamp(360px, 35vw, 450px);
   width: 100%;
-  max-width: 360px;
   align-self: flex-start;
 }
 
 .hww-title {
-  margin: 0 0 28px;
-  color: #222222;
+  margin: 0 0 35px;
+  color: #1f1f1f;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(3.2rem, 5.5vw, 4.4rem);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -3px;
-  text-transform: uppercase;
+  font-size: clamp(4.5rem, 4vw, 5rem); 
+  font-weight: 800; 
+  line-height: 1.05;
+  letter-spacing: -2px;
 }
 
 .highlight-brown {
+  display: block; 
   color: var(--accent-brown);
 }
 
 .hww-desc {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0;
-  color: #222222;
+  color: #2a2a2a;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
 }
 
 .hww-right {
@@ -174,55 +177,52 @@ img {
   flex-direction: column;
   width: 100%;
   min-width: 0;
-  padding-top: 8px;
 }
 
 .hww-stage-item {
   display: grid;
-  grid-template-columns: 155px 75px minmax(0, 400px);
+  grid-template-columns: 130px 110px minmax(0, 600px);
   align-items: start;
   width: 100%;
-  padding: 36px 0 34px;
-  border-bottom: 1px solid var(--border-color);
-  column-gap: 12px;
+  padding: 55px 0; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .hww-stage-item:first-child {
   padding-top: 0;
 }
 
-.hww-stage-item:last-child {
-  border-bottom: none;
-}
+
 
 .stage-badge-col {
-  padding-top: 6px;
+  padding-top: 6px; 
 }
 
 .stage-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 28px;
   padding: 5px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(31, 31, 31, 0.6);
   border-radius: 4px;
-  background-color: var(--bg-beige);
-  color: #2a2a2a;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.68rem;
+  background-color: #D9D9D9;
+  color: #1f1f1f;
+  font-family: 'Inter', sans-serif; 
+  font-size: 13px;
   font-weight: 500;
-  line-height: 1;
-  white-space: nowrap;
 }
 
 .stage-number-col {
-  margin-top: 10px;
-  padding-left: 15px;
-  color: #222222;
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  font-weight: 350;
-  line-height: 0.9;
+  margin-top: 0;
+  padding-left: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #1f1f1f;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3rem, 3vw, 4rem);
+  font-weight: 300; 
+  line-height: 0.75; 
   letter-spacing: -2px;
 }
 
@@ -231,27 +231,26 @@ img {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 0; 
 }
 
 .stage-details-col h3 {
-  margin: 0 0 12px;
-  color: #222222;
+  margin: 0 0 16px;
+  color: #1f1f1f;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.15;
-  text-transform: uppercase;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400; 
+  line-height: 1.2;
 }
 
 .stage-details-col p {
-  max-width: 400px;
+  max-width: 480px;
   margin: 0;
-  color: #222222;
+  color: #2a2a2a;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* ==============================
@@ -275,7 +274,7 @@ img {
 .ds-header h2 {
   margin: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(3.2rem, 8vw, 5.6rem);
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -3px;
@@ -294,7 +293,7 @@ img {
 
 .ds-title-3 {
   align-self: flex-end;
-  color: #a8622c;
+  color: var(--accent-brown);
 }
 
 .ds-list {
@@ -341,8 +340,8 @@ img {
   margin: 0 0 16px;
   color: #1a1a1a;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+  font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 1.2;
   text-transform: uppercase;
@@ -350,10 +349,10 @@ img {
 
 .ds-item-desc {
   max-width: 480px;
-  margin: 0 0 32px;
+  margin: 0 0 15px;
   color: #222222;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -363,13 +362,14 @@ img {
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
+  
   gap: 24px 36px;
 }
 
 .ds-tag-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
 }
 
@@ -384,7 +384,7 @@ img {
   background-color: #d6d6d6;
   color: #1a1a1a;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -607,67 +607,59 @@ img {
    Responsive Styles (Tablet & Mobile Views)
 ========================================= */
 
+@media screen and (max-width: 1100px) {
+  .hww-stage-item {
+    grid-template-columns: 130px 80px minmax(0, 1fr);
+    padding: 40px 0;
+  }
+}
+
 @media screen and (max-width: 992px) {
-  /* How We Work Section */
   .how-we-work-section {
     flex-direction: column;
-    align-items: center;
+    gap:10px;
+    align-items: flex-start;
   }
   
   .hww-left {
     position: relative;
     top: 0;
+    height:50%;
     max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .hww-desc {
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
   
   .hww-stage-item {
     grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-    gap: 15px;
+    justify-items: start;
+    text-align: left;
+    gap: 20px;
   }
   
   .stage-number-col {
-    padding-left: 0;
-    margin-top: 5px;
+    line-height: 1;
+    margin-bottom: 5px;
   }
-  
-  .stage-details-col {
-    align-items: center;
-    padding-top: 10px;
-  }
-  
-  .stage-details-col p {
-    text-align: center;
-  }
-  
-  /* Detailed Services Section */
+
   .ds-header {
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 50px;
   }
 
   .ds-header h2 {
     font-size: clamp(2.2rem, 6vw, 3.5rem);
     letter-spacing: -1.5px;
-    text-align: center;
+    text-align: left;
     line-height: 1.1;
   }
   
   .ds-title-1, 
   .ds-title-2, 
   .ds-title-3 {
-    align-self: center;
+    align-self: flex-start;
     margin-left: 0;
-    text-align: center;
+    text-align: left;
   }
   
   .ds-item {
@@ -679,20 +671,7 @@ img {
   .ds-item-left {
     flex: none;
     width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .ds-item-desc {
-    text-align: center;
-  }
-  
-  .ds-tags-row {
-    justify-content: center;
-  }
-  
-  .ds-tag-item {
-    align-items: center;
+    align-items: flex-start;
   }
   
   .ds-item-right {
@@ -702,9 +681,86 @@ img {
   }
 }
 
+/* ===== FIX: ADDED MEDIA QUERY FOR BELOW 768px TO CENTER EVERYTHING ===== */
+@media screen and (max-width: 998px) {
+  /* Center How We Work Section */
+  .how-we-work-section {
+    align-items: center;
+  }
+  
+  .hww-left {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .hww-title, .hww-desc {
+    text-align: center;
+  }
+
+  .hww-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hww-stage-item {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .stage-badge-col {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .stage-details-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .stage-details-col h3, 
+  .stage-details-col p {
+    text-align: center;
+  }
+
+  .stage-details-col p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Center Detailed Services Section */
+  .ds-header {
+    align-items: center;
+  }
+
+  .ds-header h2,
+  .ds-title-1, 
+  .ds-title-2, 
+  .ds-title-3 {
+    text-align: center;
+    align-self: center; /* This forces the staggered titles to center perfectly */
+    margin-left: 0;
+  }
+
+  .ds-item-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ds-item-title, 
+  .ds-item-desc {
+    text-align: center;
+  }
+
+  .ds-tags-row {
+    justify-content: center;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .services-main-content {
-    padding: 60px 4% 100px; /* Ithu thaan main fix! Keela space kedaikka 100px add aagiruku */
+    padding: 60px 4% 50px; 
   }
   
   .how-we-work-section {
@@ -718,6 +774,10 @@ img {
 
   .faq-section {
     padding: 50px 0;
+  }
+  .detailed-services-section{
+    padding-bottom:0px;
+    padding-top:0px;
   }
   
   .faq-item {

@@ -11,3 +11,26 @@
                 left 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                 right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+
+
+
+
+
+
+
+
+// Logo and Menu Images
+import logo from '../../assets/logo.png'; // Hero Main Logo
+import menuLogo from '../../assets/logo2.png'; // New Logo for inside the Menu
+import menuBuildingImg from '../../assets/nav-img.png'; 
+
+// Social Icons (PNGs)
+import fbIcon from "../../assets/facebook.png";
+import inIcon from "../../assets/linkedin.png"; 
+import igIcon from "../../assets/instagram.png";
+
+// Contact Icons (PNGs)
+import callIcon from "../../assets/telephone 1.png";
+import gmailIcon from "../../assets/email 1.png";
+import waIcon from "../../assets/whatsapp 1.png";

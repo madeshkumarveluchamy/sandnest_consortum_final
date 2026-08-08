@@ -42,7 +42,7 @@ const FaqsSection = () => {
             Designing Together <br />
             Common Queries
           </h1>
-          <p className="story-faq-sub plus-font">
+          <p className="story-faq-sub plus-font des">
             Find clear answers to common inquiries regarding our design process, <br className="d-none d-md-block" />
             project management, and commitment to sustainable architecture.
           </p>
@@ -71,25 +71,25 @@ const FaqsSection = () => {
                     className="story-faq-question-row" 
                     onClick={() => toggleAccordion(index)}
                   >
-                    <h3 className="story-faq-question plus-font">{item.question}</h3>
+                    <h3 className="story-faq-question plus-font des">{item.question}</h3>
                     
                     {/* Custom SVG Icons based on active state */}
                     <div className="story-faq-icon">
                       {isActive ? (
                         /* Horizontal 3 dots for active state */
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="4" cy="12" r="1.8" fill="#1a1a1a"/>
-                          <circle cx="12" cy="12" r="1.8" fill="#1a1a1a"/>
-                          <circle cx="20" cy="12" r="1.8" fill="#1a1a1a"/>
+                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="4" cy="12" r="2" fill="#1a1a1a"/>
+                          <circle cx="12" cy="12" r="2" fill="#a86832"/>
+                          <circle cx="20" cy="12" r="2" fill="#1a1a1a"/>
                         </svg>
                       ) : (
                         /* Cross 5 dots with orange center for inactive state */
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="12" cy="4" r="1.5" fill="#1a1a1a"/>
-                          <circle cx="12" cy="20" r="1.5" fill="#1a1a1a"/>
-                          <circle cx="4" cy="12" r="1.5" fill="#1a1a1a"/>
-                          <circle cx="20" cy="12" r="1.5" fill="#1a1a1a"/>
-                          <circle cx="12" cy="12" r="1.5" fill="#a86832"/>
+                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="12" cy="4" r="2" fill="#1a1a1a"/>
+                          <circle cx="12" cy="20" r="2" fill="#1a1a1a"/>
+                          <circle cx="4" cy="12" r="2" fill="#1a1a1a"/>
+                          <circle cx="20" cy="12" r="2" fill="#1a1a1a"/>
+                          <circle cx="12" cy="12" r="2" fill="#a86832"/>
                         </svg>
                       )}
                     </div>
@@ -98,7 +98,7 @@ const FaqsSection = () => {
                   {/* Expandable Answer Section using Grid transition */}
                   <div className="story-faq-answer-wrapper">
                     <div className="story-faq-answer">
-                      <div className="story-faq-answer-inner plus-font">
+                      <div className="story-faq-answer-inner plus-font sdes">
                         {item.answer}
                       </div>
                     </div>

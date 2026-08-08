@@ -4,7 +4,7 @@ import studioImage from '../../assets/aboutourstudioimage.png';
 
 const StudioAbout = () => {
   return (
-    <section className="studio-about-wrapper font-sans">
+    <section className="studio-about-wrapper font-sans dark-section">
       <div className="container-fluid studio-about-container container-xl">
         {/* 'align-items-stretch' makes both columns the exact same height */}
         <div className="row column-container align-items-stretch">
@@ -23,12 +23,12 @@ const StudioAbout = () => {
             
             {/* Banner Block */}
             <div className="studio-about-header-block mb-4">
-              <div className="studio-about-number plus-font">01</div>
-              <div className="studio-about-title plus-font">About Our Studio</div>
+              <div className="studio-about-number plus-font stit">01</div>
+              <div className="studio-about-title plus-font tit">About Our Studio</div>
             </div>
 
             {/* Main Paragraph */}
-            <p className="studio-about-main-text plus-font">
+            <p className="studio-about-main-text plus-font des">
               Sandnest Consortium is a progressive architecture and design
               practice established in 2019 by Chief Architect Ar. Jaikrishna in
               Coimbatore. Specializing in sustainable green buildings, vernacular
@@ -45,10 +45,10 @@ const StudioAbout = () => {
 
             {/* Mission Section */}
             <div className="studio-about-sub-section">
-              <div className="studio-about-badge plus-font">
+              <div className="studio-about-badge plus-font stit">
                 <span className="studio-about-dot"></span> MISSION
               </div>
-              <p className="studio-about-sub-text mb-0 plus-font">
+              <p className="studio-about-sub-text mb-0 plus-font des">
                 To design and execute innovative, context responsive, and
                 sustainable spaces that elevate everyday living while respecting
                 nature, culture, and client dreams.
@@ -59,11 +59,11 @@ const StudioAbout = () => {
 
             {/* Vision Section */}
             <div className="studio-about-sub-section">
-              <div className="studio-about-badge plus-font">
+              <div className="studio-about-badge plus-font stit">
                 <span className="studio-about-dot"></span> VISION
               </div>
               {/* mb-0 ensures the bottom aligns perfectly without extra space */}
-              <p className="studio-about-sub-text mb-0 plus-font">
+              <p className="studio-about-sub-text mb-0 plus-font des">
                 To establish a global legacy in green and vernacular architecture
                 championing research driven design and sculpting over 1,000
                 sustainable farmhouses and landmarks across the globe.

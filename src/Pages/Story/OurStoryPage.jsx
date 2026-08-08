@@ -4,7 +4,7 @@ import storyImage from '../../assets/storyimage.png'; // Import the image for be
 
 const OurStoryPage = () => {
   return (
-    <div className="story-hero-wrapper font-sans">
+    <div className="story-hero-wrapper font-sans d">
       <div className="story-hero-layout">
         
         {/* Main Hero Image Section */}
@@ -14,7 +14,7 @@ const OurStoryPage = () => {
           <img 
             src={storyImage} 
             alt="Architectural Practice" 
-            className="w-100 h-100 position-absolute top-0 start-0"
+            className="w-100 h-100 position-absolute top-0 start-0 dark-section"
             style={{ objectFit: 'cover', zIndex: 0 }}
           />
           
@@ -23,7 +23,7 @@ const OurStoryPage = () => {
 
           {/* Centered Text */}
           <div className="position-relative w-100 h-100 d-flex align-items-center justify-content-center p-3 p-md-5 text-center" style={{ zIndex: 2 }}>
-            <h1 className="text-white fw-bold story-hero-main-text mb-0">
+            <h1 className="text-white story-hero-main-text mb-0">
               About Our <br className="d-block" /> Architectural Practice
             </h1>
           </div>
