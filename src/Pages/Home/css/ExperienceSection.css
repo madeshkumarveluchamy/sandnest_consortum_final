@@ -10,7 +10,6 @@
   padding: 80px 40px;
   background: #f4f4f4;
   overflow-x: hidden;
-  /* width: 100% removed to prevent horizontal scroll without box-sizing */
 }
 
 /* =========================================
@@ -63,7 +62,7 @@
   letter-spacing: 2px;
 }
 
-/* Center Column - Title exact-a 2 lines-la vara */
+/* Center Column */
 .edr-header-center {
   justify-content: center;
 }
@@ -102,17 +101,40 @@
 }
 
 /* =========================================
-   Grid & Cards 
+   Marquee Animation (Auto Scroll)
    ========================================= */
-.edr-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.edr-marquee-container {
+  display: flex;
+  overflow: hidden;
   gap: 24px;
+  width: 100%;
+  padding-bottom: 20px; 
 }
 
+.edr-marquee-group {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+  animation: scrollMarquee 20s linear infinite;
+}
+
+/* Hover-ல் வீடியோவை கிளிக் செய்ய வசதியாக scrolling நிற்கும் */
+.edr-marquee-container:hover .edr-marquee-group {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% - 24px)); }
+}
+
+/* =========================================
+   Project Cards
+   ========================================= */
 .edr-project-card {
-  /* Height 472px + (24px top padding + 24px bottom padding) = Total 520px visual height */
+  width: 320px; 
   height: 472px; 
+  flex-shrink: 0; 
   border-radius: 16px;
   position: relative;
   overflow: hidden;
@@ -123,6 +145,7 @@
   justify-content: flex-end;
   padding: 24px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
 .edr-project-card:hover {
@@ -219,7 +242,7 @@
 }
 
 /* =========================================
-   Video Modal
+   Video Modal (HD Video Player)
    ========================================= */
 .edr-video-modal {
   position: fixed;
@@ -244,6 +267,7 @@
 .edr-modal-video {
   width: 100%;
   display: block;
+  /* HD (16:9) Ratio-வில் கச்சிதமாக பொருந்தும் */
   aspect-ratio: 16 / 9;
   background: #000;
   object-fit: cover;
@@ -289,13 +313,6 @@
 /* =========================================
    Responsive Breakpoints
    ========================================= */
-@media (max-width: 1200px) {
-  .edr-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-}
-
 @media (max-width: 991px) {
   .edr-header {
     flex-direction: column;
@@ -334,11 +351,8 @@
   .edr-section { 
     padding: 40px 16px; 
   }
-  .edr-projects-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
   .edr-project-card {
-    height: 402px; /* 450px - 48px padding */
+    width: 280px; 
+    height: 402px; 
   }
 }

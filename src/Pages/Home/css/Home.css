@@ -81,41 +81,50 @@
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* ========================================================
-   RESPONSIVE MEDIA QUERIES (Mobile / Tablet / Desktop)
-   ======================================================== */
+/* =========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================= */
 
-/* Large Laptops / Small Desktops */
-@media (max-width: 1200px) {
+/* Tablet View (Screens smaller than 1024px) */
+@media (max-width: 1024px) {
   .hero-content-container {
-    padding: 0 3rem 3.5rem 3rem;
+    padding: 0 3rem 4rem 3rem;
+  }
+  
+  .hero-title {
+    right: 50px; /* Tablet-க்கு மட்டும் space-ஐ குறைத்துள்ளோம் */
   }
 }
 
-/* Tablets */
+/* Mobile View (Screens smaller than 768px) */
 @media (max-width: 768px) {
   .home-hero-section {
-    min-height: 500px;
+    align-items: center; /* Mobile-ல் vertical-ஆக Center செய்ய */
+    justify-content: center; /* Mobile-ல் horizontal-ஆக Center செய்ய */
   }
-  .hero-content-container {
-    padding: 0 2rem 2.5rem 2rem;
-  }
-  .hero-title {
-    font-size: clamp(2rem, 6.5vw, 3.5rem);
-  }
-}
 
-/* Mobile Devices */
-@media (max-width: 480px) {
-  .home-hero-section {
-    height: 100vh;
-    min-height: 450px;
-  }
   .hero-content-container {
-    padding: 0 1.25rem 2rem 1.25rem;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
+
   .hero-title {
-    font-size: clamp(1.75rem, 7.8vw, 2.5rem);
-    line-height: 1.18;
+    position: relative; /* Absolute-ஐ அகற்றி Center-ல் கொண்டுவர */
+    right: auto;
+    top: auto;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Mobile-ல் 50% split (Grayscale) நன்றாக தெரிய வேண்டும் என்றால் இதை பயன்படுத்தவும்.
+     இல்லை என்றால் இதை நீக்கிவிடலாம். */
+  .hero-bg-grayscale {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); /* Top & Bottom split */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   }
 }
