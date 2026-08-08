@@ -137,7 +137,7 @@ const Services = () => {
             <h2 className="hww-title">
               HOW WE <span className="highlight-brown plus-font">WORKS</span>
             </h2>
-            <p className="hww-desc plus-font">
+            <p className="hww-desc plus-font des">
               From first launches to lasting collaborations, we’re trusted to deliver on time and at quality.
             </p>
           </div>
@@ -145,12 +145,12 @@ const Services = () => {
           <div className="hww-right">
             <div className="hww-stage-item">
               <div className="stage-badge-col">
-                <span className="stage-badge"><span className="dot"></span>Stage One</span>
+                <span className="stage-badge sdes"><span className="dot"></span>Stage One</span>
               </div>
-              <div className="stage-number-col pt-md-3">01</div>
+              <div className="stage-number-col pt-md-3 tit">01</div>
               <div className="stage-details-col">
-                <h3 className='plus-font fw-medium pt-md-4'>CONSULTATION & SITE ANALYSIS</h3>
-                <p className='plus-font'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
+                <h3 className='plus-font fw-medium pt-md-4 stit'>CONSULTATION & SITE ANALYSIS</h3>
+                <p className='plus-font des'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
               </div>
             </div>
 
@@ -158,10 +158,10 @@ const Services = () => {
               <div className="stage-badge-col">
                 <span className="stage-badge plus-font"><span className="dot"></span>Stage Two</span>
               </div>
-              <div className="stage-number-col plus-font pt-md-3">02</div>
+              <div className="stage-number-col plus-font pt-md-3 tit">02</div>
               <div className="stage-details-col">
-                <h3 className='plus-font fw-medium pt-md-4'>DESIGN DEVELOPMENT</h3>
-                <p  className='plus-font'>Selecting exact materials, finalized interior layouts, planning window/door placements, and initial coordination for electrical, plumbing, and HVAC systems.</p>
+                <h3 className='plus-font fw-medium pt-md-4 stit'>DESIGN DEVELOPMENT</h3>
+                <p  className='plus-font des'>Selecting exact materials, finalized interior layouts, planning window/door placements, and initial coordination for electrical, plumbing, and HVAC systems.</p>
               </div>
             </div>
 
@@ -169,10 +169,10 @@ const Services = () => {
               <div className="stage-badge-col">
                 <span className="stage-badge plus-font"><span className="dot"></span>Stage Three</span>
               </div>
-              <div className="stage-number-col plus-font pt-md-3">03</div>
+              <div className="stage-number-col plus-font pt-md-3 tit">03</div>
               <div className="stage-details-col">
-                <h3 className='plus-font fw-medium pt-md-4'>STRUCTURAL DESIGN & ENGINEERING</h3>
-                <p className='plus-font'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
+                <h3 className='plus-font fw-medium pt-md-4 stit'>STRUCTURAL DESIGN & ENGINEERING</h3>
+                <p className='plus-font des'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
               </div>
             </div>
 
@@ -180,10 +180,10 @@ const Services = () => {
               <div className="stage-badge-col">
                 <span className="stage-badge plus-font"><span className="dot"></span>Stage Four</span>
               </div>
-              <div className="stage-number-col plus-font pt-md-3">04</div>
+              <div className="stage-number-col plus-font pt-md-3 tit">04</div>
               <div className="stage-details-col">
-                <h3 className='plus-font fw-medium pt-md-4'>WORKING DRAWINGS & APPROVALS</h3>
-                <p className='plus-font'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
+                <h3 className='plus-font fw-medium pt-md-4 stit'>WORKING DRAWINGS & APPROVALS</h3>
+                <p className='plus-font des'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
               </div>
             </div>
 
@@ -191,10 +191,10 @@ const Services = () => {
               <div className="stage-badge-col">
                 <span className="stage-badge plus-font"><span className="dot"></span>Stage Five</span>
               </div>
-              <div className="stage-number-col plus-font pt-md-3">05</div>
+              <div className="stage-number-col plus-font pt-md-3 tit">05</div>
               <div className="stage-details-col">
-                <h3 className='plus-font fw-medium pt-md-4'>CONSTRUCTION SUPERVISION & HANDOVER</h3>
-                <p className='plus-font'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
+                <h3 className='plus-font fw-medium pt-md-4 stit'>CONSTRUCTION SUPERVISION & HANDOVER</h3>
+                <p className='plus-font des'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
               </div>
             </div>
           </div>
@@ -211,29 +211,30 @@ const Services = () => {
             {services.map((service) => (
               <div className="ds-item" key={service.id}>
                 <div className="ds-item-left">
-                  <div className="ds-badge plus-font">
+                  <div className="ds-badge plus-font sdes">
                     <span className="dot"></span> {service.id}
                   </div>
 
-                  <h3 className="ds-item-title plus-font">{service.title}</h3>
+                  <h3 className="ds-item-title plus-font stit">{service.title}</h3>
 
-                  <p className="ds-item-desc plus-font">
+                  <p className="ds-item-desc plus-font des">
                     We deliver rigorous, climate responsive structural planning aligned with modern safety standards. Our engineering ensures structural longevity while preserving the aesthetic and spatial fluidity of your design.
                   </p>
 
                   <div className="ds-tags-row">
                     <div className="ds-tag-item">
-                      <div className="ds-tag-pill plus-font">
+                      <div className="ds-tag-pill plus-font des">
                         <span className="dot"></span> DISCIPLINE
                       </div>
-                      <div className="ds-tag-value plus-font">{service.disciplineValue}</div>
+                      <div className="ds-tag-value plus-font sdes">{service.disciplineValue}</div>
                     </div>
 
                     <div className="ds-tag-item">
-                      <div className="ds-tag-pill plus-font">
+                      <div className="ds-tag-pill plus-font des">
                         <span className="dot"></span> PROJECTS DELIVERED
                       </div>
-                      <div className="ds-tag-value value-large plus-font ">{service.delivered}</div>
+                      <div className="ds-tag-value value-large plus-font tit
+                      ">{service.delivered}</div>
                     </div>
                   </div>
                 </div>
