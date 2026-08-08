@@ -8,16 +8,14 @@
 .structural-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Align to the bottom so the words slide from the exact same baseline */
+    align-items: flex-end; 
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/* --- THE NEW HEADER TEXT REVEAL LOGIC --- */
 .header-word-mask {
-    overflow: hidden; /* Hides the text when it is pushed down */
+    overflow: hidden; 
     display: block;
-
     padding-bottom: 5px; 
 }
 
@@ -33,30 +31,24 @@
 }
 
 .header-right {
-    font-size: clamp(2rem, 5.7vw, 6rem); /* Much larger sizing as requested */
+    font-size: clamp(2rem, 5.7vw, 6rem); 
     font-weight: 700;
     color: #a0744b; 
     margin: 0;
     letter-spacing: -2px;
     line-height: 1;
-    
-    /* Animation initial state */
     transform: translateY(110%);
     transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* When the scroll observer hits, move them back to 0 */
 .structural-header.animate-in .header-left {
     transform: translateY(0);
- 
 }
 
 .structural-header.animate-in .header-right {
     transform: translateY(0);
-    transition-delay: 0.15s; /* Small delay for a staggered effect */
+    transition-delay: 0.15s; 
 }
-/* -------------------------------------- */
-
 
 .works-grid {
     display: grid;
@@ -65,8 +57,6 @@
     position: relative;
 }
 
-
-/* --- THE PARALLAX-SAFE ZOOM LOGIC --- */
 .work-card-wrapper {
     position: relative;
     height: 500px; 
@@ -74,51 +64,67 @@
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* We use .animate-in now instead of .scroll-zoom-in */
 .work-card-wrapper.animate-in {
     opacity: 1;
 }
 
-.work-card {
- position: absolute;
-    top: 30px;
-    bottom: 30px;
-    left: 4vw;
-    right: 4vw;
-    border-radius: 8px; 
-    overflow: hidden;
-    transition: top 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                bottom 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                left 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* --- INTHA CODE AH REPLACE PANNUNGA --- */
 
-/* We use .animate-in now instead of .scroll-zoom-in */
-.work-card-wrapper.animate-in .work-card {
+/* 1. Parent Card - Clip Path trick */
+.work-card {
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    border-radius: 8px; 
+    
+    /* Ithu background-a antha card alavuku mattum cut panni kaatum */
+    clip-path: inset(30px 4vw 30px 4vw round 8px); 
+    
+    /* Smooth expansion effect (No Lag) */
+    transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* -------------------------------------- */
 
+/* Card view-ku varum pothu full size aagum */
+.work-card-wrapper.animate-in .work-card {
+    clip-path: inset(0 0 0 0 round 8px);
+}
 
+/* 2. Thani div (Fake Fixed Background) */
 .work-img-bg {
-    width: 100%;
-    height: 100%;
+    /* Fixed Redraw aagura property-a thookitom */
+    /* background-attachment: fixed; */
+    
+    /* Athukku bathila image-a full screen-ku fix pandrom */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
     
+    /* Z-index -1 vachu ella content-kum pinnadi anupudrom */
+    z-index: -1; 
+    pointer-events: none;
+    
+    /* GPU Hardware Acceleration - Ithu thaan lag-a thadukkum */
+    -webkit-transform: translateZ(0); 
+    transform: translateZ(0); 
 }
+
+/* -------------------------------------- */
+
+
 
 .overlay {
     position: absolute;
     bottom: 24px;
-    background: linear-gradient(90deg, rgba(15, 15, 15, 0.75) 0%, rgba(30, 30, 30, 0.5) 100%);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    /* Blur remove pannathala readability-kaga opacity konjam increase panni iruken */
+    background: linear-gradient(90deg, rgba(15, 15, 15, 0.85) 0%, rgba(30, 30, 30, 0.7) 100%);
     border-radius: 8px;
     padding: 20px 24px;
     display: flex;
@@ -130,7 +136,8 @@
     
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    will-change: transform, backdrop-filter;
+    /* Removed backdrop-filter from will-change */
+    will-change: transform;
 }
 
 .align-left {
@@ -201,9 +208,6 @@
     .work-img-bg { background-attachment: scroll; }
     .structural-header { padding-top: 80px; margin-bottom: 30px; border-top:none; font-size:10px !important; display:flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center; }
     .work-card-wrapper { height: 350px; } 
-    
-
-
 
     .align-left, .align-right {
         left: 12px; right: 12px; bottom: 12px; padding: 16px;
@@ -211,11 +215,11 @@
     }
     .journey-btn { align-self: flex-end; }
 }
+
 @media (max-width: 400px) {
     .work-card-wrapper { height: 300px; } 
     .project-title { font-size: 18px; margin-bottom: 0px; }
     
-    /* Overlay gap and padding reduction for tight space */
     .overlay {
         padding: 12px;
         gap: 12px;
@@ -224,29 +228,26 @@
         bottom: 8px;
     }
 
-    /* PUTHUSA ADD PANNATHU: Tags & Button ore line-la vara */
     .projects-last-row {
         display: flex;
-        flex-direction: row; /* Chinna screen-layum row-ave maintain panna */
+        flex-direction: row; 
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        gap: 5px; /* Minimum gap */
+        gap: 5px; 
     }
 
     .tags {
         display: flex;
-        flex-wrap: nowrap; /* Tags keela keela varama irukka */
+        flex-wrap: nowrap; 
         gap: 4px;
     }
     
-    /* Tag sizes ah chinna display-ku yetha maari mathurathu */
     .tag {
         padding: 4px 6px;
         font-size: 8px; 
     }
     
-    /* Button size ah idikkatha alavuku chinna aakurathu */
     .journey-btn { 
         padding: 4px 4px 4px 8px; 
         font-size: 8px; 
@@ -279,15 +280,11 @@
         transform: translateX(-18px); 
     }
 }
+
 /* =========================================
    BUTTON CSS 
    ========================================= */
-
-@keyframes buttonPulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-}
+/* Removed buttonPulse keyframes to stop infinite heavy rendering on background scroll */
 
 .journey-btn {
     background-color: #ffffff; border: none; border-radius: 50px; 
@@ -296,13 +293,13 @@
     display: inline-flex; align-items: center; justify-content: space-between;
     gap: 16px; cursor: pointer; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    animation: buttonPulse 2s infinite; text-align: left; line-height: 1.1;
+    text-align: left; line-height: 1.1;
     
     -webkit-transform: translateZ(0); transform: translateZ(0);
-    will-change: transform, box-shadow;
+    /* Removed box-shadow from will-change */
+    will-change: transform;
 }
 
-.journey-btn:hover { animation: none; }
 .btn-text { font-family: 'Inter', 'Segoe UI', sans-serif; letter-spacing: -0.2px; }
 
 .btn-toggle-capsule {
