@@ -75,23 +75,32 @@ const FaqsSection = () => {
                     
                     {/* Custom SVG Icons based on active state */}
                     <div className="story-faq-icon">
-                      {isActive ? (
-                        /* Horizontal 3 dots for active state */
-                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="4" cy="12" r="2" fill="#1a1a1a"/>
-                          <circle cx="12" cy="12" r="2" fill="#a86832"/>
-                          <circle cx="20" cy="12" r="2" fill="#1a1a1a"/>
-                        </svg>
-                      ) : (
-                        /* Cross 5 dots with orange center for inactive state */
-                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="12" cy="4" r="2" fill="#1a1a1a"/>
-                          <circle cx="12" cy="20" r="2" fill="#1a1a1a"/>
-                          <circle cx="4" cy="12" r="2" fill="#1a1a1a"/>
-                          <circle cx="20" cy="12" r="2" fill="#1a1a1a"/>
-                          <circle cx="12" cy="12" r="2" fill="#a86832"/>
-                        </svg>
-                      )}
+                      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* Top Dot: Moves to center and fades out when active */}
+                        <circle 
+                          cx="12" 
+                          cy={isActive ? "12" : "4"} 
+                          r="2" 
+                          fill="#1a1a1a" 
+                          opacity={isActive ? 0 : 1}
+                          style={{ transition: "all 0.3s ease-in-out" }}
+                        />
+                        
+                        {/* Bottom Dot: Moves to center and fades out when active */}
+                        <circle 
+                          cx="12" 
+                          cy={isActive ? "12" : "20"} 
+                          r="2" 
+                          fill="#1a1a1a" 
+                          opacity={isActive ? 0 : 1}
+                          style={{ transition: "all 0.3s ease-in-out" }}
+                        />
+
+                        {/* Fixed Left, Right, and Center Dots */}
+                        <circle cx="4" cy="12" r="2" fill="#1a1a1a" />
+                        <circle cx="20" cy="12" r="2" fill="#1a1a1a" />
+                        <circle cx="12" cy="12" r="2" fill="#a86832" />
+                      </svg>
                     </div>
                   </div>
                   

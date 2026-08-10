@@ -31,6 +31,7 @@ img {
   max-width: 100%;
 }
 
+
 .services-page-container {
   width: 100%;
   min-height: 100vh; 
@@ -254,12 +255,12 @@ img {
 }
 
 /* ==============================
-   Detailed Services
+   Detailed Services (WITH SLIDE-UP SCROLL ANIMATION)
 ============================== */
 
 .detailed-services-section {
   width: 100%;
-  padding: 60px 2.5%;
+  padding: 10px 2.5%;
   overflow: hidden;
   color: #1a1a1a;
 }
@@ -271,15 +272,13 @@ img {
   margin-bottom: 80px;
 }
 
-.ds-header h2 {
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(3.2rem, 8vw, 6.4rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -3px;
+/* அனிமேஷனுக்கான Wrapper */
+.ds-title-wrapper {
+  overflow: hidden;
+  display: block;
 }
 
+/* உங்களுடைய பழைய Alignment & Colors (கொஞ்சமும் மாறாது) */
 .ds-title-1 {
   align-self: flex-start;
   color: #1a1a1a;
@@ -294,6 +293,50 @@ img {
 .ds-title-3 {
   align-self: flex-end;
   color: var(--accent-brown);
+}
+
+/* H2 Font Styles & Initial Hidden State (Scroll செய்வதற்கு முன்) */
+.ds-header h2 {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -3px;
+  
+  /* ஆரம்பத்தில் வார்த்தைகள் கண்ணுக்கு தெரியாமல் இருக்க வேண்டும் */
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* Scroll செய்து வந்த பிறகு 'in-view' class add ஆனவுடன் அனிமேஷன் வேலை செய்யும் */
+.ds-header.in-view h2 {
+  animation: slideUpAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ஒவ்வொரு வார்த்தைக்கும் தனித்தனி Timing (Staggered Effect) */
+.ds-header.in-view .ds-title-1 h2 {
+  animation-delay: 0.2s;
+}
+
+.ds-header.in-view .ds-title-2 h2 {
+  animation-delay: 0.5s;
+}
+
+.ds-header.in-view .ds-title-3 h2 {
+  animation-delay: 0.8s;
+}
+
+/* Slide Up Keyframes */
+@keyframes slideUpAnim {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .ds-list {
@@ -362,7 +405,6 @@ img {
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  
   gap: 24px 36px;
 }
 
@@ -768,7 +810,7 @@ img {
   }
   
   .ds-header h2 {
-    font-size: 2rem;
+    font-size: 11vw;
     letter-spacing: -1px;
   }
 

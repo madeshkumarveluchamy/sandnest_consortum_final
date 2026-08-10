@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './css/Services.css';
-
 
 import heroImg from '../../assets/services-hero.png';
 import service1Img from '../../assets/service-1.png';
@@ -11,10 +10,38 @@ import FaqsSection from '../Story/FaqSection';
 
 const Services = () => {
   const [activeFaq, setActiveFaq] = useState(null);
+  
+  // Animation-க்காக புதிதாக சேர்த்த State & Ref
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const headerRef = useRef(null);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
+
+  // Scroll செய்யும் போது அந்த Section தெரிந்தால் Animation-ஐ Trigger செய்ய
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true);
+          // ஒரு முறை அனிமேஷன் நடந்தால் போதும் என்பதால் unobserve செய்கிறோம்
+          observer.unobserve(entry.target); 
+        }
+      },
+      { threshold: 0.5 } // 20% Section கண்ணுக்கு தெரிந்தவுடனே Trigger ஆகும்
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => {
+      if (headerRef.current) {
+        observer.unobserve(headerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const parallaxItems = document.querySelectorAll('.ds-item');
@@ -61,34 +88,6 @@ const Services = () => {
       window.removeEventListener('resize', updateParallax);
     };
   }, []);
-
-  const faqData = [
-    {
-      id: 1,
-      question: "What services does Sandnest Consortium provide?",
-      answer: "Specialized in eco friendly green buildings and vernacular architecture, creating nature inspired spaces that harmonize with local climate, culture, and context."
-    },
-    {
-      id: 2,
-      question: "What is your architectural style and design philosophy?",
-      answer: "Our design philosophy revolves around sustainable and minimalistic approaches, merging modern aesthetics with traditional functionality."
-    },
-    {
-      id: 3,
-      question: "Do you specialize in custom farmhouse design?",
-      answer: "Yes, we specialize in creating bespoke farmhouse designs that seamlessly blend with natural surroundings."
-    },
-    {
-      id: 4,
-      question: "Where are your projects located, and do you work outside Tamil Nadu?",
-      answer: "While we are based in Coimbatore, we undertake prestigious projects across South India and select international locations."
-    },
-    {
-      id: 5,
-      question: "How do we start a project or schedule an initial consultation?",
-      answer: "You can reach out to us via our contact page, email, or phone to schedule your initial consultation with our lead architects."
-    }
-  ];
 
   const services = [
     {
@@ -201,10 +200,19 @@ const Services = () => {
         </section>
 
         <section className="detailed-services-section container">
-          <div className="ds-header">
-            <h2 className="ds-title-1 plus-font">OUR</h2>
-            <h2 className="ds-title-2 plus-font">ARCHITECTURAL</h2>
-            <h2 className="ds-title-3 plus-font">DESIGN SERVICES</h2>
+          {/* Scroll செய்யும் போது isHeaderVisible 'true' ஆக மாறும், அப்போது 'in-view' class add ஆகும் */}
+          <div className={`ds-header ${isHeaderVisible ? 'in-view' : ''}`} ref={headerRef}>
+            <div className="ds-title-wrapper ds-title-1">
+              <h2 className="plus-font">OUR</h2>
+            </div>
+            
+            <div className="ds-title-wrapper ds-title-2">
+              <h2 className="plus-font">ARCHITECTURAL</h2>
+            </div>
+            
+            <div className="ds-title-wrapper ds-title-3">
+              <h2 className="plus-font">DESIGN SERVICES</h2>
+            </div>
           </div>
 
           <div className="ds-list">
@@ -233,8 +241,7 @@ const Services = () => {
                       <div className="ds-tag-pill plus-font des">
                         <span className="dot"></span> PROJECTS DELIVERED
                       </div>
-                      <div className="ds-tag-value value-large plus-font tit
-                      ">{service.delivered}</div>
+                      <div className="ds-tag-value value-large plus-font tit">{service.delivered}</div>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
-/* Footer.css */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap');
 
 @font-face {
   font-family: "Futura";
@@ -13,7 +14,7 @@
 }
 
 /* =========================================
-   Desktop Styles (எதையும் மாத்தல, அப்படியே இருக்கு)
+   Desktop Styles 
 ========================================= */
 
 /* Main Footer Container */
@@ -21,7 +22,7 @@
   position: relative;
   background-color: #222222;
   color: #ffffff;
-  padding: 60px 0 0 0;
+  padding: 80px 0 0 0; /* Padding increased for better top spacing */
   font-family: 'Arial', sans-serif; 
   overflow: hidden; 
   min-height: 550px;
@@ -40,7 +41,6 @@
   pointer-events: none;
 }
 
-/* Left side wireframe background */
 .bg-image-left {
   position: absolute;
   bottom: 50px; 
@@ -49,7 +49,6 @@
   opacity: 0.8;
 }
 
-/* Right side wireframe background */
 .bg-image-right {
   position: absolute;
   top: 30px;
@@ -62,7 +61,7 @@
 .footer-content-wrapper {
   position: relative;
   z-index: 1; 
-  max-width: 1200px;
+  max-width: 1300px; /* Increased max-width slightly to match spacing */
   width: 100%;
   margin: 0 auto;
   padding: 0 40px;
@@ -85,7 +84,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start; 
-  gap: 7px;
+  gap: 15px; /* Increased gap between links */
   width: 30%;
 }
 
@@ -93,10 +92,11 @@
   color: #ffffff;
   text-decoration: none;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 30px;
-  font-weight: 200;
+  font-size: 40px; /* Increased font-size exactly like Image 2 */
+  font-weight: 300;
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
+  line-height: 1.2;
 }
 
 .footer-nav-links a:hover {
@@ -110,11 +110,9 @@
   flex-direction: column;
   align-items: flex-start; 
   text-align: left;
-  gap: 35px;
-  padding-top: 5px;
+  gap: 50px; /* Increased gap between location and form */ /* Aligned with left links */
 }
 
-/* Location Block & Studio Notes Block க்கான Alignment */
 .location-block, .studio-notes-block {
   display: flex;
   flex-direction: column;
@@ -123,33 +121,46 @@
 }
 
 .underlined-title {
-  font-size: 15px;
+  font-size: 22px; /* Increased heading size */
   font-weight: 400;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-decoration: underline;
-  font-family: 'inter',sans-serif;
+  font-family: 'Inter', sans-serif;
   text-underline-offset: 8px;
-  text-decoration-thickness: 0.50px;
+  text-decoration-thickness: 1px; /* Slightly thicker underline */
   color: #f1f1f1; 
   text-align: left;
   width: 100%; 
   letter-spacing: 1px;
 }
 
+.underlined-titles {
+  font-size: 22px; /* Increased heading size */
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  font-family: 'Inter', sans-serif;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 1px; /* Slightly thicker underline */
+  color: #f1f1f1; 
+  text-align: center;
+  width: 100%; 
+  letter-spacing: 1px;
+}
+
 .address-text {
-  font-size: 13.5px;
-  line-height: 1.6;
+  font-size: 18px; /* Increased exact font size */
+  line-height: 1.8;
   color: #d1d1d1;
-  margin: 0 0 15px 0; 
+  margin: 0 0 20px 0; 
   font-weight: 300;
   font-family: 'Plus Jakarta Sans', sans-serif;
   text-align: left;
   width: 100%;
-  gap: 3px; 
 }
 
 .contact-text {
-  font-size: 13.5px;
+  font-size: 18px; /* Increased exact font size */
   line-height: 2;
   color: #d1d1d1;
   margin: 0 0 12px 0; 
@@ -170,18 +181,19 @@
 /* Newsletter Form */
 .newsletter-form {
   display: flex;
-  gap: 10px;
+  gap: 15px; /* Spacing between input and button */
+  align-items: center; /* Ensures exact straight alignment */
 }
 
 .newsletter-form input {
   background-color: #222222;
   border: 1px solid #ffffff;
-  padding: 10px 15px;
+  padding: 12px 20px; /* Increased padding */
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #ffffff;
-  width: 250px;
+  width: 320px; /* Increased width */
   outline: none;
-  font-size: 12px;
+  font-size: 15px; /* Increased text size inside input */
 }
 
 .newsletter-form input::placeholder {
@@ -192,14 +204,13 @@
   background-color: #996533;
   color: white;
   border: none;
-  height: 30px;
+  height: 47px; /* Matched height exactly with input */
   border-radius: 2px; 
-  padding: 4px 30px; 
+  padding: 0 35px; /* Increased button width */
   cursor: pointer;
-  font-size: 13px;
+  font-size: 16px;
   transition: background-color 0.3s;
   position: relative;
-  top: 5px;
 }
 
 .newsletter-form button:hover {
@@ -209,21 +220,22 @@
 /* Right Column: Social Updates */
 .footer-right-section {
   width: 20%;
-  padding-top: 5px;
+  padding-top: 15px;
 }
 
 .social-icons-container {
   display: flex;
   align-items: center;
-  gap: 30px; 
+  justify-content:space-around;
+  gap: 8px; 
   position: relative;
-  right: 7px;
+
 }
 
 .social-icon-box {
   background-color: #dcdcdc;
-  width: 30px;
-  height: 30px;
+  width: 35px; /* Slightly larger social icons */
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,30 +249,31 @@
 }
 
 .social-icon-box img {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
 }
 
-/* Bottom Brand Text */
+/* Bottom Brand Text - Full Width Centered */
 .footer-bottom-brand {
   text-align: center;
   width: 100%;
-  margin-top: 40px; 
+  margin-top: 60px; 
+  padding: 0; 
+  box-sizing: border-box;
+  overflow: hidden; 
 }
 
 .footer-bottom-brand h1 {
-  font-size: 102px; 
-  font-weight: 390;
+  font-size: 8.3vw; 
+  font-weight: 400; /* Jost-க்கு 500 கொடுத்தால் Futura போலவே தடிமனாக இருக்கும் */
   color: #ffffff;
   margin: 0;
-  font-family: 'inter', sans-serif;
-  line-height: 0.85; 
-  letter-spacing: -1px;
+  /* இங்கு Futura-க்கு பதிலாக Jost மாற்றிவிட்டோம் */
+  font-family: 'Jost', sans-serif; 
+  line-height: 1; 
+  letter-spacing: 0px; 
   white-space: nowrap;
-  position: relative;
-  bottom: 20px; 
-  right: 70px;
 }
 
 
@@ -268,15 +281,13 @@
    Responsive Styles (Tablet & Mobile Views)
 ========================================= */
 
-/* Tablet & Smaller Screens */
 @media screen and (max-width: 992px) {
   .footer-top-grid {
     flex-direction: column;
     align-items: center;
-    gap: 40px; /* Sections-க்கு நடுவில் இடைவெளி */
+    gap: 50px; 
   }
 
-  /* எல்லா Columns-ஐயும் 100% மாற்றி Centre செய்கிறோம் */
   .footer-nav-links,
   .footer-middle-section,
   .footer-right-section {
@@ -287,68 +298,57 @@
 
   .location-block, 
   .studio-notes-block {
-    align-items: center; /* Flex items centre */
+    align-items: center; 
   }
 
   .underlined-title,
   .address-text,
   .contact-text {
-    text-align: center; /* Text Centre */
+    text-align: center; 
   }
 
-  /* Social Icons Centre Alignment */
   .social-icons-container {
     right: 0;
     justify-content: center;
   }
-  
-  /* Brand Text Desktop Offset-ஐ சரிசெய்தல் */
-  .footer-bottom-brand h1 {
-    right: 0;
-    bottom: 0;
-    font-size: 8vw; /* Screen size-க்கு ஏற்றவாறு சுருங்கும் */
-  }
 }
 
-/* Mobile Screens */
 @media screen and (max-width: 576px) {
   .footer-content-wrapper {
-    padding: 0 20px; /* Mobile-ல் Padding குறைப்பு */
+    padding: 0 20px; 
   }
 
-  /* Background images Mobile-ல் பெரிதாக தெரியாமல் இருக்க Hide செய்கிறோம் (தேவைப்பட்டால் opacity குறைக்கலாம்) */
   .bg-image-left,
   .bg-image-right {
     display: none; 
   }
-
-  .footer-nav-links a {
-    font-size: 24px; /* Mobile-க்கு ஏற்ற Font size */
+  
+  .studio-notes-block{
+    justify-content:center;
+    align-items:center;
   }
 
-  /* Newsletter Form கீழ்கீழே வர */
+  .footer-nav-links a {
+    font-size: 32px; /* Adjusted for mobile */
+  }
+
   .newsletter-form {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: center !important;
+    justify-content:center;
     width: 100%;
   }
 
   .newsletter-form input {
     width: 100%;
-    max-width: 300px; /* அளவு குறையாமல் இருக்க */
+    max-width: 250px; 
   }
 
   .newsletter-form button {
-    top: 0;
-    margin-top: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 300px;
-  }
-
-  .footer-bottom-brand h1 {
-    font-size: 35px; /* Mobile-ல் சரியாக தெரிய */
-    white-space: normal; /* Screen-ஐ விட்டு வெளியே போகாமல் இருக்க */
-    line-height: 1.2;
-    letter-spacing: 0;
+    max-width: 100px;
   }
 }

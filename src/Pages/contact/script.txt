@@ -1,0 +1,50 @@
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var rowData = [];
+    
+    // Form-la irunthu vara data-va columns-la add panrom
+    rowData.push(new Date()); // Date & Time
+    rowData.push(e.parameter.name);
+    rowData.push(e.parameter.location);
+    rowData.push(e.parameter.phone);
+    rowData.push(e.parameter.email);
+    rowData.push(e.parameter.message);
+    rowData.push(e.parameter.serviceType);
+
+    sheet.appendRow(rowData);
+    
+    return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
+  } catch (error) {
+    return ContentService.createTextOutput("Error").setMimeType(ContentService.MimeType.TEXT);
+  }
+}
+
+
+
+
+
+////////////////// email 
+
+
+
+
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var rowData = [];
+    
+    // 1. Date & Time
+    rowData.push(new Date()); 
+
+    // 2. Email (Footer-la irunthu varum data)
+    rowData.push(e.parameter.email || '');
+
+    // Row-ai Google Sheet-il add panrom
+    sheet.appendRow(rowData);
+    
+    return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
+  } catch (error) {
+    return ContentService.createTextOutput("Error: " + error.toString()).setMimeType(ContentService.MimeType.TEXT);
+  }
+}

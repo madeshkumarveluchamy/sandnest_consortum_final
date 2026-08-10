@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './css/Footer.css'; 
 
@@ -6,11 +6,65 @@ import fbIcon from "../../assets/facebook.png";
 import inIcon from "../../assets/linkedin.png"; 
 import igIcon from "../../assets/instagram.png";
 
-// நீங்க சொன்ன ரெண்டு Background இமேஜஸ்
+// Background Images
 import bgLeft from "../../assets/footer-bg.png"; 
 import bgRight from "../../assets/footer-bg1.png";
 
 const Footer = () => {
+  // ==========================================
+  // Newsletter form state
+  // ==========================================
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  // Link click panna top-ku scroll aaga
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto' 
+    });
+  };
+
+  // Google Sheets-ku email anuppum function
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzLP1NKV2h-55Nd6AN7te8zV_mjjSNJYNi_mG6iwlWl5s42bHRZVsc89RcYksAC5EC4/exec';
+
+    const data = new FormData();
+    data.append('email', email);
+    data.append('formType', 'Newsletter Subscription'); 
+
+    try {
+      await fetch(scriptURL, {
+        method: 'POST',
+        body: data,
+        mode: 'no-cors' 
+      });
+
+      setSubmitMessage('Subscribed successfully!');
+      setEmail(''); 
+      
+    } catch (error) {
+      console.error('Error submitting newsletter:', error);
+      setSubmitMessage('Oops! Error occurred.');
+    } finally {
+      setIsSubmitting(false);
+      
+      setTimeout(() => {
+        setSubmitMessage('');
+      }, 3000);
+    }
+  };
+  // ==========================================
+
   return (
     <footer className="footer-container">
       
@@ -25,12 +79,12 @@ const Footer = () => {
           
           {/* Left Column - Navigation Links */}
           <div className="footer-nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/services">Our Services</Link>
-            <Link to="/studio">Our Studio</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/blog">Blog</Link>
+            <Link to="/" onClick={handleScrollToTop}>Home</Link>
+            <Link to="/structural-design" onClick={handleScrollToTop}>Projects</Link>
+            <Link to="/services" onClick={handleScrollToTop}>Our Services</Link>
+            <Link to="/our-studio" onClick={handleScrollToTop}>Our Studio</Link>
+            <Link to="/contact" onClick={handleScrollToTop}>Contact</Link>
+            <Link to="/blog" onClick={handleScrollToTop}>Blog</Link>
           </div>
 
           {/* Middle Column - Location & Studio Notes */}
@@ -51,16 +105,31 @@ const Footer = () => {
 
             <div className="studio-notes-block">
               <h4 className="underlined-title">Studio Notes :</h4>
-              <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-                <input type="email" placeholder="Enter Your Mail ID......." required />
-                <button type="submit">Submit</button>
+              
+              <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
+                <input 
+                  type="email" 
+                  placeholder="Enter Your Mail ID......." 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required 
+                />
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
+                </button>
               </form>
+              
+              {submitMessage && (
+                <p style={{ color: submitMessage.includes('Error') ? 'red' : 'green', marginTop: '10px', fontSize: '14px', fontWeight: 'bold' }}>
+                  {submitMessage}
+                </p>
+              )}
             </div>
           </div>
 
           {/* Right Column - Studio Updates (Social Icons) */}
           <div className="footer-right-section">
-            <h4 className="underlined-title">Studio Updates :</h4>
+            <h4 className="underlined-titles">Studio Updates :</h4>
             <div className="social-icons-container">
               <a href="#" className="social-icon-box">
                 <img src={igIcon} alt="Instagram" />
@@ -75,12 +144,13 @@ const Footer = () => {
           </div>
 
         </div>
+      </div> 
 
-        {/* Bottom Giant Text */}
-        <div className="footer-bottom-brand">
-          <h1>SANDNEST CONSORTIUM</h1>
-        </div>
+      {/* Bottom Giant Text */}
+      <div className="footer-bottom-brand">
+        <h1>SANDNEST CONSORTIUM</h1>
       </div>
+      
     </footer>
   );
 };

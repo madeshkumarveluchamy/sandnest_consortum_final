@@ -45,7 +45,7 @@
   gap: 1rem;
   padding-bottom: clamp(1.5rem, 1vw, 3rem);
   margin-bottom: clamp(1.5rem, 3vw, 3rem);
-  border-bottom: 1px solid #b5b4af; /* Exact grey line */
+  border-bottom: 1px solid rgba(34, 34, 34, 0.5) ; /* Exact grey line */
 }
 
 /* Row Labels (EMAIL, PHONE, ADDRESS) */
@@ -103,7 +103,7 @@
   max-width: 350px;
   height: 180px; /* Provides a good rectangular view for the map */
   border-radius: 6px;
-  border: 1px solid #c4c3be;
+  border: 1.5px solid #222222;
   filter: grayscale(80%) contrast(1.1); /* Architectural aesthetic */
   transition: filter 0.3s ease;
 }

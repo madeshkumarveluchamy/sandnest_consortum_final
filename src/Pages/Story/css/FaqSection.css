@@ -56,7 +56,7 @@
 
 /* Left Number Tab (Changes color when active) */
 .story-faq-number-box {
-  width: clamp(60px, 8vw, 50px);
+  width: clamp(50px, 8vw, 50px);
   display: flex;
   align-items: center;
   justify-content: center;
