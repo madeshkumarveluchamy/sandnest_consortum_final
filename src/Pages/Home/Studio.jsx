@@ -101,7 +101,6 @@ const Studio = () => {
               &times;
             </button>
             <div className="studio-video-iframe-container">
-              {/* Replace the src with your actual project video link */}
               <iframe 
                 src="https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1" 
                 title="Studio Video" 
@@ -123,15 +122,18 @@ const Studio = () => {
           <div className="studio-hero-left-content animate-fade-in-up">
             <div className="studio-badge-row">
               <img src={studioIcon} alt="Studio Icon" className="studio-badge-icon" />
-              <span className="studio-badge-title">OUR STUDIO</span>
+              {/* stit class added */}
+              <span className="studio-badge-title stit">OUR STUDIO</span>
               <span className="studio-badge-slashes">///</span>
             </div>
             
-            <h1 className="studio-main-heading">
+            {/* tit class added */}
+            <h1 className="studio-main-heading tit">
               We build legacy spaces that bridge the gap between classic elegance and modern innovation
             </h1>
             
-            <p className="studio-main-desc">
+            {/* des class added */}
+            <p className="studio-main-desc des">
               A multidisciplinary practice focused on thoughtful design, sustainable materials, and high-quality execution. From residential builds to large commercial projects, we shape environments with clarity, and purpose.
             </p>
             
@@ -164,32 +166,36 @@ const Studio = () => {
           
           <div className="studio-stats-box animate-scale-up">
             <div className="studio-stat-card">
-              <h3>
+              <h3 className="tit">
                 <SlotCounter value="08" />
                 <span className="stat-suffix">+</span>
               </h3>
-              <p>YEARS OF EXCELLENCE</p>
+              {/* sdes class added */}
+              <p className="sdes">YEARS OF EXCELLENCE</p>
             </div>
             <div className="studio-stat-card">
-              <h3>
+              <h3 className="tit">
                 <SlotCounter value="125" />
                 <span className="stat-suffix">+</span>
               </h3>
-              <p>COMPLETED PROJECTS</p>
+              {/* sdes class added */}
+              <p className="sdes">COMPLETED PROJECTS</p>
             </div>
             <div className="studio-stat-card">
-              <h3>
+              <h3 className="tit">
                 <SlotCounter value="1.5" />
                 <span className="stat-suffix">M+</span>
               </h3>
-              <p>SQ. FT. DESIGNED</p>
+              {/* sdes class added */}
+              <p className="sdes">SQ. FT. DESIGNED</p>
             </div>
             <div className="studio-stat-card">
-              <h3>
+              <h3 className="tit">
                 <SlotCounter value="07" />
                 <span className="stat-suffix">+</span>
               </h3>
-              <p>DESIGN AWARDS</p>
+              {/* sdes class added */}
+              <p className="sdes">DESIGN AWARDS</p>
             </div>
           </div>
 
@@ -212,11 +218,13 @@ const Studio = () => {
             <div className="studio-arch-center-box animate-fade-in-up">
               <div className="studio-arch-subtitle-row">
                 <img src={leafLeft} alt="leaf" className="studio-leaf-ico" />
-                <span>EXCELLENCE IN ARCHITECTURE</span>
+                {/* stit class added */}
+                <span className="stit">EXCELLENCE IN ARCHITECTURE</span>
                 <img src={leafRight} alt="leaf" className="studio-leaf-ico" />
               </div>
               
-              <h2 className="studio-arch-heading">
+              {/* tit class added */}
+              <h2 className="studio-arch-heading tit">
                 Architectural excellence crafted through visionary design, structural precision, and unwavering attention to detail.
               </h2>
               
@@ -254,24 +262,30 @@ const Studio = () => {
             <div className="studio-feature-item">
               <div className="studio-feature-bar"></div>
               <div className="studio-feature-content">
-                <h4>LONG-TERM VISION</h4>
-                <p>Our architects transform complex concepts into spaces that stand the test of time.</p>
+                {/* stit class added */}
+                <h4 className="stit">LONG-TERM VISION</h4>
+                {/* des class added */}
+                <p className="des">Our architects transform complex concepts into spaces that stand the test of time.</p>
               </div>
             </div>
 
             <div className="studio-feature-item">
               <div className="studio-feature-bar"></div>
               <div className="studio-feature-content">
-                <h4>STRUCTURAL DETAIL</h4>
-                <p>Every element is engineered for perfection, harmonizing form, material, and spatial flow.</p>
+                {/* stit class added */}
+                <h4 className="stit">STRUCTURAL DETAIL</h4>
+                {/* des class added */}
+                <p className="des">Every element is engineered for perfection, harmonizing form, material, and spatial flow.</p>
               </div>
             </div>
 
             <div className="studio-feature-item">
               <div className="studio-feature-bar"></div>
               <div className="studio-feature-content">
-                <h4>IMPACT WE CREATE</h4>
-                <p>We build environments that are not only aesthetically striking but also functionally transformative.</p>
+                {/* stit class added */}
+                <h4 className="stit">IMPACT WE CREATE</h4>
+                {/* des class added */}
+                <p className="des">We build environments that are not only aesthetically striking but also functionally transformative.</p>
               </div>
             </div>
           </div>

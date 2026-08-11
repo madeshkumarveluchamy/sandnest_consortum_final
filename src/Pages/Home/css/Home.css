@@ -76,55 +76,78 @@
   line-height: 1.12;
   letter-spacing: -0.02em;
   position: absolute;
-  right: 160px;
-  top: 40px;
+  right: 640px;
+  bottom: 30px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* =========================================
-   RESPONSIVE MEDIA QUERIES
-   ========================================= */
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES (Laptop, Tablet, Mobile)
+   ========================================== */
 
-/* Tablet View (Screens smaller than 1024px) */
-@media (max-width: 1024px) {
-  .hero-content-container {
-    padding: 0 3rem 4rem 3rem;
-  }
-  
+/* 1. Laptop / Medium Desktop Views (Max-width: 1200px) */
+@media (max-width: 1200px) {
   .hero-title {
-    right: 50px; /* Tablet-க்கு மட்டும் space-ஐ குறைத்துள்ளோம் */
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 0;
   }
 }
 
-/* Mobile View (Screens smaller than 768px) */
+/* 2. Tablet View (Max-width: 992px) */
+@media (max-width: 992px) {
+  .hero-content-container {
+    padding: 0 2.5rem 3.5rem 2.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+  }
+}
+
+/* 3. Mobile View (Max-width: 768px) - Full Centered Alignment */
 @media (max-width: 768px) {
   .home-hero-section {
-    align-items: center; /* Mobile-ல் vertical-ஆக Center செய்ய */
-    justify-content: center; /* Mobile-ல் horizontal-ஆக Center செய்ய */
+    align-items: center;       /* Vertically Center Content */
+    justify-content: center;   /* Horizontally Center Content */
   }
 
   .hero-content-container {
     padding: 0 1.5rem;
+    text-align: center;        /* Text Alignment to Center */
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+  }
+
+  .hero-text-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .hero-title {
-    position: relative; /* Absolute-ஐ அகற்றி Center-ல் கொண்டுவர */
+    position: relative;
     right: auto;
-    top: auto;
-    text-align: center;
-    width: 100%;
-    margin-top: 20px;
+    bottom: auto;
+    text-align: center;        /* Title Center Align */
+    font-size: clamp(2rem, 6.5vw, 3rem);
+    margin: 0 auto;
   }
-  
-  /* Mobile-ல் 50% split (Grayscale) நன்றாக தெரிய வேண்டும் என்றால் இதை பயன்படுத்தவும்.
-     இல்லை என்றால் இதை நீக்கிவிடலாம். */
-  .hero-bg-grayscale {
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); /* Top & Bottom split */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+/* 4. Small Screen Mobile (Max-width: 480px) */
+@media (max-width: 480px) {
+  .home-hero-section {
+    min-height: 450px;
+  }
+
+  .hero-content-container {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
+    line-height: 1.25;
   }
 }

@@ -140,19 +140,22 @@ const CareSpaces = () => {
         <div className="cs-header-row">
           <div className="cs-header-left">
             <img src={tagIcon} alt="tag" className="cs-tag-icon" />
-            <span className="cs-subtitle-text">OUR SERVICES</span>
+            {/* stit class added for badge title */}
+            <span className="cs-subtitle-text stit">OUR SERVICES</span>
             <span className="cs-slash-text">///</span>
           </div>
           
           <div className="cs-header-center">
-            <h2 className="cs-main-heading">
+            {/* tit class added for main heading */}
+            <h2 className="cs-main-heading tit">
               Personalized Care<br />
               Inspired Spaces
             </h2>
           </div>
           
           <div className="cs-header-right">
-            <p className="cs-header-desc">
+            {/* des class added for header description */}
+            <p className="cs-header-desc des">
               Creative solutions tailored for every style and every space.
             </p>
           </div>
@@ -166,7 +169,8 @@ const CareSpaces = () => {
               ref={addToRevealRefs} 
             >
               <div className="cs-number-column">
-                <span className="cs-number-text">{service.num}</span>
+                {/* sdes class added for numbering (1), (2) */}
+                <span className="cs-number-text sdes">{service.num}</span>
                 {index !== servicesData.length - 1 && (
                   <div className="cs-vertical-line"></div>
                 )}
@@ -174,11 +178,16 @@ const CareSpaces = () => {
 
               <div className={`cs-content-row ${service.isReversed ? 'cs-row-reverse' : ''}`}>
                 <div className="cs-text-block">
-                  <h3 className="cs-card-title">{service.title}</h3>
-                  <p className="cs-card-desc">{service.desc}</p>
+                  {/* stit class added for service title */}
+                  <h3 className="cs-card-title stit">{service.title}</h3>
+                  {/* des class added for service description */}
+                  <p className="cs-card-desc des">{service.desc}</p>
+                  
                   <div className="cs-stat-container">
-                    <h4 className="cs-stat-value">{service.statValue}</h4>
-                    <span className="cs-stat-label">{service.statLabel}</span>
+                    {/* tit class added for large statistic number */}
+                    <h4 className="cs-stat-value tit">{service.statValue}</h4>
+                    {/* sdes class added for small statistic label */}
+                    <span className="cs-stat-label sdes">{service.statLabel}</span>
                   </div>
                 </div>
 

@@ -64,8 +64,8 @@ const ExperienceSection = () => {
       <div className="edr-card-footer">
         <img src={p.img} alt={p.title} className="edr-footer-thumb" />
         <div className="edr-footer-text">
-          <h4>{p.title}</h4>
-          <p>{p.location}</p>
+          <h4 className="stit">{p.title}</h4>
+          <p className="sdes">{p.location}</p>
         </div>
       </div>
     </div>
@@ -77,13 +77,13 @@ const ExperienceSection = () => {
         <div className="edr-header-left">
           <div className="edr-badge">
             <img src={studioIcon} alt="Studio Icon" className="edr-left-icon" />
-            <span className="edr-badge-text">CONCEPT → REALITY</span>
+            <span className="edr-badge-text sdes">CONCEPT → REALITY</span>
             <span className="edr-badge-slashes">///</span>
           </div>
         </div>
 
         <div className="edr-header-center">
-          <h2 className="edr-title">
+          <h2 className="edr-title tit">
             Design Lived,<br />
             Spaces Perfected
           </h2>
@@ -91,7 +91,7 @@ const ExperienceSection = () => {
 
         <div className="edr-header-right">
           <div className="edr-right-wrapper">
-            <p className="edr-subtitle">
+            <p className="edr-subtitle stit">
               A visual library of interiors brought to life from blueprint to beauty.
             </p>
           </div>
@@ -132,8 +132,8 @@ const ExperienceSection = () => {
             />
 
             <div className="edr-modal-caption">
-              <h3>{edrSelectedVideo.title}</h3>
-              <p>{edrSelectedVideo.location}</p>
+              <h3 className="stit">{edrSelectedVideo.title}</h3>
+              <p className="sdes">{edrSelectedVideo.location}</p>
             </div>
           </div>
         </div>

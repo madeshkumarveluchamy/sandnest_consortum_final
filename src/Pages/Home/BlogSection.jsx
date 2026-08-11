@@ -39,13 +39,13 @@ const BlogSection = () => {
         {/* Left Side Tag */}
         <div className="blog-header-left">
           <img src={studioIcon} alt="Studio Icon" className="studio-icon" />
-          <span className="blog-tag-title">ARCHITECTURAL INSIGHTS</span>
+          <span className="blog-tag-title sdes">ARCHITECTURAL INSIGHTS</span>
           <span className="blog-slashes">///</span>
         </div>
 
         {/* Center Main Title */}
         <div className="blog-header-center">
-          <h2>
+          <h2 className="tit">
             Design Lived,<br />
             Spaces Perfected
           </h2>
@@ -53,7 +53,7 @@ const BlogSection = () => {
 
         {/* Right Description */}
         <div className="blog-header-right">
-          <p>
+          <p className="stit">
             A visual library of interiors brought to life from blueprint to beauty.
           </p>
         </div>
@@ -65,13 +65,13 @@ const BlogSection = () => {
           <div key={post.id} className="blog-card">
             <div className="img-holder">
               <img src={post.img} alt={post.title} />
-              <span className="cat-pill">Architecture</span>
+              <span className="cat-pill sdes">Architecture</span>
             </div>
             <div className="blog-card-content">
-              <div className="meta-info">
+              <div className="meta-info sdes">
                 {post.date} &bull; {post.location}
               </div>
-              <h3>{post.title}</h3>
+              <h3 className="stit">{post.title}</h3>
             </div>
           </div>
         ))}

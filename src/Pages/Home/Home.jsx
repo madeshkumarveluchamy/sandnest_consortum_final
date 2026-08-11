@@ -25,10 +25,13 @@ const Home = () => {
       {/* Hero Content Area */}
       <div className="hero-content-container">
         <div className="hero-text-wrapper">
-          <h1 className="hero-title">
+          
+          {/* Title: .tit class added here */}
+          <h1 className="hero-title tit">
             Forming Spaces,<br />
             Defining Lifestyles
           </h1>
+         
         </div>
       </div>
     </section>

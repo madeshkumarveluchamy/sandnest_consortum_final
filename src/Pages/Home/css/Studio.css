@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
-/* General Unique Page Wrapper */
+/* ==========================================
+   GENERAL & UNIQUE PAGE WRAPPER
+   ========================================== */
 .studio-main-wrapper {
-  background-color: #eaeaea;
+  background-color: #D1D1CD;
   font-family: 'Inter', 'Segoe UI', sans-serif;
   color: #1a1a1a;
   overflow-x: hidden;
@@ -378,11 +380,12 @@
 
 .studio-stats-box {
   background-color: #ffffff;
-  width: 90%;
+  width: 75%;
   max-width: 1000px;
   border-radius: 5px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* space-around-க்கு பதிலா center மாத்தியாச்சு */
+  gap: 50px; 
   align-items: center;
   padding: 35px 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
@@ -399,7 +402,7 @@
 
 .studio-stat-card h3 {
   font-size: 60px;
-  font-weight: 500;
+  font-weight: 550;
   color: #996533;
   margin: 0 0 5px 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -454,14 +457,19 @@
 /* ==========================================
    SECTION 3: EXCELLENCE IN ARCHITECTURE
    ========================================== */
+
 .studio-arch-section {
-  padding: 20px 0 100px 0;
+  background-color: #f1f1f1; 
+  width: 100%;
+  padding: 20px 0 30px 0;
+  margin-bottom: 100px; 
+  
 }
 
 .studio-arch-container {
   max-width: 1400px;
   margin: 0 auto;
-  width: 95%;
+  width: 90%;
 }
 
 .studio-arch-top-grid {
@@ -558,13 +566,12 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Swap Animation on Hover */
 .studio-contact-pill-btn:hover .studio-contact-text {
-  transform: translateX(48px); /* Move text to right */
+  transform: translateX(48px); 
 }
 
 .studio-contact-pill-btn:hover .studio-contact-circle-icon {
-  transform: translateX(-88px); /* Move arrow to left */
+  transform: translateX(-88px); 
 }
 
 .studio-contact-circle-icon svg {
@@ -593,7 +600,6 @@
   transform: translateX(3px);
 }
 
-/* Play button pulse wrapper */
 .studio-play-icon-wrapper {
   position: relative;
   display: flex;
@@ -604,7 +610,6 @@
   border-radius: 50%;
 }
 
-/* Pulse Ripple Element */
 .studio-play-icon-wrapper::before {
   content: '';
   position: absolute;
@@ -619,7 +624,6 @@
   opacity: 0;
 }
 
-/* Trigger ripple on hover */
 .studio-video-link-btn:hover .studio-play-icon-wrapper::before {
   animation: playVideoRipple 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
@@ -719,8 +723,8 @@
   justify-content: space-between; 
   align-items: flex-start;
   gap: 40px;                        
-  max-width: 920px;              
-  margin: 70px auto 0 auto;       
+  max-width: 920px;               
+  margin: 70px auto 0 auto;        
 }
 
 .studio-feature-item {
@@ -764,6 +768,8 @@
 /* ==========================================
    RESPONSIVE MEDIA QUERIES
    ========================================== */
+
+/* Laptops & Smaller Desktops */
 @media (max-width: 1280px) {
   .studio-hero-left-content {
     margin-left: 40px;
@@ -777,6 +783,7 @@
   }
 }
 
+/* Tablets & iPads */
 @media (max-width: 1024px) {
   .studio-hero-container {
     flex-direction: column;
@@ -790,15 +797,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Force center */
   }
 
   .studio-main-desc {
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .studio-hero-images-wrapper {
     justify-content: center;
     width: 100%;
+    top: 0;
+    right: 0;
   }
   
   .studio-img-house-unique, 
@@ -826,6 +839,7 @@
   }
 }
 
+/* Mobile Phones (Strict Centering for all elements) */
 @media (max-width: 767px) {
   .studio-hero-section {
     padding: 50px 15px;
@@ -833,40 +847,48 @@
 
   .studio-hero-left-content {
     margin-left: 0;
+    margin-right: 0;
     margin-bottom: 30px;
     align-items: center;
     text-align: center;
+    width: 100%;
   }
 
   .studio-main-heading {
     font-size: 28px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .studio-main-desc {
     font-size: 14px;
     text-align: center;
     margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .studio-badge-row {
     justify-content: center;
+    width: 100%;
   }
 
   .studio-hero-images-wrapper {
-    flex-direction: row;
+    flex-direction: column; /* Stack images on small mobile if needed, or keep row if preferred */
+    align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
   }
 
   .studio-img-house-unique {
-    width: 45%;
+    width: 80%; /* Adjusted for better mobile fit */
     height: auto;
     right: 0;
   }
 
   .studio-img-interior-unique {
-    width: 50%;
+    width: 90%; /* Adjusted for better mobile fit */
     height: auto;
     right: 0;
   }
@@ -877,8 +899,10 @@
   
   .studio-stats-box {
     flex-direction: column;
+    align-items: center;
     gap: 30px;
     padding: 30px 20px;
+    margin: 0 auto;
   }
 
   .studio-stats-bg {
@@ -887,7 +911,20 @@
   }
 
   .studio-arch-section {
-    padding: 20px 0 60px 0;
+    padding: 20px 10px 60px 10px;
+  }
+
+  .studio-arch-container {
+    padding: 40px 15px;
+    border-radius: 16px;
+  }
+  
+  .studio-arch-center-box {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .studio-arch-heading {
@@ -897,16 +934,23 @@
 
   .studio-arch-btn-group {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     gap: 20px;
   }
 
   .studio-arch-top-grid {
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .studio-arch-images-group {
     width: 160px;
     height: 160px;
+    margin: 0 auto;
   }
 
   .studio-arch-tilted-img {
@@ -922,15 +966,19 @@
   .studio-features-grid {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 40px;
     margin-top: 40px;
+    width: 100%;
   }
 
   .studio-feature-item {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     gap: 15px;
+    width: 100%;
   }
 
   .studio-feature-bar {
@@ -944,11 +992,14 @@
   .studio-feature-content {
     align-items: center;
     text-align: center;
+    width: 100%;
   }
 
   .studio-feature-content h4, 
   .studio-feature-content p {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .studio-video-modal-content {
@@ -958,5 +1009,21 @@
   .studio-video-close-btn {
     top: -35px;
     right: 5px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .studio-main-heading {
+    font-size: 24px;
+  }
+  
+  .studio-arch-heading {
+    font-size: 22px;
+  }
+  
+  .studio-img-house-unique,
+  .studio-img-interior-unique {
+    width: 100%;
   }
 }
