@@ -143,7 +143,7 @@ const ArchitecturalDesign = () => {
                   className={`journey-btn ${isAnimating ? 'is-animating' : ''}`}
                   onClick={(e) => handleCtaClick(e, project.path)}
                 >
-                  <span className="btn-text plus-font">Start Your<br/>Journey</span>
+                  <span className="btn-text plus-font">Start Your Journey</span>
                   <div className="btn-toggle-capsule ">
                     <span className="toggle-dot"></span>
                     <div className="toggle-arrow-circle">
