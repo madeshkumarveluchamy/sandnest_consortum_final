@@ -6,7 +6,7 @@ import heroBgImage from '../../assets/luxury_villa_color.png';
 
 const Home = () => {
   return (
-    <section className="home-hero-section">
+    <section className="home-hero-section dark-section">
       {/* Base Layer: Full Color Background */}
       <div 
         className="hero-bg hero-bg-color" 

@@ -231,6 +231,7 @@
     height: 33px;
     border-radius: 50%;
     border: 1px solid #262424;
+    background-color:#ffffff;
     display: flex;
     align-items: center;
     justify-content: center;

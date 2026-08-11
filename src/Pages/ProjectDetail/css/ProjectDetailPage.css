@@ -32,7 +32,7 @@
 .project-detail-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #f6f6f6;
+  background-color: #dad9d4;
   padding: 130px 0 0 0;
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
@@ -195,13 +195,11 @@
    FIXED METRICS BAR ALIGNMENT 
    ==================================================== */
 .property-metrics-bar {
-  background-color: #f1f3f5;
+
   padding: 30px 6%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
   margin-bottom: 60px;
 }
 

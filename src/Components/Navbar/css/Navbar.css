@@ -31,6 +31,10 @@ body.menu-open {
   background: transparent;
 }
 
+body.menu-open .navbar {
+  width: calc(100% - var(--scrollbar-width, 0px));
+}
+
 .navbar-logo img {
   height: 68px;
   width: 148px;
@@ -65,6 +69,7 @@ body.menu-open {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
+  left:20px;
   z-index: 1200;
 }
 
@@ -398,7 +403,7 @@ body.menu-open {
    RESPONSIVE DESIGN (MEDIA QUERIES)
 ========================================= */
 
-@media (max-width: 1024px) {
+@media (max-width: 1000px) {
   .overlay-content-card {
     width: 95vw;
     margin-top: 120px;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // <-- useLocation சேர்க்கப்பட்டுள்ளது
 import './css/Navbar.css';
 
 import arrowIcon from '../../assets/arrows3.png';
@@ -23,11 +23,12 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [greeting, setGreeting] = useState('GOOD MORNING');
   
-  // Theme state: Background dark-a irukka nu track panna
+  // Theme state
   const [isDarkSection, setIsDarkSection] = useState(false); 
-
-  // Scroll state: Page scroll aagi irukka illaya nu track panna
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // <-- Current route-ஐ கண்டுபிடிக்க useLocation பயன்படுகிறது -->
+  const location = useLocation(); 
 
   // Dynamic Greeting based on time
   useEffect(() => {
@@ -37,7 +38,6 @@ const Navbar = () => {
     else setGreeting('GOOD EVENING');
   }, []);
 
-  // Scroll aagum pothu section color and scroll position-a check panra logic
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -62,15 +62,40 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    let timeoutId;
+
+    if (isMenuOpen) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`; 
+      document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`); 
+      document.body.classList.add('menu-open'); 
+    } else {
+      timeoutId = setTimeout(() => {
+        document.body.style.paddingRight = '0px'; 
+        document.documentElement.style.setProperty('--scrollbar-width', '0px'); 
+        document.body.classList.remove('menu-open'); 
+      }, 500); 
+    }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto' 
+    });
   };
 
-  // Button state for 3D Cube Animation
   let btnState = 'experience';
   if (isMenuOpen) {
     btnState = 'close';
@@ -80,10 +105,8 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ===== Main Header Navbar ===== */}
       <nav className={`navbar ${isMenuOpen ? 'nav-open' : ''}`}>
         
-        {/* Left Logo - Hides on scroll with 3D Fold Up Effect */}
         <div 
           className="navbar-logo"
           style={{ 
@@ -95,14 +118,14 @@ const Navbar = () => {
           }}
         >
           <Link to="/" onClick={closeMenu}>
+            {/* <-- Home page (/) ஆக இருந்தால் White logo, இல்லை என்றால் Black logo --> */}
             <img 
-              src={isDarkSection ? logoWhite : logoBlack} 
+              src={location.pathname === '/' ? logoWhite : logoBlack } 
               alt="Sandnest Consortium" 
             />
           </Link>
         </div>
 
-        {/* Center Greeting Text - Hides on scroll with 3D Fold Up Effect */}
         <div 
           className={`navbar-greeting fw-bolder ${isDarkSection ? 'text-white' : 'text-black'}`} 
           style={{ 
@@ -116,10 +139,8 @@ const Navbar = () => {
           {greeting} : BEGIN YOUR JOURNEY
         </div>
 
-        {/* Dynamic Menu Button */}
         <button className={`navbar-menu-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           
-          {/* 3D Cube Animated Text Wrapper */}
           <span className="menu-text">
             <span className={`menu-text-item ${btnState === 'experience' ? 'active' : 'hidden-up'}`}>
               EXPERIENCE
@@ -142,13 +163,10 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* ===== Full Screen Overlay Menu (Always in DOM for animation) ===== */}
       <div className={`menu-overlay ${isMenuOpen ? 'show' : ''}`} onClick={closeMenu}>
         
-        {/* Main Content Card */}
         <div className="overlay-content-card" onClick={(e) => e.stopPropagation()}>
           
-          {/* Header: Logo and Contact Icons */}
           <div className="overlay-header">
             <div className="overlay-brand-logo">
               <img src={logoBlack} alt="Sandnest Consortium Menu Logo" />
@@ -167,7 +185,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Middle Section: Image and Links Grid */}
           <div className="overlay-grid">
             
             <div className="overlay-image-col">
@@ -180,7 +197,7 @@ const Navbar = () => {
               </div>
               <ul className="overlay-links">
                 <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-                <li><Link to="/story" onClick={closeMenu}>Our Studio</Link></li>
+                <li><Link to="/our-studio" onClick={closeMenu}>Our Studio</Link></li>
                 <li><Link to="/services" onClick={closeMenu}>Our Services</Link></li>
                 <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
                 <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
@@ -212,7 +229,6 @@ const Navbar = () => {
 
           </div>
 
-          {/* Bottom Section: Social Media Cards */}
           <div className="overlay-social-row">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-card">
               <span className="social-text">INSTAGRAM</span>

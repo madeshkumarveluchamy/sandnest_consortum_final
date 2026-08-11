@@ -3,6 +3,83 @@
   min-height: 100vh;
 }
 
+
+
+/* =========================================
+   CUSTOM BRANDED ALERT POPUP STYLES
+========================================= */
+.custom-alert-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+.custom-alert-box {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: scaleUpAlert 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-alert-icon {
+  width: 50px;
+  height: 50px;
+  background: #9c6f44; /* Ungal theme color (or #28a745) */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 15px;
+}
+
+.custom-alert-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-alert-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Chrome autofill background and text color fix */
+.custom-input:-webkit-autofill,
+.custom-input:-webkit-autofill:hover, 
+.custom-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: #111 !important; /* Text color */
+  transition: background-color 5000s ease-in-out 0s;
+} 
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUpAlert {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 .bg-overlay {
   top: 0;
   left: 0;
@@ -49,31 +126,52 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-left: 1px solid rgba(255, 255, 255, 0.3);
-  padding-top:120px !important;
-  padding-bottom:120px !important;
+  padding-top:12vh !important;
+  padding-bottom:12vh !important;
+  
 }
 
 /* Custom Form Inputs */
 .custom-input {
   background: transparent;
   border: none;
-  border-bottom: 1px solid #777; /* Lighter border */
-  padding: 0 0 8px 0;
+  border-bottom: 1px solid #777;
+  padding: 10px 0 8px 0; /* Mela label poga space thevai */
   color: #111;
+  font-weight:400 !important;
   font-size: clamp(0.8rem, 1vw, 0.95rem);
   transition: border-color 0.3s ease;
 }
-
 .custom-input::placeholder {
-  color: #222;
-  font-weight: 700;
+  color: transparent;
 }
-
 .custom-input:focus {
   outline: none;
   border-bottom-color: #000;
   border-bottom-width: 2px;
 }
+
+
+
+.floating-label {
+  position: absolute;
+  left: 0;
+  top: 10px; /* Input text-kku nera vekka */
+  color: #222;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  pointer-events: none; /* Label mela click panna input-kku poga */
+  transition: 0.25s ease all;
+}
+
+/* Input focus aagum pothu allathu text irukkum pothu label mela pogum */
+.custom-input:focus ~ .floating-label,
+.custom-input:not(:placeholder-shown) ~ .floating-label {
+  top: -12px;
+  font-size: 0.9rem;
+  color: #222; /* Unga theme color (mela pogum pothu marum) */
+}
+
 
 /* Service Type Buttons */
 .service-title {
@@ -178,6 +276,8 @@
   .service-title {
     text-align: center;
   }
+
+
   
   /* Service buttons wrapper-ai center pandrathu */
   .glass-form-container .d-flex.flex-wrap {

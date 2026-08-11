@@ -77,7 +77,7 @@
 }
 
 .choose-us-feature-item {
-  padding: 1.2rem 0;
+  padding: 0.95rem 0;
   border-bottom: 1px solid #b5b4af; 
 }
 
@@ -188,7 +188,7 @@
    ========================================= */
 @media (max-width: 767.98px) {
   .choose-us-wrapper {
-    padding: 2.5rem 1.5rem;
+    padding: 2.5rem 1rem;
   }
   .choose-us-content-col {
     padding-right: calc(var(--bs-gutter-x) * 0.5);
