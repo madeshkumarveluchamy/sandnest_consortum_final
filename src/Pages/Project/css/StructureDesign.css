@@ -203,18 +203,77 @@
 }
 
 /* Mobile */
+/* Mobile */
 @media (max-width: 767px) {
     .featured-section { padding: 32px 16px; }
-    .work-img-bg { background-attachment: scroll; }
-    .structural-header { padding-top: 80px; margin-bottom: 30px; border-top:none; font-size:10px !important; display:flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center; }
+    
+    .structural-header { 
+        padding-top: 80px; 
+        margin-bottom: 30px; 
+        border-top:none; 
+        font-size:10px !important; 
+        display:flex; 
+        flex-direction: column; 
+        gap: 10px; 
+        justify-content: center; 
+        align-items: center; 
+    }
+    
     .work-card-wrapper { height: 350px; } 
 
-    .align-left, .align-right {
-        left: 12px; right: 12px; bottom: 12px; padding: 16px;
-        flex-direction: column; align-items: flex-start; gap: 20px;
+    /* --- PERFORMANCE FIXES FOR MOBILE --- */
+    
+    .work-card {
+        /* Mobile-la heavy clip-path venam, athanala lag varuthu */
+        clip-path: none !important; 
+        border-radius: 12px;
+        overflow: hidden;
+        /* Smooth transform effect for mobile */
+        transform: translateY(20px);
+        transition: transform 0.6s ease-out, opacity 0.6s ease-out;
     }
+
+    .work-card-wrapper.animate-in .work-card {
+        transform: translateY(0);
+        clip-path: none !important;
+    }
+
+    .work-img-bg {
+        /* Fixed position-a absolute-ku mathi, phone-ku thaguntha mari set pandrom */
+        position: absolute !important; 
+        width: 100% !important;
+        height: 100% !important;
+        background-attachment: scroll !important;
+        transform: scale(1.05); /* Slight zoom effect instead of clip-path */
+        transition: transform 0.8s ease;
+    }
+
+    .work-card-wrapper.animate-in .work-img-bg {
+        transform: scale(1);
+    }
+    
+    /* ----------------------------------- */
+
+    .align-left, .align-right {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: auto;
+    }
+    
     .journey-btn { align-self: flex-end; }
 }
+@media(max-width:545px){
+    .journey-btn{
+        max-width:150px !important;
+    }
+
+}
+
 
 @media (max-width: 400px) {
     .work-card-wrapper { height: 300px; } 
@@ -235,6 +294,10 @@
         align-items: center;
         width: 100%;
         gap: 5px; 
+    }
+
+    .journey-btn{
+        max-width:130px !important;
     }
 
     .tags {
@@ -288,7 +351,7 @@
 
 .journey-btn {
     background-color: #ffffff; border: none; border-radius: 50px; 
-    padding: 6px 6px 6px 16px; font-size: 11px; font-weight: 600; 
+    padding: 6px 6px 6px 16px; font-size: 11px; font-weight: 600;  
     font-family: 'Plus Jakarta Sans', sans-serif; color: #1c1c1c;
     display: inline-flex; align-items: center; justify-content: space-between;
     gap: 16px; cursor: pointer; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); 
