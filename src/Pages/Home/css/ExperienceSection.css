@@ -1,25 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
-/* =========================================
-   Base Layout
-   ========================================= */
-.edr-section {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  background: #D1D1CD;
-  overflow-x: hidden;
-}
 
 /* =========================================
    Header 
    ========================================= */
+   .edr-section{
+background-color: #d1d1cd;
+   }
+   
 .edr-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around !important;
   align-items: flex-start;
   margin-bottom: 60px;
+  max-width: 1200px;
 }
 
 .edr-header-left, 
@@ -38,6 +33,7 @@
 .edr-badge {
   display: flex;
   align-items: center;
+  
   gap: 12px;
 }
 
@@ -108,7 +104,7 @@
   overflow: hidden;
   gap: 24px;
   width: 100%;
-  padding-bottom: 20px; 
+  padding-bottom: 30px; 
 }
 
 .edr-marquee-group {
@@ -118,8 +114,9 @@
   animation: scrollMarquee 20s linear infinite;
 }
 
-/* Hover-ல் வீடியோவை கிளிக் செய்ய வசதியாக scrolling நிற்கும் */
-.edr-marquee-container:hover .edr-marquee-group {
+/* Hover மற்றும் வீடியோ Play ஆகும்போது ஸ்க்ரோலிங் நிற்க */
+.edr-marquee-container:hover .edr-marquee-group,
+.edr-marquee-container.paused .edr-marquee-group {
   animation-play-state: paused;
 }
 
@@ -161,7 +158,9 @@
   z-index: 0;
 }
 
-/* Video Play Button */
+/* =========================================
+   Play Button Animation
+   ========================================= */
 .edr-video-overlay {
   position: absolute;
   inset: 0;
@@ -169,6 +168,18 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+}
+
+@keyframes pulsePlayBtn {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 
 .edr-play-button {
@@ -184,11 +195,14 @@
   backdrop-filter: blur(8px);
   color: #fff;
   transition: transform 0.3s ease, background 0.3s ease;
+  /* Pulse Animation */
+  animation: pulsePlayBtn 2s infinite;
 }
 
 .edr-play-button:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   background: rgba(255, 255, 255, 0.4);
+  animation: none; /* Hover செய்யும்போது Pulse நிற்பதற்கு */
 }
 
 .edr-play-icon {
@@ -267,7 +281,6 @@
 .edr-modal-video {
   width: 100%;
   display: block;
-  /* HD (16:9) Ratio-வில் கச்சிதமாக பொருந்தும் */
   aspect-ratio: 16 / 9;
   background: #000;
   object-fit: cover;

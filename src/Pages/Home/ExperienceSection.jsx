@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './css/ExperienceSection.css';
 
-// Unga image imports
+// உங்களின் Image Imports
 import kvnImg from '../../assets/kvn-residence.png';
 import suriyaImg from '../../assets/suriya-villa.png';
 import vallgetsImg from '../../assets/vallgets-residence.png';
@@ -14,7 +14,6 @@ const projects = [
     title: 'KVN Residence',
     location: 'Bangalore',
     img: kvnImg,
-    // Google's Reliable Sample HD Video 1
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
   },
   {
@@ -22,7 +21,6 @@ const projects = [
     title: 'Suriya Villa',
     location: 'Coimbatore',
     img: suriyaImg,
-    // Google's Reliable Sample HD Video 2
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
   },
   {
@@ -30,7 +28,6 @@ const projects = [
     title: 'Vallgets Residence',
     location: 'Coimbatore',
     img: vallgetsImg,
-    // Google's Reliable Sample HD Video 3
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
   },
   {
@@ -38,7 +35,6 @@ const projects = [
     title: 'Green Apple Residence',
     location: 'Coimbatore',
     img: greenAppleImg,
-    // Google's Reliable Sample HD Video 4
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
   },
 ];
@@ -46,7 +42,6 @@ const projects = [
 const ExperienceSection = () => {
   const [edrSelectedVideo, setEdrSelectedVideo] = useState(null);
 
-  // Card render function
   const renderCard = (p, uniqueKeySuffix = '') => (
     <div key={`${p.id}${uniqueKeySuffix}`} className="edr-project-card" style={{ backgroundImage: `url(${p.img})` }}>
       <div className="edr-video-overlay">
@@ -73,7 +68,7 @@ const ExperienceSection = () => {
 
   return (
     <section className="edr-section">
-      <header className="edr-header">
+      <header className="edr-header container">
         <div className="edr-header-left">
           <div className="edr-badge">
             <img src={studioIcon} alt="Studio Icon" className="edr-left-icon" />
@@ -98,7 +93,8 @@ const ExperienceSection = () => {
         </div>
       </header>
 
-      <div className="edr-marquee-container">
+      {/* Video Modal Open ஆகியிருக்கும் போது ஸ்க்ரோல் நிற்பதற்கு 'paused' class வேலை செய்யும் */}
+      <div className={`edr-marquee-container ${edrSelectedVideo ? 'paused' : ''}`}>
         <div className="edr-marquee-group">
           {projects.map((p) => renderCard(p, '-1'))}
         </div>
@@ -126,7 +122,7 @@ const ExperienceSection = () => {
               src={edrSelectedVideo.video}
               controls
               autoPlay
-              muted
+              muted={false} /* வீடியோவுக்கு sound வேண்டுமென்றால் false வைக்கவும் */
               loop
               playsInline
             />

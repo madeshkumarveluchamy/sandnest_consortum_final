@@ -142,24 +142,24 @@
 .studio-btn {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
-  border-radius: 50px; 
-  padding: 6px 6px 6px 20px; 
-  font-size: 14px; 
-  font-weight: 500; 
+  border-radius: 50px;
+  padding: 6px 6px 6px 20px;
+  font-size: 14px;
+  font-weight: 500;
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #1c1c1c;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px; 
+  gap: 16px;
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); 
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   animation: buttonPulse 2s infinite;
 }
 
 .studio-btn:hover {
-  animation: none; 
+  animation: none;
   transform: translateY(-2px);
   border-color: #1a1a1a;
 }
@@ -171,19 +171,19 @@
 
 .studio-btn-toggle-capsule {
   position: relative;
-  background-color: #181818; 
+  background-color: #181818;
   border: 1px solid #000000;
   border-radius: 40px;
-  padding: 3px 3px 3px 6px; 
+  padding: 3px 3px 3px 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 58px; 
-  height: 26px; 
+  width: 58px;
+  height: 26px;
   overflow: hidden;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
-  transform: translateZ(0); 
+  transform: translateZ(0);
 }
 
 .studio-btn-toggle-capsule::before {
@@ -207,9 +207,9 @@
 }
 
 .studio-toggle-dot {
-  width: 4px; 
-  height: 4px; 
-  background-color: #00f2fe; 
+  width: 4px;
+  height: 4px;
+  background-color: #00f2fe;
   border-radius: 50%;
   display: inline-block;
   box-shadow: 0 0 6px #00f2fe;
@@ -220,7 +220,7 @@
 }
 
 .studio-btn:hover .studio-toggle-dot {
-  transform: translateX(28px); 
+  transform: translateX(28px);
   background-color: #0076ff;
   box-shadow: 0 0 8px rgba(0, 118, 255, 0.8);
 }
@@ -228,8 +228,8 @@
 .studio-toggle-arrow-circle {
   background-color: #ffffff;
   border-radius: 50%;
-  width: 20px; 
-  height: 20px; 
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -241,20 +241,20 @@
 }
 
 .studio-btn:hover .studio-toggle-arrow-circle {
-  transform: translateX(-28px); 
-  background-color: #111111; 
+  transform: translateX(-28px);
+  background-color: #111111;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .studio-toggle-arrow-circle svg {
-  width: 11px; 
+  width: 11px;
   height: 11px;
   stroke: #000000;
   transition: stroke 550ms ease;
 }
 
 .studio-btn:hover .studio-toggle-arrow-circle svg {
-  stroke: #ffffff; 
+  stroke: #ffffff;
 }
 
 /* ==========================================
@@ -366,7 +366,7 @@
 }
 
 .studio-stats-bg {
-  max-width: 1400px;
+  max-width: 1200px; /* 1400px லிருந்து 1200px ஆக குறைக்கப்பட்டுள்ளது */
   margin: 0 auto;
   height: 320px;
   background-size: cover;
@@ -380,12 +380,12 @@
 
 .studio-stats-box {
   background-color: #ffffff;
-  width: 75%;
-  max-width: 1000px;
+  width: 65%; /* 75% லிருந்து 65% ஆக குறைக்கப்பட்டுள்ளது */
+  max-width: 850px; /* 1000px லிருந்து 850px ஆக குறைக்கப்பட்டுள்ளது */
   border-radius: 5px;
   display: flex;
-  justify-content: center; /* space-around-க்கு பதிலா center மாத்தியாச்சு */
-  gap: 50px; 
+  justify-content: space-around; 
+  gap: 40px;
   align-items: center;
   padding: 35px 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
@@ -432,8 +432,8 @@
 .digit-column {
   display: inline-flex;
   flex-direction: column;
-  overflow: hidden; 
-  height: 1em; 
+  overflow: hidden;
+  height: 1em;
   line-height: 1;
 }
 
@@ -468,12 +468,12 @@
 
 .studio-arch-top-grid {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   position: relative;
   margin-bottom: 80px;
   min-height: 350px;
-  max-width: 1100px; 
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   gap: 20px;
@@ -561,17 +561,17 @@
 }
 
 .studio-contact-pill-btn:hover .studio-contact-text {
-  transform: translateX(48px); 
+  transform: translateX(48px);
 }
 
 .studio-contact-pill-btn:hover .studio-contact-circle-icon {
-  transform: translateX(-88px); 
+  transform: translateX(-88px);
 }
 
 .studio-contact-circle-icon svg {
   width: 16px;
   height: 16px;
-  stroke: #1a1a1a !important; 
+  stroke: #1a1a1a !important;
   stroke-width: 2.2px;
 }
 
@@ -612,7 +612,7 @@
   transform: translate(-50%, -50%) scale(1);
   width: 100%;
   height: 100%;
-  background-color: rgba(153, 101, 51, 0.5); 
+  background-color: rgba(153, 101, 51, 0.5);
   border-radius: 50%;
   z-index: -1;
   opacity: 0;
@@ -714,10 +714,10 @@
 /* Features Grid */
 .studio-features-grid {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: flex-start;
   gap: 40px;                        
-  max-width: 920px;               
+  max-width: 920px;              
   margin: 70px auto 0 auto;        
 }
 
@@ -734,10 +734,10 @@
 }
 
 .studio-feature-bar {
-  width: 4px;                     
-  background: linear-gradient(to bottom, #996544 0%, #996544 40%, #e5e5e5 45%, #e5e5e5 100%); 
-  height: 90px;                   
-  border-radius: 4px;             
+  width: 4px;                    
+  background: linear-gradient(to bottom, #996544 0%, #996544 40%, #e5e5e5 45%, #e5e5e5 100%);
+  height: 90px;                  
+  border-radius: 4px;            
   flex-shrink: 0;
   margin-top: 6px;                
 }
@@ -746,7 +746,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;                      
-  text-align: left;               
+  text-align: left;              
 }
 
 .studio-feature-content h4 {
@@ -775,6 +775,15 @@
   .studio-arch-top-grid {
     padding: 0 20px;
   }
+  
+  /* Fix: Scale down the stats box slightly for smaller desktops */
+  .studio-stats-box {
+    width: 90%;
+    gap: 30px;
+  }
+  .studio-stat-card h3 {
+    font-size: 50px;
+  }
 }
 
 /* Tablets & iPads */
@@ -792,11 +801,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 auto; /* Force center */
+    bottom: auto; /* Reset */
   }
 
   .studio-main-desc {
-    max-width: 100%;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -804,13 +813,15 @@
   .studio-hero-images-wrapper {
     justify-content: center;
     width: 100%;
-    top: 0;
-    right: 0;
+    top: auto;
+    right: auto;
   }
   
+  /* Reset positional offsets for overlapping images to avoid overflow */
   .studio-img-house-unique, 
   .studio-img-interior-unique {
-    right: 0;
+    right: auto;
+    position: static;
   }
 
   .studio-arch-top-grid {
@@ -831,6 +842,19 @@
   .studio-feature-item {
     min-width: 45%;
   }
+
+  /* Fix: Adjust stats for 1024px screens to prevent overlap */
+  .studio-stats-box {
+    width: 70%;
+    gap: 20px;
+    padding: 30px 15px;
+  }
+  .studio-stat-card h3 {
+    font-size: 38px;
+  }
+  .studio-stat-card p {
+    font-size: 10px;
+  }
 }
 
 /* Mobile Phones (Strict Centering for all elements) */
@@ -840,27 +864,21 @@
   }
 
   .studio-hero-left-content {
-    margin-left: 0;
-    margin-right: 0;
     margin-bottom: 30px;
-    align-items: center;
-    text-align: center;
     width: 100%;
   }
 
   .studio-main-heading {
     font-size: 28px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
   }
 
   .studio-main-desc {
     font-size: 14px;
     text-align: center;
     margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
   }
 
   .studio-badge-row {
@@ -869,22 +887,21 @@
   }
 
   .studio-hero-images-wrapper {
-    flex-direction: column; /* Stack images on small mobile if needed, or keep row if preferred */
+    flex-direction: column; 
     align-items: center;
-    justify-content: center;
     gap: 20px;
   }
 
   .studio-img-house-unique {
-    width: 80%; /* Adjusted for better mobile fit */
+    width: 100%; 
+    max-width: 320px;
     height: auto;
-    right: 0;
   }
 
   .studio-img-interior-unique {
-    width: 90%; /* Adjusted for better mobile fit */
+    width: 100%; 
+    max-width: 320px;
     height: auto;
-    right: 0;
   }
 
   .studio-stats-area {
@@ -895,13 +912,13 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    padding: 30px 20px;
-    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
   }
 
   .studio-stats-bg {
     height: auto;
-    padding: 20px 0;
+    padding: 40px 15px;
   }
 
   .studio-arch-section {
@@ -910,11 +927,9 @@
 
   .studio-arch-container {
     padding: 40px 15px;
-    border-radius: 16px;
   }
   
   .studio-arch-center-box {
-    margin: 0 auto;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -929,7 +944,6 @@
   .studio-arch-btn-group {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
     gap: 20px;
   }
@@ -941,26 +955,9 @@
     align-items: center;
   }
 
-  .studio-arch-images-group {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto;
-  }
-
-  .studio-arch-tilted-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .studio-arch-straight-img {
-    width: 110px;
-    height: 110px;
-  }
-
   .studio-features-grid {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 40px;
     margin-top: 40px;
     width: 100%;
@@ -969,12 +966,12 @@
   .studio-feature-item {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     gap: 15px;
     width: 100%;
   }
 
+  /* Bar becomes horizontal on mobile */
   .studio-feature-bar {
     width: 60px; 
     height: 4px; 
@@ -985,15 +982,7 @@
 
   .studio-feature-content {
     align-items: center;
-    text-align: center;
     width: 100%;
-  }
-
-  .studio-feature-content h4, 
-  .studio-feature-content p {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .studio-video-modal-content {
@@ -1001,8 +990,8 @@
   }
 
   .studio-video-close-btn {
-    top: -35px;
-    right: 5px;
+    top: -45px;
+    right: 0px;
   }
 }
 
@@ -1016,8 +1005,7 @@
     font-size: 22px;
   }
   
-  .studio-img-house-unique,
-  .studio-img-interior-unique {
-    width: 100%;
+  .studio-stat-card h3 {
+    font-size: 48px;
   }
 }

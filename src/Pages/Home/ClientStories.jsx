@@ -82,15 +82,16 @@ export default function ClientStories() {
           </div>
         </div>
 
-        {/* Center Column */}
+        {/* Center Column - Added 'tit' class here */}
         <div className="voc-header-center">
-          <h2 className="voc-title">Voices of Our Clients</h2>
+          <h2 className="voc-title tit">Voices of Our Clients</h2>
         </div>
 
         {/* Right Column */}
         <div className="voc-header-right">
           <div className="voc-right-wrapper">
-            <p className="voc-subtitle">
+            {/* Added 'sdes' class here */}
+            <p className="voc-subtitle sdes">
               A visual library of interiors brought to life from blueprint to beauty.
             </p>
             <div className="voc-nav-buttons">
@@ -145,8 +146,11 @@ export default function ClientStories() {
                     
                     {slide.hasReview && (
                       <div className="voc-glass-overlay">
-                        <h3 className="voc-glass-title">{slide.review.headline}</h3>
-                        <p className="voc-glass-text">{slide.review.content}</p>
+                        {/* Added 'stit' class here */}
+                        <h3 className="voc-glass-title stit">{slide.review.headline}</h3>
+                        {/* Added 'des' class here */}
+                        <p className="voc-glass-text des">{slide.review.content}</p>
+                        
                         <div className="voc-author-block">
                           <img 
                             src={slide.review.authorAvatar || "https://via.placeholder.com/40"} 
@@ -164,7 +168,8 @@ export default function ClientStories() {
 
                   <div className="voc-card-meta">
                     <div className="voc-meta-left">
-                      <h4 className="voc-item-title">{slide.title}</h4>
+                      {/* Added 'stit' class here */}
+                      <h4 className="voc-item-title stit">{slide.title}</h4>
                       <span className="voc-item-year">{slide.year}</span>
                     </div>
                     <div className="voc-meta-right">
