@@ -113,7 +113,7 @@ const SlotCounter = ({ value, baseDirection = "up" }) => {
 const CounterStat = ({ count, suffix, title, subTitle }) => {
   return (
     <div className="stat-item stat-slot-item">
-      <h3 className="slot-number-heading tit">
+      <h3 className="slot-number-heading tit ">
         <SlotCounter value={count} baseDirection="up" />
         <span className="stat-suffix ">{suffix}</span>
       </h3>
@@ -243,10 +243,10 @@ const Studio = () => {
       >
         <div className="counter-white-box">
           <CounterStat
-            count={08}
+            count="08"
             suffix="+"
-            title="Years of"
-            subTitle="Excellence"
+            title="YEARS OF"
+            subTitle="EXCELLENCE"
           />
           <div className="stat-divider"></div>
           <CounterStat
@@ -265,7 +265,7 @@ const Studio = () => {
 
           <div className="stat-divider"></div>
           <CounterStat
-            count={07}
+            count="07"
             suffix="+"
             title="DESIGN"
             subTitle="AWARDS"
