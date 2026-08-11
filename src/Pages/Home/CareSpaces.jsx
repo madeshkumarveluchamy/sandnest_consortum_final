@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './css/CareSpaces.css'; 
 
 // =========================================================================
-// Assets Imports (Unga src/assets/ folder kulla indha files-a potukonga)
+// Assets Imports (உங்க src/assets/ folder குள்ள இந்த files-அ போட்டுக்கோங்க)
 // =========================================================================
 import tagIcon from '../../assets/studio-icon.png'; 
 import imgStructural from '../../assets/structural.png';
@@ -22,22 +22,20 @@ const CareSpaces = () => {
   };
 
   useEffect(() => {
-    // 1. Continuous Reveal Animation (Scroll panna panna thirumba animate aagum)
+    // 1. Continuous Reveal Animation
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('reveal-active');
           } else {
-            // Viewport-a vittu veliya pogumbothu class-a remove panrom
-            // Appothaan thirumba scroll pannumbothu pudhusa animate aagum
             entry.target.classList.remove('reveal-active');
           }
         });
       },
       {
-        threshold: 0.15, // 15% therinthaal podhum
-        rootMargin: "0px 0px -50px 0px" // Kela konjam munnaadiye trigger aaga
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
       }
     );
 
@@ -54,14 +52,11 @@ const CareSpaces = () => {
           const rect = container.getBoundingClientRect();
           const windowHeight = window.innerHeight;
           
-          // Image screen-la irukumbothu mattum mathippu calculate aagum
           if (rect.top <= windowHeight && rect.bottom >= 0) {
             const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
             const clampedProgress = Math.min(Math.max(progress, 0), 1);
             
-            // Movement intensity (40 value-a maathuna speed athigamaagum)
             const yPos = (clampedProgress - 0.5) * 40; 
-            
             img.style.transform = `translateY(${yPos}%) scale(1.2)`;
           }
         });
@@ -72,7 +67,6 @@ const CareSpaces = () => {
     handleScroll(); 
 
     return () => {
-      // Clean up
       revealRefs.current.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
@@ -83,7 +77,6 @@ const CareSpaces = () => {
   const servicesData = [
     {
       id: 1,
-      num: '(1)',
       title: 'Structural Design',
       desc: 'Complete home interiors that reflect your style functional, beautiful, and deeply personal.',
       statValue: '100 +',
@@ -93,7 +86,6 @@ const CareSpaces = () => {
     },
     {
       id: 2,
-      num: '(2)',
       title: 'Architectural Design',
       desc: 'Complete home interiors that reflect your style functional, beautiful, and deeply personal.',
       statValue: '120 +',
@@ -103,7 +95,6 @@ const CareSpaces = () => {
     },
     {
       id: 3,
-      num: '(3)',
       title: 'Interior Design',
       desc: 'Complete home interiors that reflect your style functional, beautiful, and deeply personal.',
       statValue: '150 +',
@@ -113,7 +104,6 @@ const CareSpaces = () => {
     },
     {
       id: 4,
-      num: '(4)',
       title: 'Landscape Design',
       desc: 'Complete home interiors that reflect your style functional, beautiful, and deeply personal.',
       statValue: '120 +',
@@ -123,7 +113,6 @@ const CareSpaces = () => {
     },
     {
       id: 5,
-      num: '(5)',
       title: 'Sustainable Green Buildings',
       desc: 'Complete home interiors that reflect your style functional, beautiful, and deeply personal.',
       statValue: '70 +',
@@ -140,13 +129,11 @@ const CareSpaces = () => {
         <div className="cs-header-row">
           <div className="cs-header-left">
             <img src={tagIcon} alt="tag" className="cs-tag-icon" />
-            {/* stit class added for badge title */}
             <span className="cs-subtitle-text stit">OUR SERVICES</span>
             <span className="cs-slash-text">///</span>
           </div>
           
           <div className="cs-header-center">
-            {/* tit class added for main heading */}
             <h2 className="cs-main-heading tit">
               Personalized Care<br />
               Inspired Spaces
@@ -154,7 +141,6 @@ const CareSpaces = () => {
           </div>
           
           <div className="cs-header-right">
-            {/* des class added for header description */}
             <p className="cs-header-desc des">
               Creative solutions tailored for every style and every space.
             </p>
@@ -168,25 +154,13 @@ const CareSpaces = () => {
               key={service.id} 
               ref={addToRevealRefs} 
             >
-              <div className="cs-number-column">
-                {/* sdes class added for numbering (1), (2) */}
-                <span className="cs-number-text sdes">{service.num}</span>
-                {index !== servicesData.length - 1 && (
-                  <div className="cs-vertical-line"></div>
-                )}
-              </div>
-
               <div className={`cs-content-row ${service.isReversed ? 'cs-row-reverse' : ''}`}>
                 <div className="cs-text-block">
-                  {/* stit class added for service title */}
                   <h3 className="cs-card-title stit">{service.title}</h3>
-                  {/* des class added for service description */}
                   <p className="cs-card-desc des">{service.desc}</p>
                   
                   <div className="cs-stat-container">
-                    {/* tit class added for large statistic number */}
                     <h4 className="cs-stat-value tit">{service.statValue}</h4>
-                    {/* sdes class added for small statistic label */}
                     <span className="cs-stat-label sdes">{service.statLabel}</span>
                   </div>
                 </div>

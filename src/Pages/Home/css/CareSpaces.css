@@ -93,52 +93,18 @@
 }
 
 /* =========================================
-   2. Timeline Items Wrapper
+   2. Timeline Items Layout
    ========================================= */
-.cs-timeline-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 .cs-timeline-item {
-  display: flex;
-  gap: 40px;
-  align-items: stretch; 
-  padding-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .cs-timeline-item:last-child {
-  padding-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* =========================================
-   3. Number & Vertical Line Column
-   ========================================= */
-.cs-number-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30px;
-  flex-shrink: 0;
-}
-
-.cs-number-text {
-  font-size: 14px;
-  font-weight: 700;
-  font-family: 'inter', sans-serif;
-  color: #111111;
-  margin-bottom: 20px;
-  line-height: 1;
-}
-
-.cs-vertical-line {
-  width: 1.5px;
-  background-color: #3f416c; 
-  flex-grow: 1; 
-}
-
-/* =========================================
-   4. Content Row (Text & Image)
+   3. Content Row (Text & Image)
    ========================================= */
 .cs-content-row {
   display: flex;
@@ -153,7 +119,7 @@
 }
 
 /* =========================================
-   5. Text Content Styles (Desktop Animation)
+   4. Text Content Styles (Desktop Animation)
    ========================================= */
 .cs-text-block {
   flex: 1;
@@ -212,7 +178,7 @@
 }
 
 /* =========================================
-   6. Image Styles (Desktop Animation)
+   5. Image Styles (Desktop Animation)
    ========================================= */
 .cs-image-block {
   flex: 1.3;
@@ -246,7 +212,7 @@
 }
 
 /* ==========================================================================
-   7. RESPONSIVE MEDIA QUERIES
+   6. RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 
 @media (max-width: 1200px) {
@@ -261,7 +227,7 @@
   .cs-main-heading { font-size: 38px; }
   .cs-subtitle-text { font-size: 14px; }
   .cs-header-desc { font-size: 13px; max-width: 200px; }
-  .cs-timeline-item { gap: 25px; }
+  .cs-timeline-item { margin-bottom: 70px; }
   .cs-card-title { font-size: 26px; }
   .cs-image-reveal-wrapper { height: 300px; }
 }
@@ -291,25 +257,8 @@
   }
   
   .cs-timeline-item { 
-    flex-direction: column; 
-    gap: 20px; 
-    padding-bottom: 40px; 
+    margin-bottom: 60px;
   }
-  
-  .cs-number-column { 
-    width: 100%; 
-    flex-direction: row; 
-    justify-content: center; 
-  }
-  
-  .cs-number-text { 
-    margin-bottom: 0; 
-    background: #f4f4f4; 
-    padding: 6px 16px; 
-    border-radius: 20px; 
-  }
-  
-  .cs-vertical-line { display: none; } 
   
   .cs-content-row, 
   .cs-content-row.cs-row-reverse { 
