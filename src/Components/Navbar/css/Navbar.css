@@ -185,7 +185,8 @@ body.menu-open .navbar {
   display: flex;
   justify-content: center;
   align-items: start; 
-  overflow: hidden;
+  overflow-y : auto;
+  overflow-x:hidden;
   padding: 0;
   box-sizing: border-box;
   opacity: 0;
@@ -202,7 +203,7 @@ body.menu-open .navbar {
   width: 96vw;
   max-width: 1450px;
   height: auto;
-  margin: 100px 0 0; 
+  margin: 100px 0 50px 0;
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 6px;
@@ -475,6 +476,9 @@ body.menu-open .navbar {
     margin-top: 35px;
   }
   
+  .navbar-menu-btn{
+    left:0px;
+  } 
   .social-card {
     padding: 15px 20px;
     min-height: 60px;
@@ -485,6 +489,7 @@ body.menu-open .navbar {
   .navbar {
     padding: 10px 0px 0px 0px;
   }
+
 
   .overlay-content-card {
    

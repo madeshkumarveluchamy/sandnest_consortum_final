@@ -31,6 +31,7 @@ import ProjectDetailPage16 from './Pages/ProjectDetail/ProjectDetailPage16'
 import ProjectDetailPage17 from './Pages/ProjectDetail/ProjectDetailPage17'
 import ProjectDetailPage18 from './Pages/ProjectDetail/ProjectDetailPage18'
 import ProjectDetailPage19 from './Pages/ProjectDetail/ProjectDetailPage19'
+import Blog from './Pages/Blog/Blog'
 
 const App = () => {
   return (
@@ -48,6 +49,7 @@ const App = () => {
       <Route path="/sustainable-green-buildings" element={<SustainableGreenBuildings />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/blog" element={<Blog/>} />
 
 
       {/* project detail */}
