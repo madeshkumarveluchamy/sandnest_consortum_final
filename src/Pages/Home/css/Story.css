@@ -262,7 +262,8 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  text-align: left;
+  text-align: center;
+  justify-content:center;
   flex: 1;
 }
 .stat-item h3 {
@@ -271,17 +272,18 @@ body {
   margin: 0;
   letter-spacing: -1px;
   position: relative;
-  right: 25px;
+
   top: 15px;
 }
 .stat-item p {
   font: 13px/1.2 "Hanken Grotesk", sans-serif !important;
   color: #434345;
   margin: 0;
-  max-width: 50px;
+  max-width: 150px;
+  text-align:center;
   position: relative;
-  left: 70px;
-  bottom: 30px;
+
+  
 }
 .stat-divider {
   width: 1px;
@@ -555,9 +557,16 @@ body {
   display: inline-flex;
   align-items: baseline;
   gap: 0;
+  font-weight:600 !important;
   margin: 0;
   line-height: 1;
   white-space: nowrap;
+}
+
+@media(min-width:1200px){
+  .slot-number-heading{
+    font-size:60px !important;
+  }
 }
 .stat-suffix,
 .project-prefix,
@@ -566,6 +575,7 @@ body {
   display: inline-flex;
   align-items: baseline;
   line-height: 1;
+  color:#996533;
   font-size: inherit;
   vertical-align: baseline;
 }
@@ -573,7 +583,8 @@ body {
 .stat-slot-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center !important;
+  
 }
 .project-suffix-percentage,
 .plus-symbol {
@@ -734,6 +745,7 @@ body {
   height: 1em; /* Must match .digit-column height */
   display: flex;
   align-items: center;
+  color:#996533;
   justify-content: center;
   line-height: 1;
 }
@@ -816,7 +828,7 @@ body {
     text-align: center;
   }
   .studio-description {
-    text-align: center;
+    
     font-size: 14px;
   }
   .studio-img-card.left-card,
