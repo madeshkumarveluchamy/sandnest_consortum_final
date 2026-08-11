@@ -7,9 +7,10 @@ import FeaturedWorks from './FeaturedWorks';
 import ClientStories from './ClientStories';
 import ExperienceSection from './ExperienceSection';
 import BlogSection from './BlogSection';
-import FaqsSection from './FaqsSection';
+
 import TeamSection from '../Story/TeamSection';
 import FaqSection from '../Story/FaqSection';
+import FaqsSection from '../Story/FaqSection';
 
 
 const HomePage = () => {
@@ -24,7 +25,7 @@ const HomePage = () => {
       <ExperienceSection/>
       <TeamSection />
       <BlogSection/>
-       <FaqSection />
+      <FaqsSection />
     </div>
   );
 };

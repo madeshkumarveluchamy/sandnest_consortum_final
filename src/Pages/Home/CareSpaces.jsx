@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './css/CareSpaces.css'; 
 
 // =========================================================================
@@ -12,7 +12,74 @@ import imgLandscape from '../../assets/landscape.png';
 import imgSustainable from '../../assets/sustainable.png';
 
 const CareSpaces = () => {
-  // Services Data Array
+  const revealRefs = useRef([]);
+  const imageRefs = useRef([]);
+
+  const addToRevealRefs = (el) => {
+    if (el && !revealRefs.current.includes(el)) {
+      revealRefs.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    // 1. Continuous Reveal Animation (Scroll panna panna thirumba animate aagum)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-active');
+          } else {
+            // Viewport-a vittu veliya pogumbothu class-a remove panrom
+            // Appothaan thirumba scroll pannumbothu pudhusa animate aagum
+            entry.target.classList.remove('reveal-active');
+          }
+        });
+      },
+      {
+        threshold: 0.15, // 15% therinthaal podhum
+        rootMargin: "0px 0px -50px 0px" // Kela konjam munnaadiye trigger aaga
+      }
+    );
+
+    revealRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    // 2. Continuous Parallax Scroll Effect for Images
+    const handleScroll = () => {
+      window.requestAnimationFrame(() => {
+        imageRefs.current.forEach((img) => {
+          if (!img) return;
+          const container = img.parentElement;
+          const rect = container.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          
+          // Image screen-la irukumbothu mattum mathippu calculate aagum
+          if (rect.top <= windowHeight && rect.bottom >= 0) {
+            const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+            const clampedProgress = Math.min(Math.max(progress, 0), 1);
+            
+            // Movement intensity (40 value-a maathuna speed athigamaagum)
+            const yPos = (clampedProgress - 0.5) * 40; 
+            
+            img.style.transform = `translateY(${yPos}%) scale(1.2)`;
+          }
+        });
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); 
+
+    return () => {
+      // Clean up
+      revealRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const servicesData = [
     {
       id: 1,
@@ -22,7 +89,7 @@ const CareSpaces = () => {
       statValue: '100 +',
       statLabel: 'Transformed Spaces',
       image: imgStructural,
-      isReversed: false, // Text Left, Image Right
+      isReversed: false,
     },
     {
       id: 2,
@@ -32,7 +99,7 @@ const CareSpaces = () => {
       statValue: '120 +',
       statLabel: 'Transformed Spaces',
       image: imgArchitectural,
-      isReversed: true, // Image Left, Text Right
+      isReversed: true,
     },
     {
       id: 3,
@@ -70,58 +137,70 @@ const CareSpaces = () => {
     <section className="cs-wrapper">
       <div className="cs-container">
         
-        {/* Top Header */}
         <div className="cs-header-row">
           <div className="cs-header-left">
             <img src={tagIcon} alt="tag" className="cs-tag-icon" />
-            <span className="cs-subtitle-text">OUR SERVICES</span>
+            {/* stit class added for badge title */}
+            <span className="cs-subtitle-text stit">OUR SERVICES</span>
             <span className="cs-slash-text">///</span>
           </div>
           
           <div className="cs-header-center">
-            <h2 className="cs-main-heading">
+            {/* tit class added for main heading */}
+            <h2 className="cs-main-heading tit">
               Personalized Care<br />
               Inspired Spaces
             </h2>
           </div>
           
           <div className="cs-header-right">
-            <p className="cs-header-desc">
+            {/* des class added for header description */}
+            <p className="cs-header-desc des">
               Creative solutions tailored for every style and every space.
             </p>
           </div>
         </div>
 
-        {/* Timeline Content */}
         <div className="cs-timeline-wrapper">
           {servicesData.map((service, index) => (
-            <div className="cs-timeline-item" key={service.id}>
-              
-              {/* Vertical Number & Line */}
+            <div 
+              className="cs-timeline-item" 
+              key={service.id} 
+              ref={addToRevealRefs} 
+            >
               <div className="cs-number-column">
-                <span className="cs-number-text">{service.num}</span>
-                {/* Last item-ku line venam, so condition check pandrom */}
-                {index !== servicesData.length  && <div className="cs-vertical-line"></div>}
+                {/* sdes class added for numbering (1), (2) */}
+                <span className="cs-number-text sdes">{service.num}</span>
+                {index !== servicesData.length - 1 && (
+                  <div className="cs-vertical-line"></div>
+                )}
               </div>
 
-              {/* Text & Image Row (Alternating Flex) */}
               <div className={`cs-content-row ${service.isReversed ? 'cs-row-reverse' : ''}`}>
-                
-                {/* Text Block */}
                 <div className="cs-text-block">
-                  <h3 className="cs-card-title">{service.title}</h3>
-                  <p className="cs-card-desc">{service.desc}</p>
+                  {/* stit class added for service title */}
+                  <h3 className="cs-card-title stit">{service.title}</h3>
+                  {/* des class added for service description */}
+                  <p className="cs-card-desc des">{service.desc}</p>
+                  
                   <div className="cs-stat-container">
-                    <h4 className="cs-stat-value">{service.statValue}</h4>
-                    <span className="cs-stat-label">{service.statLabel}</span>
+                    {/* tit class added for large statistic number */}
+                    <h4 className="cs-stat-value tit">{service.statValue}</h4>
+                    {/* sdes class added for small statistic label */}
+                    <span className="cs-stat-label sdes">{service.statLabel}</span>
                   </div>
                 </div>
 
-                {/* Image Block */}
                 <div className="cs-image-block">
-                  <img src={service.image} alt={service.title} className="cs-service-img" />
+                  <div className="cs-image-reveal-wrapper">
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="cs-service-img" 
+                      ref={(el) => (imageRefs.current[index] = el)}
+                    />
+                  </div>
                 </div>
-                
               </div>
             </div>
           ))}

@@ -38,11 +38,11 @@ const FaqsSection = () => {
         
         {/* Header Section */}
         <div className="story-faq-header">
-          <h1 className="story-faq-title plus-font">
+          <h1 className="story-faq-title plus-font tit">
             Designing Together <br />
             Common Queries
           </h1>
-          <p className="story-faq-sub plus-font des">
+          <p className="story-faq-sub plus-font stit">
             Find clear answers to common inquiries regarding our design process, <br className="d-none d-md-block" />
             project management, and commitment to sustainable architecture.
           </p>
@@ -61,7 +61,7 @@ const FaqsSection = () => {
                 className={`story-faq-item ${isActive ? 'active' : ''}`}
               >
                 {/* Left Number Tab */}
-                <div className="story-faq-number-box">
+                <div className="story-faq-number-box sdes">
                   {numberString}
                 </div>
 
@@ -71,7 +71,7 @@ const FaqsSection = () => {
                     className="story-faq-question-row" 
                     onClick={() => toggleAccordion(index)}
                   >
-                    <h3 className="story-faq-question plus-font des">{item.question}</h3>
+                    <h3 className="story-faq-question plus-font stit">{item.question}</h3>
                     
                     {/* Custom SVG Icons based on active state */}
                     <div className="story-faq-icon">
@@ -107,7 +107,7 @@ const FaqsSection = () => {
                   {/* Expandable Answer Section using Grid transition */}
                   <div className="story-faq-answer-wrapper">
                     <div className="story-faq-answer">
-                      <div className="story-faq-answer-inner plus-font sdes">
+                      <div className="story-faq-answer-inner plus-font des">
                         {item.answer}
                       </div>
                     </div>

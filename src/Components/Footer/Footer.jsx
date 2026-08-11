@@ -90,14 +90,14 @@ const Footer = () => {
           {/* Middle Column - Location & Studio Notes */}
           <div className="footer-middle-section">
             <div className="location-block">
-              <h4 className="underlined-title">Location :</h4>
-              <p className="address-text">
+              <h4 className="underlined-title stit">Location :</h4>
+              <p className="address-text des">
                 No.385/2, Sandnest Consortium,<br />
                 Road Inside Gv happy nest arch inside dead end<br />
                 gate, jothinagar, kalampalayam,<br />
                 coimbatore-641010, Coimbatore
               </p>
-              <p className="contact-text">
+              <p className="contact-text sdes">
                 Call us: +91 804 809 66 89<br />
                 Email: <a href="mailto:sandnestarchitects@gmail.com">sandnestarchitects@gmail.com</a>
               </p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./css/FeaturedWorks.css"; 
 
 import projectImg1 from "../../assets/ridgeway.png"; 
@@ -53,7 +53,8 @@ const FeaturedWorks = () => {
         <div className="fw-header-row">
           <div className="fw-header-left">
             <div className="fw-header-mask">
-              <div className="fw-slide-text delay-0">
+              {/* stit class added for Badge Text */}
+              <div className="fw-slide-text delay-0 stit">
                 <img src={studioIcon} alt="icon" className="fw-studio-icon" />
                 OUR PROJECTS <span className="fw-slash-marks">///</span>
               </div>
@@ -62,14 +63,15 @@ const FeaturedWorks = () => {
           
           <div className="fw-header-center">
             <div className="fw-header-mask">
-              <h2 className="fw-slide-text delay-1">Featured Works</h2>
+              {/* tit class added for Main Heading */}
+              <h2 className="fw-slide-text delay-1 tit">Featured Works</h2>
             </div>
-            <h2>Featured Workss</h2>
           </div>
           
           <div className="fw-header-right">
             <div className="fw-header-mask">
-              <p className="fw-slide-text delay-2">
+              {/* des class added for Subtitle */}
+              <p className="fw-slide-text delay-2 des">
                 Creative solutions tailored for every style and<br />every space.
               </p>
             </div>
@@ -91,16 +93,19 @@ const FeaturedWorks = () => {
               
               <div className="fw-overlay-banner">
                 <div className="fw-overlay-text">
-                  <h3 className="fw-project-title">Ridgeway Cultural Pavilion</h3>
+                  {/* stit class added for Project Title */}
+                  <h3 className="fw-project-title stit">Ridgeway Cultural Pavilion</h3>
                   <div className="fw-project-tags">
-                    <span className="fw-tag-box">Commercial</span>
-                    <span className="fw-tag-box">Coimbatore,TN</span>
+                    {/* sdes class added for Project Tags */}
+                    <span className="fw-tag-box sdes">Commercial</span>
+                    <span className="fw-tag-box sdes">Coimbatore,TN</span>
                   </div>
                 </div>
                 
                 <div className="fw-overlay-btn-wrapper">
+                  {/* des class added for Button Text */}
                   <button 
-                    className={`fw-journey-btn ${isAnimating ? 'is-animating' : ''}`}
+                    className={`fw-journey-btn des ${isAnimating ? 'is-animating' : ''}`}
                     onClick={handleCtaClick}
                   >
                     Start Your Journey
@@ -131,16 +136,19 @@ const FeaturedWorks = () => {
               
               <div className="fw-overlay-banner">
                 <div className="fw-overlay-text">
-                  <h3 className="fw-project-title">Seaside Cliff Residence</h3>
+                  {/* stit class added for Project Title */}
+                  <h3 className="fw-project-title stit">Seaside Cliff Residence</h3>
                   <div className="fw-project-tags">
-                    <span className="fw-tag-box">Residential</span>
-                    <span className="fw-tag-box">Coimbatore,TN</span>
+                    {/* sdes class added for Project Tags */}
+                    <span className="fw-tag-box sdes">Residential</span>
+                    <span className="fw-tag-box sdes">Coimbatore,TN</span>
                   </div>
                 </div>
                 
                 <div className="fw-overlay-btn-wrapper">
+                  {/* des class added for Button Text */}
                   <button 
-                    className={`fw-journey-btn ${isAnimating ? 'is-animating' : ''}`}
+                    className={`fw-journey-btn des ${isAnimating ? 'is-animating' : ''}`}
                     onClick={handleCtaClick}
                   >
                     Start Your Journey

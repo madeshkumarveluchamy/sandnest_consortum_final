@@ -127,7 +127,7 @@ const Services = () => {
           <div className="services-hero-image-wrapper">
             <img src={heroImg} alt="Our Architectural & Design Services" className="hero-img dark-section" />
             <div className="hero-overlay"></div>
-            <h1 className="service-hero-title plus-font">Our Architectural &<br />Design Services</h1>
+            <h1 className="service-hero-title">Our Architectural &<br />Design Services</h1>
           </div>
         </section>
 
@@ -136,7 +136,7 @@ const Services = () => {
             <h2 className="hww-title">
               HOW WE <span className="highlight-brown plus-font">WORKS</span>
             </h2>
-            <p className="hww-desc plus-font des">
+            <p className="hww-desc">
               From first launches to lasting collaborations, we’re trusted to deliver on time and at quality.
             </p>
           </div>
@@ -146,10 +146,10 @@ const Services = () => {
               <div className="stage-badge-col">
                 <span className="stage-badge sdes"><span className="dot"></span>Stage One</span>
               </div>
-              <div className="stage-number-col pt-md-3 tit">01</div>
+              <div className="stage-number-col">01</div>
               <div className="stage-details-col">
-                <h3 className='plus-font fw-medium pt-md-4 stit'>CONSULTATION & SITE ANALYSIS</h3>
-                <p className='plus-font des'>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
+                <h3>CONSULTATION & SITE ANALYSIS</h3>
+                <p>In-depth discussion of client requirements, budget mapping, physical site inspection, soil analysis, and checking local municipal building regulations.</p>
               </div>
             </div>
 
