@@ -188,7 +188,7 @@
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 50px; 
-  padding: 6px 6px 6px 18px; 
+  padding: 6px 6px 6px 10px; 
   font-size: 14px; 
   font-weight: 500; 
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -202,6 +202,11 @@
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   letter-spacing: -0.2px;
   animation: archButtonPulse 2s infinite; 
+  
+  /* பட்டன் சுருங்காமல் இருக்க */
+  white-space: nowrap; 
+  box-sizing: border-box; 
+  min-width: 160px; 
 }
 
 .arch-services-btn:hover {
@@ -220,12 +225,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 58px; 
-  height: 26px; 
+  width: 48px; 
+  height: 25px; 
   overflow: hidden;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
   transform: translateZ(0); 
+  flex-shrink: 0; /* Capsule சுருங்காமல் இருக்க மிக முக்கியம் */
 }
 
 .arch-services-btn-capsule::before {
@@ -258,12 +264,14 @@
   box-shadow: 0 0 6px rgba(0, 242, 254, 0.8); 
   z-index: 2;
   position: relative;
+  flex-shrink: 0;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
   transform: translateX(0);
 }
 
 .arch-services-btn:hover .arch-services-btn-dot {
-  transform: translateX(28px); 
+  /* 55px-ku badhila 34px or 34.5px kudutha exact-ah right edge-la nikkum */
+  transform: translateX(34.5px); 
   background-color: #0076ff; 
   box-shadow: 0 0 8px rgba(0, 118, 255, 0.8);
 }
@@ -272,20 +280,45 @@
 .arch-services-btn-icon {
   background-color: #ffffff;
   border-radius: 50%;
-  width: 20px; 
-  height: 20px; 
+  width: 19px; 
+  height: 19px; 
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.8);
   z-index: 2;
   position: relative;
+  flex-shrink: 0;
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
+  transform: translateX(0);
+}
+
+.arch-services-btn:hover .arch-services-btn-dot {
+  /* 34.5px-ku badhila 28px illana 30px kudunga */
+  transform: translateX(30px); 
+  background-color: #0076ff; 
+  box-shadow: 0 0 8px rgba(0, 118, 255, 0.8);
+}
+
+/* --- Icon/Arrow Animation --- */
+.arch-services-btn-icon {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 19px; 
+  height: 19px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  position: relative;
+  flex-shrink: 0;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1), background-color 550ms ease;
   transform: translateX(0);
 }
 
 .arch-services-btn:hover .arch-services-btn-icon {
-  transform: translateX(-28px); 
+  transform: translateX(-20px); /* -28px-ல் இருந்து -20px ஆக மாற்றப்பட்டது, அப்போதுதான் இடது ஓரத்தில் சரியாக நிறிற்கும் */
   background-color: #111111; 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }

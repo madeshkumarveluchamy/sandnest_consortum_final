@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/Home.css';
 
-// ✅ 4 Background Images — Add your images in assets folder with these names
-import heroBg1 from '../../assets/luxury_villa_color.png';
+import heroBg1 from '../../assets/luxury_villa_1.png';
 import heroBg2 from '../../assets/luxury_villa_2.png';
 import heroBg3 from '../../assets/luxury_villa_3.png';
 import heroBg4 from '../../assets/luxury_villa_4.png';
@@ -16,15 +15,17 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      // Start transition
       setTransitioning(true);
 
+      // After fade-out completes, update current
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % bgImages.length);
         setNextIndex((prev) => (prev + 1) % bgImages.length);
         setTransitioning(false);
-      }, 1200); // Wait for transition to complete
+      }, 1200); // matches CSS transition duration
 
-    }, 6000); // Slide changes every 6 seconds
+    }, 5000); // slide every 5 seconds
 
     return () => clearInterval(interval);
   }, []);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // <-- useLocation சேர்க்கப்பட்டுள்ளது
+import { Link, useLocation } from 'react-router-dom';
 import './css/Navbar.css';
 
 import arrowIcon from '../../assets/arrows3.png';
@@ -8,6 +8,11 @@ import arrowIcon from '../../assets/arrows3.png';
 import logoBlack from '../../assets/logo2.png'; 
 import logoWhite from '../../assets/logo.png'; 
 import menuBuildingImg from '../../assets/nav-img.png'; 
+
+// Time-based Greeting Icons
+import afternoonIcon from '../../assets/clock.png';
+import morningIcon from '../../assets/sunny.png';
+import eveningIcon from '../../assets/half-moon.png';
 
 // Social Icons (PNGs)
 import fbIcon from "../../assets/facebook.png";
@@ -21,21 +26,30 @@ import waIcon from "../../assets/whatsapp 1.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // State for both greeting text and its matching icon
   const [greeting, setGreeting] = useState('GOOD MORNING');
+  const [currentIcon, setCurrentIcon] = useState(morningIcon);
   
   // Theme state
-  const [isDarkSection, setIsDarkSection] = useState(false); 
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // <-- Current route-ஐ கண்டுபிடிக்க useLocation பயன்படுகிறது -->
+  // Current route
   const location = useLocation(); 
 
   // Dynamic Greeting based on time
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting('GOOD MORNING');
-    else if (hour < 18) setGreeting('GOOD AFTERNOON');
-    else setGreeting('GOOD EVENING');
+    if (hour < 12) {
+      setGreeting('GOOD MORNING');
+      setCurrentIcon(morningIcon);
+    } else if (hour < 18) {
+      setGreeting('GOOD AFTERNOON');
+      setCurrentIcon(afternoonIcon);
+    } else {
+      setGreeting('GOOD EVENING');
+      setCurrentIcon(eveningIcon);
+    }
   }, []);
 
   useEffect(() => {
@@ -45,17 +59,6 @@ const Navbar = () => {
       } else {
         setIsScrolled(false);
       }
-
-      const darkSections = document.querySelectorAll('.dark-section');
-      let overDarkSection = false;
-
-      darkSections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 80 && rect.bottom >= 80) {
-          overDarkSection = true;
-        }
-      });
-      setIsDarkSection(overDarkSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -118,16 +121,16 @@ const Navbar = () => {
           }}
         >
           <Link to="/" onClick={closeMenu}>
-            {/* <-- Home page (/) ஆக இருந்தால் White logo, இல்லை என்றால் Black logo --> */}
             <img 
-              src={location.pathname === '/' ? logoWhite : logoBlack } 
+              src={location.pathname === '/' ? logoWhite : logoBlack} 
               alt="Sandnest Consortium" 
             />
           </Link>
         </div>
 
+        {/* Greeting Text - எப்போதுமே White நிறத்தில் இருக்கும் */}
         <div 
-          className={`navbar-greeting fw-bolder ${isDarkSection ? 'text-white' : 'text-black'}`} 
+          className="navbar-greeting fw-bolder text-white" 
           style={{ 
             opacity: (isMenuOpen || isScrolled) ? 0 : 1, 
             transform: (isMenuOpen || isScrolled) ? 'translate(-50%, -35px) rotateX(90deg)' : 'translate(-50%, 0) rotateX(0deg)',
@@ -136,7 +139,12 @@ const Navbar = () => {
             transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)' 
           }}
         >
-          {greeting} : BEGIN YOUR JOURNEY
+          <img 
+            src={currentIcon} 
+            alt="Greeting Icon" 
+            className="greeting-icon" 
+          />
+          <span>{greeting} : BEGIN YOUR JOURNEY</span>
         </div>
 
         <button className={`navbar-menu-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>

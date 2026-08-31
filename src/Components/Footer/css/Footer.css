@@ -149,7 +149,7 @@
 }
 
 .address-text {
-  font-size: 18px; /* Increased exact font size */
+  font-size: 15px; /* Increased exact font size */
   line-height: 1.8;
   color: #d1d1d1;
   margin: 0 0 20px 0; 
@@ -160,7 +160,7 @@
 }
 
 .contact-text {
-  font-size: 18px; /* Increased exact font size */
+  font-size: 15px; /* Increased exact font size */
   line-height: 2;
   color: #d1d1d1;
   margin: 0 0 12px 0; 
@@ -188,12 +188,12 @@
 .newsletter-form input {
   background-color: #222222;
   border: 1px solid #ffffff;
-  padding: 12px 20px; /* Increased padding */
+  padding: 8px 20px; /* Reduced padding for a sleeker look */
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #ffffff;
-  width: 320px; /* Increased width */
+  width: 300px; /* Reduced width to match the image proportion */
   outline: none;
-  font-size: 15px; /* Increased text size inside input */
+  font-size: 13px; /* Reduced text size slightly */
 }
 
 .newsletter-form input::placeholder {
@@ -204,11 +204,11 @@
   background-color: #996533;
   color: white;
   border: none;
-  height: 47px; /* Matched height exactly with input */
-  border-radius: 2px; 
-  padding: 0 35px; /* Increased button width */
+  height: 33px; /* Adjusted height to perfectly match the new input box */
+  border-radius: 3px; 
+  padding: 0 25px; /* Slightly reduced button width */
   cursor: pointer;
-  font-size: 16px;
+  font-size: 13px;
   transition: background-color 0.3s;
   position: relative;
 }
