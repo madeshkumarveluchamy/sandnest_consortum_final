@@ -2,7 +2,7 @@
 
 :root {
   /* Exact background and accent colors from the first image */
-  --bg-beige: #dbdad4; 
+  --bg-beige: #d1d1cd; 
   --text-dark: #1f1f1f;
   --accent-brown: #af7b43; 
   --border-color: rgba(0, 0, 0, 0.15);
@@ -81,7 +81,7 @@ img {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: clamp(550px, 65vh, 600px);
+  height: clamp(390px, 65vh, 600px);
   overflow: hidden;
   border-radius: 24px;
   isolation: isolate;

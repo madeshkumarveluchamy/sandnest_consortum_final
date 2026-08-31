@@ -10,7 +10,7 @@ import 'swiper/css/effect-coverflow';
 // Custom CSS
 import './css/ClientStories.css';
 
-// Your assets
+// Assets
 import slide1 from '../../assets/voice1.png';
 import slide2 from '../../assets/voice2.png';
 import slide3 from '../../assets/voice3.png';
@@ -18,7 +18,6 @@ import vasuAvatar from '../../assets/vasu-icon.png';
 import studioIcon from '../../assets/studio-icon.png';
 
 export default function ClientStories() {
-  
   const baseSlides = [
     {
       id: 2,
@@ -82,7 +81,7 @@ export default function ClientStories() {
           </div>
         </div>
 
-        {/* Center Column - Added 'tit' class here */}
+        {/* Center Column */}
         <div className="voc-header-center">
           <h2 className="voc-title tit">Voices of Our Clients</h2>
         </div>
@@ -90,18 +89,17 @@ export default function ClientStories() {
         {/* Right Column */}
         <div className="voc-header-right">
           <div className="voc-right-wrapper">
-            {/* Added 'sdes' class here */}
             <p className="voc-subtitle sdes">
               A visual library of interiors brought to life from blueprint to beauty.
             </p>
             <div className="voc-nav-buttons">
-              <button className="voc-arrow-btn voc-prev">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <button className="voc-arrow-btn voc-prev" aria-label="Previous slide">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 18l-6-6 6-6"/>
                 </svg>
               </button>
-              <button className="voc-arrow-btn voc-next">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <button className="voc-arrow-btn voc-next" aria-label="Next slide">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 18l6-6-6-6"/>
                 </svg>
               </button>
@@ -110,14 +108,14 @@ export default function ClientStories() {
         </div>
       </header>
 
-     <div className="voc-slider-container">
+      <div className="voc-slider-container">
         <Swiper
           modules={[Navigation, EffectCoverflow, Autoplay]}
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
           slidesPerView="auto"
-          speed={1000}
+          speed={800}
           loop={true} 
           autoplay={{
             delay: 3000,
@@ -128,7 +126,7 @@ export default function ClientStories() {
             rotate: 0,
             stretch: 0,
             depth: 100,
-            modifier: 2,
+            modifier: 2.5,
             slideShadows: false,
           }}
           navigation={{
@@ -142,18 +140,16 @@ export default function ClientStories() {
               {({ isActive }) => (
                 <div className={`voc-card ${isActive ? 'is-active' : ''}`}>
                   <div className="voc-image-wrapper">
-                    <img src={slide.image || "https://via.placeholder.com/800x500"} alt={slide.title} className="voc-main-img" />
+                    <img src={slide.image || "https://via.placeholder.com/600x400"} alt={slide.title} className="voc-main-img" />
                     
                     {slide.hasReview && (
                       <div className="voc-glass-overlay">
-                        {/* Added 'stit' class here */}
                         <h3 className="voc-glass-title stit">{slide.review.headline}</h3>
-                        {/* Added 'des' class here */}
                         <p className="voc-glass-text des">{slide.review.content}</p>
                         
                         <div className="voc-author-block">
                           <img 
-                            src={slide.review.authorAvatar || "https://via.placeholder.com/40"} 
+                            src={slide.review.authorAvatar || "https://via.placeholder.com/30"} 
                             alt={slide.review.authorName} 
                             className="voc-avatar" 
                           />
@@ -168,13 +164,12 @@ export default function ClientStories() {
 
                   <div className="voc-card-meta">
                     <div className="voc-meta-left">
-                      {/* Added 'stit' class here */}
                       <h4 className="voc-item-title stit">{slide.title}</h4>
                       <span className="voc-item-year">{slide.year}</span>
                     </div>
                     <div className="voc-meta-right">
                       {slide.tags.map((tag, index) => (
-                       <span key={`${slide.id}-${index}`} className="voc-tag">{tag}</span>
+                        <span key={`${slide.id}-${index}`} className="voc-tag">{tag}</span>
                       ))}
                     </div>
                   </div>

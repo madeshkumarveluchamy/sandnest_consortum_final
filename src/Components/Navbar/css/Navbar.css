@@ -41,6 +41,7 @@ body.menu-open .navbar {
   object-fit: contain;
 }
 
+/* Greeting Text Container - Static White Color */
 .navbar-greeting {
   position: absolute;
   left: 50%;
@@ -52,6 +53,16 @@ body.menu-open .navbar {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff !important; /* எப்போதுமே வெள்ளை நிறத்தில் வைக்கிறது */
+}
+
+.greeting-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 /* =========================================
@@ -69,7 +80,7 @@ body.menu-open .navbar {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
-  left:20px;
+  left: 30px;
   z-index: 1200;
 }
 
@@ -81,14 +92,16 @@ body.menu-open .navbar {
 /* =========================================
    BUTTON 3D CUBE ANIMATION CLASSES
 ========================================= */
+/* அகலத்தை 110px ஆக அதிகரித்துள்ளோம், இதனால் EXPERIENCE முழுமையாக தெரியும் */
 .menu-text {
   position: relative;
-  width: 85px; 
-  height: 24px;
+  width: 110px; /* 85px-ல் இருந்து 110px ஆக மாற்றப்பட்டுள்ளது */
+  height: 35px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 800px; /* Enables 3D space */
+  perspective: 800px;
+  overflow: hidden; 
 }
 
 .menu-text-item {
@@ -104,35 +117,32 @@ body.menu-open .navbar {
   letter-spacing: 1.5px;
   color: #111;
   white-space: nowrap;
-  
-  /* Smooth Cube Rolling Animation */
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
-  transform-origin: center center -12px; /* Perfect axis for cube rotation */
+  transform-origin: center center -17.5px;
 }
 
-/* 1. Active State (Visible in front) */
 .menu-text-item.active {
   transform: translateY(0) rotateX(0deg);
   opacity: 1;
   pointer-events: auto;
 }
 
-/* 2. Hidden Up State (Rotated upwards) */
+/* 35px உயரத்திற்கு ஏற்ப அனிமேஷன் தூரம் மாற்றப்பட்டுள்ளது */
 .menu-text-item.hidden-up {
-  transform: translateY(-20px) rotateX(90deg);
+  transform: translateY(-35px) rotateX(90deg); 
   opacity: 0;
   pointer-events: none;
 }
 
-/* 3. Hidden Down State (Rotated downwards/waiting to come up) */
 .menu-text-item.hidden-down {
-  transform: translateY(20px) rotateX(-90deg);
+  transform: translateY(35px) rotateX(-90deg); 
   opacity: 0;
   pointer-events: none;
 }
 
+/* லோகோவின் அளவு மாறாமல் அப்படியே இருக்கும் */
 .scroll-btn-logo {
-  height: 35px; /* Adjusted to fit perfectly in the container */
+  height: 35px;
   width: auto;
   object-fit: contain;
 }
@@ -185,8 +195,8 @@ body.menu-open .navbar {
   display: flex;
   justify-content: center;
   align-items: start; 
-  overflow-y : auto;
-  overflow-x:hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 0;
   box-sizing: border-box;
   opacity: 0;
@@ -301,7 +311,7 @@ body.menu-open .navbar {
 }
 
 .overlay-nav-head{
-  width:100%;
+  width: 100%;
   text-align: center;
 }
 
@@ -476,25 +486,25 @@ body.menu-open .navbar {
     margin-top: 35px;
   }
   
-  .navbar-menu-btn{
-    left:0px;
+  .navbar-menu-btn {
+    left: 0px;
   } 
+
   .social-card {
     padding: 15px 20px;
     min-height: 60px;
   }
 }
 
-@media(max-width:400px){
+@media(max-width: 400px){
   .navbar {
     padding: 10px 0px 0px 0px;
   }
 
-
   .overlay-content-card {
-   
     margin: 100px 0 0; 
     padding: 30px 20px;
-
   }
 }
+
+

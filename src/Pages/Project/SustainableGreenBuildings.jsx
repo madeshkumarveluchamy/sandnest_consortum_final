@@ -11,7 +11,7 @@ import Icon3 from '../../../src/assets/project3.webp';
 import Icon4 from '../../../src/assets/project4.webp';
 
 const SustainableGreenBuildings = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating, setIsAnimating] = useState (false);
   const observer = useRef(null); 
   const navigate = useNavigate(); // 2. Initialize useNavigate
 

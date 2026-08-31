@@ -5,7 +5,7 @@
    ========================================= */
 
 .studio-about-wrapper {
-  background-color: #dad9d4;
+  background-color: #d1d1cd;
   padding: 5rem 4rem; 
   color: #2b2b2b;
 }
@@ -15,27 +15,34 @@
   margin: 0 auto;
 }
 
+/* --- Alignment Fixes Start --- */
+.column-container {
+  display: flex;
+  align-items: stretch; /* Forces both columns to be exactly the same height */
+}
+
 .studio-about-image-col {
   padding-right: 4rem; 
   display: flex;
-  align-items: stretch; /* Image column content stretch aaga help pannum */
+  flex-direction: column; /* Allows the image to stretch dynamically */
 }
 
-/* Image perfectly locks with text height */
 .studio-about-img {
   width: 100%;
-  height: 100%; /* Text evalo height iruko atha cover pannum */
-  object-fit: cover; /* Stretch aagumpothu image design kedaathu */
+  height: 100%; 
+  flex: 1; /* Forces the image to take up all available height from the column */
+  object-fit: cover; /* Prevents image stretching/distortion */
   filter: grayscale(100%); 
   border-radius: 6px;
-  /* max-height removed entirely */
 }
 
 .studio-about-content-col {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Content mela irunthu keela natural ah space aagum */
+  justify-content: space-between; /* Pushes top content up and bottom content down to match image edges */
+  height: 100%;
 }
+/* --- Alignment Fixes End --- */
 
 .studio-about-header-block {
   display: flex;
@@ -58,7 +65,7 @@
 }
 
 .studio-about-title {
-  background-color: #e4e3df;
+  background-color: #d1d1cd;
   color: #2b2b2b;
   font-size: 2.8rem; 
   font-weight: 400;
@@ -71,8 +78,8 @@
 }
 
 .studio-about-main-text {
-  font-size: 1.25rem; 
-  line-height: 1.6;
+  font-size: 14px; 
+  line-height: 1.4;
   color: #4a4a4a;
   letter-spacing: -0.2px;
   margin-bottom: 0;
@@ -80,7 +87,7 @@
 
 .studio-about-divider {
   height: 1px;
-  background-color: #b5b4af; 
+  background-color: #d1d1cd; 
   margin: 1.8rem 0; 
   width: 100%;
 }
@@ -90,7 +97,7 @@
   align-items: center;
   border: 1px solid #7a7a7a;
   border-radius: 5px;
-  padding: 0.2rem 1.4rem;
+  padding: 0.2rem 1.3rem;
   font-size: 0.8rem;
   font-weight: 600;
   color: #2b2b2b;
@@ -106,7 +113,7 @@
 }
 
 .studio-about-sub-text {
-  font-size: 1.14rem; 
+  font-size: 14px; 
   line-height: 1.6;
   color: #4a4a4a;
 }
@@ -167,21 +174,29 @@
    Mobile Devices (401px to 767px)
    ========================================= */
 @media (max-width: 767.98px) {
+  .column-container {
+    display: block; /* Disable stretch for mobile stacking */
+  }
   .studio-about-wrapper {
     padding: 2.5rem 1rem;
   }
   .studio-about-img {
     min-height: 300px;
     height: auto;
+    flex: none;
   }
   .studio-about-image-col {
     padding-right: calc(var(--bs-gutter-x) * 0.5);
     margin-bottom: 2rem !important;
   }
   .studio-about-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center; 
     text-align: center;
     gap: 1.2rem; 
+    height: auto;
   }
   
   .studio-about-title {

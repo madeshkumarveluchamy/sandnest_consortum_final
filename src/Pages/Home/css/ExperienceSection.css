@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
-
 /* =========================================
    Header 
    ========================================= */
-   .edr-section{
-background-color: #d1d1cd;
-   }
+.edr-section {
+  background-color: #d1d1cd;
+  padding: 60px 0; /* Added slight padding for section spacing */
+}
    
 .edr-header {
   display: flex;
@@ -15,6 +15,9 @@ background-color: #d1d1cd;
   align-items: flex-start;
   margin-bottom: 60px;
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 .edr-header-left, 
@@ -33,7 +36,6 @@ background-color: #d1d1cd;
 .edr-badge {
   display: flex;
   align-items: center;
-  
   gap: 12px;
 }
 
@@ -89,7 +91,7 @@ background-color: #d1d1cd;
 
 .edr-subtitle {
   font-size: 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif; /* Fallback font can be Geist */
   line-height: 1.5;
   color: #333;
   margin: 0;
@@ -97,32 +99,33 @@ background-color: #d1d1cd;
 }
 
 /* =========================================
-   Marquee Animation (Auto Scroll)
+   Marquee Animation (Auto Scroll & Drag)
    ========================================= */
 .edr-marquee-container {
   display: flex;
-  overflow: hidden;
-  gap: 24px;
+  overflow-x: auto; 
+  /* gap: 24px; <-- இதை நீக்கி விடுங்கள் */
   width: 100%;
   padding-bottom: 30px; 
+  cursor: grab;
+  scroll-behavior: auto; 
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+.edr-marquee-container::-webkit-scrollbar {
+  display: none;
+}
+
+.edr-marquee-container.dragging {
+  cursor: grabbing;
 }
 
 .edr-marquee-group {
   display: flex;
   gap: 24px;
+  padding-right: 24px; /* <-- இதை புதிதாக சேர்க்கவும் */
   flex-shrink: 0;
-  animation: scrollMarquee 20s linear infinite;
-}
-
-/* Hover மற்றும் வீடியோ Play ஆகும்போது ஸ்க்ரோலிங் நிற்க */
-.edr-marquee-container:hover .edr-marquee-group,
-.edr-marquee-container.paused .edr-marquee-group {
-  animation-play-state: paused;
-}
-
-@keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% - 24px)); }
 }
 
 /* =========================================
@@ -142,7 +145,7 @@ background-color: #d1d1cd;
   justify-content: flex-end;
   padding: 24px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
+  user-select: none;
 }
 
 .edr-project-card:hover {
@@ -156,6 +159,7 @@ background-color: #d1d1cd;
   inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.75) 100%); 
   z-index: 0;
+  pointer-events: none;
 }
 
 /* =========================================
@@ -171,15 +175,9 @@ background-color: #d1d1cd;
 }
 
 @keyframes pulsePlayBtn {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .edr-play-button {
@@ -195,14 +193,13 @@ background-color: #d1d1cd;
   backdrop-filter: blur(8px);
   color: #fff;
   transition: transform 0.3s ease, background 0.3s ease;
-  /* Pulse Animation */
   animation: pulsePlayBtn 2s infinite;
 }
 
 .edr-play-button:hover {
   transform: scale(1.1);
   background: rgba(255, 255, 255, 0.4);
-  animation: none; /* Hover செய்யும்போது Pulse நிற்பதற்கு */
+  animation: none; 
 }
 
 .edr-play-icon {
@@ -220,6 +217,7 @@ background-color: #d1d1cd;
   background: transparent;
   padding: 0;
   border: none;
+  pointer-events: none;
 }
 
 .edr-footer-thumb {

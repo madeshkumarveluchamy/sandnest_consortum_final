@@ -2,7 +2,7 @@
 
 /* Main Wrapper */
 .contact-page-wrapper {
-  background-color: #dad9d4; /* Matching Beige background */
+  background-color: #d1d1cd; /* Matching Beige background */
   display: flex;
   justify-content: center;
   padding-top: clamp(8rem, 8vw, 8rem); /* Extra top padding since navbar is removed */
