@@ -56,12 +56,11 @@ body.menu-open .navbar {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #ffffff !important; /* எப்போதுமே வெள்ளை நிறத்தில் வைக்கிறது */
 }
 
 .greeting-icon {
-  width: 18px;
-  height: 18px;
+  width: 26px;
+  height: 22x;
   object-fit: contain;
 }
 
@@ -311,6 +310,10 @@ body.menu-open .navbar {
 }
 
 .overlay-nav-head{
+  width: 100%;
+  text-align: center;
+}
+.overlay-nav-head1{
   width: 100%;
   text-align: center;
 }

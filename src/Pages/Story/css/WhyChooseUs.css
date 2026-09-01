@@ -64,10 +64,10 @@
    Typography & Details
    ========================================= */
 .choose-us-intro {
-  font-size: 1.1rem; 
+  font-size: 1.3rem; 
   line-height: 1.6;
   color: #4a4a4a;
-  letter-spacing: -0.2px;
+  letter-spacing: 0.2px;
 }
 
 .choose-us-feature-list {
@@ -90,7 +90,7 @@
 }
 
 .choose-us-feature-desc {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.4;
   color: #5a5a5a;
   padding-left: 1rem; 

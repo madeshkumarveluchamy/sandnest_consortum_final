@@ -45,14 +45,7 @@ function ProjectDetailPage() {
     <div className="project-detail-container">
       <header className="project-detail-header">
         <div className="header-meta-left">
-          <div className="solutions-tag">
-            <span className="accent-square"></span>
-            <p className="stit  plus-font ">
-              End-to-End Solutions for
-              <br />
-              Modern Spaces
-            </p>
-          </div>
+          
 
           <div className="project-title-wrapper">
             <span className="featured-pill sdes plus-font">Featured Project</span>
@@ -75,7 +68,7 @@ function ProjectDetailPage() {
               rigor with intimate interior design, crafting spaces that are as
               functional as they are beautiful.
             </p>
-            <span className="brand-subtext des plus-font">SKY KAPTURE INTERIORS</span>
+            <span className="brand-subtext des plus-font">Sandnest Consortum</span>
           </div>
         </div>
 

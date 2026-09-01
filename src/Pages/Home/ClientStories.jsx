@@ -66,10 +66,15 @@ export default function ClientStories() {
     },
   ];
 
-  const slides = [...baseSlides, ...baseSlides.map(slide => ({ ...slide, id: slide.id + '_dup' }))];
+  // FIX: Multiplied the baseSlides 5 times to create a robust buffer of 15 slides.
+  // This guarantees that there are ALWAYS enough cards to show 2 on the left and 2 on the right.
+  const slides = Array(5).fill(baseSlides).flat().map((slide, index) => ({
+    ...slide,
+    uniqueId: `${slide.id}_${index}` // Using a truly unique ID for React keys
+  }));
 
   return (
-    <section className="voc-section">
+    <section id="voices-of-clients" className="voc-section">
       <header className="voc-header">
         
         {/* Left Column */}
@@ -116,7 +121,8 @@ export default function ClientStories() {
           centeredSlides={true}
           slidesPerView="auto"
           speed={800}
-          loop={true} 
+          loop={true}
+          loopAdditionalSlides={3} // FIX: Forces Swiper to pre-render extra slides for the loop transition
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
@@ -124,9 +130,9 @@ export default function ClientStories() {
           }}
           coverflowEffect={{
             rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 2.5,
+            stretch: 50, 
+            depth: 150,  
+            modifier: 1.5, 
             slideShadows: false,
           }}
           navigation={{
@@ -136,7 +142,7 @@ export default function ClientStories() {
           className="voc-swiper"
         >
           {slides.map((slide) => (
-            <SwiperSlide key={slide.id} className="voc-slide">
+            <SwiperSlide key={slide.uniqueId} className="voc-slide">
               {({ isActive }) => (
                 <div className={`voc-card ${isActive ? 'is-active' : ''}`}>
                   <div className="voc-image-wrapper">
@@ -169,7 +175,7 @@ export default function ClientStories() {
                     </div>
                     <div className="voc-meta-right">
                       {slide.tags.map((tag, index) => (
-                        <span key={`${slide.id}-${index}`} className="voc-tag">{tag}</span>
+                        <span key={`${slide.uniqueId}-tag-${index}`} className="voc-tag">{tag}</span>
                       ))}
                     </div>
                   </div>

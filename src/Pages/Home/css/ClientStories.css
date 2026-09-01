@@ -15,6 +15,10 @@
   overflow: hidden;
   box-sizing: border-box;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
 
 /* =========================
@@ -26,6 +30,7 @@
   align-items: center; 
   margin-bottom: 40px;
   width: 100%;
+  max-width:1200px;
 }
 
 .voc-header-left, 

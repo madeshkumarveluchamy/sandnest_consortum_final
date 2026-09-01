@@ -52,23 +52,19 @@ const ExperienceSection = () => {
   const [dragged, setDragged] = useState(false); 
   const [isDraggingState, setIsDraggingState] = useState(false); 
 
-  // --- INFINITE LOOP LOGIC ---
+  // --- INFINITE LOOP LOGIC (For Auto Scroll) ---
   const checkAndResetScroll = () => {
     const slider = sliderRef.current;
     const group = groupRef.current;
-    if (!slider || !group) return;
+    if (!slider || !group || isDragging.current) return; // Dragging time-la ithu work aaga koodathu
 
     const groupWidth = group.offsetWidth;
 
-    // இடதுபுறம் (Left) எல்லை மீறினால் - கடைசி செட்டிற்கு மாற்றுவது
     if (slider.scrollLeft <= 0) {
       slider.scrollLeft += groupWidth;
-      if (isDragging.current) scrollLeftPos.current += groupWidth;
     } 
-    // வலதுபுறம் (Right) எல்லை மீறினால் - முதல் செட்டிற்கு மாற்றுவது
     else if (slider.scrollLeft >= groupWidth * 2) {
       slider.scrollLeft -= groupWidth;
-      if (isDragging.current) scrollLeftPos.current -= groupWidth;
     }
   };
 
@@ -125,20 +121,31 @@ const ExperienceSection = () => {
     e.preventDefault();
 
     const slider = sliderRef.current;
+    const group = groupRef.current;
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX.current) * 1.5; 
 
-    // மாற்றம் 1: மவுஸ் 5 pixel-க்கு மேல் நகர்ந்தால் மட்டுமே Drag என எடுத்துக்கொள்ளும்
     if (Math.abs(walk) > 5) {
       setDragged(true); 
     }
 
-    slider.scrollLeft = scrollLeftPos.current - walk;
-    checkAndResetScroll(); 
+    let nextScrollLeft = scrollLeftPos.current - walk;
+    const groupWidth = group.offsetWidth;
+
+    // FIX: Browser '0'-la block panrathuku munnadiye namma scrollLeft-ah wrap pannidrom.
+    // Ithu nala left & right drag rendu side-um perfectly smooth ah work aagum!
+    if (nextScrollLeft <= 0) {
+      nextScrollLeft += groupWidth;
+      scrollLeftPos.current += groupWidth; 
+    } else if (nextScrollLeft >= groupWidth * 2) {
+      nextScrollLeft -= groupWidth;
+      scrollLeftPos.current -= groupWidth; 
+    }
+
+    slider.scrollLeft = nextScrollLeft;
   };
 
   const handleVideoClick = (e, p) => {
-    // மாற்றம் 2: கிளிக் ஈவென்ட் Drag-ஐ பாதிக்காமல் இருக்க stopPropagation சேர்க்கப்பட்டுள்ளது
     e.preventDefault();
     e.stopPropagation(); 
 
@@ -207,7 +214,7 @@ const ExperienceSection = () => {
         onMouseEnter={handleMouseEnter}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        onScroll={checkAndResetScroll}
+        onScroll={() => !isDragging.current && checkAndResetScroll()}
       >
         <div className="edr-marquee-group" ref={groupRef}>
           {projects.map((p) => renderCard(p, '-1'))}
@@ -227,7 +234,6 @@ const ExperienceSection = () => {
         <div className="edr-video-modal" onClick={() => setEdrSelectedVideo(null)}>
           <div className="edr-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="edr-video-close" onClick={() => setEdrSelectedVideo(null)}>×</button>
-            {/* மாற்றம் 3: muted என்ற வார்த்தை சேர்க்கப்பட்டுள்ளது (Browser தானாக play செய்ய அனுமதிக்கும்) */}
             <video className="edr-modal-video" src={edrSelectedVideo.video} controls autoPlay loop playsInline muted />
             <div className="edr-modal-caption">
               <h3 className="stit">{edrSelectedVideo.title}</h3>

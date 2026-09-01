@@ -36,6 +36,9 @@ const Navbar = () => {
 
   // Current route
   const location = useLocation(); 
+  
+  // Check if current page is Home
+  const isHome = location.pathname === '/';
 
   // Dynamic Greeting based on time
   useEffect(() => {
@@ -86,10 +89,25 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  // FIX: Handle automatic scrolling when navigating via Hash Link (like /#voices-of-clients)
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Adding a slight delay to allow the menu closing animation to finish
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400); 
+      }
+    }
+  }, [location]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Default close action (scrolls to top)
   const closeMenu = () => {
     setIsMenuOpen(false);
     window.scrollTo({
@@ -97,6 +115,11 @@ const Navbar = () => {
       left: 0,
       behavior: 'auto' 
     });
+  };
+
+  // Custom close action for Hash links (prevents scrolling to top)
+  const closeMenuNoScroll = () => {
+    setIsMenuOpen(false);
   };
 
   let btnState = 'experience';
@@ -122,15 +145,14 @@ const Navbar = () => {
         >
           <Link to="/" onClick={closeMenu}>
             <img 
-              src={location.pathname === '/' ? logoWhite : logoBlack} 
+              src={isHome ? logoWhite : logoBlack} 
               alt="Sandnest Consortium" 
             />
           </Link>
         </div>
 
-        {/* Greeting Text - எப்போதுமே White நிறத்தில் இருக்கும் */}
         <div 
-          className="navbar-greeting fw-bolder text-white" 
+          className={`navbar-greeting fw-bolder ${isHome ? 'text-white' : 'text-black'}`} 
           style={{ 
             opacity: (isMenuOpen || isScrolled) ? 0 : 1, 
             transform: (isMenuOpen || isScrolled) ? 'translate(-50%, -35px) rotateX(90deg)' : 'translate(-50%, 0) rotateX(0deg)',
@@ -143,6 +165,7 @@ const Navbar = () => {
             src={currentIcon} 
             alt="Greeting Icon" 
             className="greeting-icon" 
+            style={{ filter: isHome ? 'none' : 'brightness(0)' }} 
           />
           <span>{greeting} : BEGIN YOUR JOURNEY</span>
         </div>
@@ -204,7 +227,7 @@ const Navbar = () => {
                 <span className="badge-title">STRUCTURE</span>
               </div>
               <ul className="overlay-links">
-                <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+                <li><Link to="/" className='font-alice' onClick={closeMenu}>Home</Link></li>
                 <li><Link to="/our-studio" onClick={closeMenu}>Our Studio</Link></li>
                 <li><Link to="/services" onClick={closeMenu}>Our Services</Link></li>
                 <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
@@ -213,7 +236,7 @@ const Navbar = () => {
             </div>
 
             <div className="overlay-nav-col">
-              <div className="overlay-nav-head">
+              <div className="overlay-nav-head1">
                 <span className="badge-title">OUR EXPERTISE</span>
               </div>
               <ul className="overlay-links">
@@ -230,8 +253,9 @@ const Navbar = () => {
                 <span className="badge-title">INSIGHTS</span>
               </div>
               <ul className="overlay-links">
-                <li><Link to="/testimonials" onClick={closeMenu}>Testimonials</Link></li>
-                <li><Link to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
+                {/* FIX: Changed path to /#voices-of-clients and updated onClick handler */}
+                <li><Link to="/#voices-of-clients" onClick={closeMenuNoScroll}>Testimonials</Link></li>
+                <li><Link to="/" onClick={closeMenu}>Privacy Policy</Link></li>
               </ul>
             </div>
 

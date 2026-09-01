@@ -78,10 +78,10 @@
 }
 
 .studio-about-main-text {
-  font-size: 14px; 
+  font-size: 19px; 
   line-height: 1.4;
   color: #4a4a4a;
-  letter-spacing: -0.2px;
+  letter-spacing: 0.3px;
   margin-bottom: 0;
 }
 
@@ -113,9 +113,10 @@
 }
 
 .studio-about-sub-text {
-  font-size: 14px; 
+  font-size: 19px; 
   line-height: 1.6;
   color: #4a4a4a;
+  letter-spacing:0.4px;
 }
 
 
@@ -175,7 +176,8 @@
    ========================================= */
 @media (max-width: 767.98px) {
   .column-container {
-    display: block; /* Disable stretch for mobile stacking */
+    display:flex;
+    flex-direction:column-reverse !important;s
   }
   .studio-about-wrapper {
     padding: 2.5rem 1rem;

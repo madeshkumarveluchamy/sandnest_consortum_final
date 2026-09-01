@@ -16,7 +16,7 @@
   flex-direction: column;
   margin-top: 50px;
   padding: clamp(1rem, 3vw, 4rem); /* Kept the nice border padding */
-  height: 85vh; /* Stretches the layout to full screen height */
+  height: 79vh; /* Stretches the layout to full screen height */
 }
 
 /* Hero Image Container Constraints */
@@ -31,7 +31,7 @@
 .story-hero-main-text {
   text-shadow: 0 4px 15px rgba(0,0,0,0.6); 
   line-height: 0.8;
-  font-weight: 600 !important;
-  font-size: clamp(2.5rem, 7vw, 9rem); /* Slightly increased size since it's the only element */
+  font-weight: 700 !important;
+  font-size: clamp(2.5rem, 6vw, 9rem); /* Slightly increased size since it's the only element */
   letter-spacing: -1px;
 }

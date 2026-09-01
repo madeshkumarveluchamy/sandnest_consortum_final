@@ -63,7 +63,7 @@ const StudioAbout = () => {
                 <span className="studio-about-dot"></span> VISION
               </div>
               {/* mb-0 ensures the bottom aligns perfectly without extra space */}
-              <p className="studio-about-sub-text mb-0 plus-font des">
+              <p className="studio-about-sub-text plus-font des">
                 To establish a global legacy in green and vernacular architecture
                 championing research driven design and sculpting over 1,000
                 sustainable farmhouses and landmarks across the globe.

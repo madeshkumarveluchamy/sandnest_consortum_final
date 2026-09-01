@@ -80,9 +80,8 @@ const Footer = () => {
           {/* Left Column - Navigation Links */}
           <div className="footer-nav-links">
             <Link to="/" onClick={handleScrollToTop}>Home</Link>
-            <Link to="/structural-design" onClick={handleScrollToTop}>Projects</Link>
-            <Link to="/services" onClick={handleScrollToTop}>Our Services</Link>
             <Link to="/our-studio" onClick={handleScrollToTop}>Our Studio</Link>
+            <Link to="/services" onClick={handleScrollToTop}>Our Services</Link>
             <Link to="/contact" onClick={handleScrollToTop}>Contact</Link>
             <Link to="/blog" onClick={handleScrollToTop}>Blog</Link>
           </div>

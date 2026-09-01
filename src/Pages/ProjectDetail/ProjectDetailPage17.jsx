@@ -44,40 +44,7 @@ function ProjectDetailPage17() {
   return (
      <div className="project-detail-container">
           <header className="project-detail-header">
-            <div className="header-meta-left">
-              <div className="solutions-tag">
-                <span className="accent-square"></span>
-                <p className="stit  plus-font ">
-                  End-to-End Solutions for
-                  <br />
-                  Modern Spaces
-                </p>
-              </div>
-    
-              <div className="project-title-wrapper">
-                <span className="featured-pill sdes plus-font">Featured Project</span>
-    
-                <div className="client-loc-row">
-                  <div className="meta-inline-item">
-                    <img src={iconClient} alt="Client" className="meta-icon" />
-                    <span className="sdes plus-font">Mr. Kumaravel Pandian</span>
-                  </div>
-                  <div className="meta-inline-item">
-                    <img src={iconLocation} alt="Location" className="meta-icon" />
-                    <span className="sdes plus-font">RS Puram, Coimbatore.</span>
-                  </div>
-                </div>
-    
-                <h1 className="project-main-title tit plus-font">Horizon Glass Villa</h1>
-                <p className="project-hero-desc sdes plus-font">
-                  We believe a home should be a seamless extension of the people who
-                  live within it. Our residential practice blends architectural
-                  rigor with intimate interior design, crafting spaces that are as
-                  functional as they are beautiful.
-                </p>
-                <span className="brand-subtext des plus-font">SKY KAPTURE INTERIORS</span>
-              </div>
-            </div>
+          
     
             <div className="header-meta-right">
               <div className="studio-top-intro-para">
